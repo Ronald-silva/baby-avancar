@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Página Principal -->
+  <url>
+    <loc>https://colegiobabyavancar.com.br/</loc>
+    <lastmod>2025-01-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://colegiobabyavancar.com.br/img/logo.png</image:loc>
+      <image:title>Logo Colégio Baby Avançar</image:title>
+      <image:caption>Logotipo oficial do Colégio Baby Avançar</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Galeria -->
+  <url>
+    <loc>https://colegiobabyavancar.com.br/galeria.html</loc>
+    <lastmod>2025-01-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://colegiobabyavancar.com.br/img/galeria/atividades/arte-1.jpg</image:loc>
+      <image:title>Atividades Artísticas</image:title>
+      <image:caption>Crianças desenvolvendo atividades artísticas no Colégio Baby Avançar</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://colegiobabyavancar.com.br/img/galeria/atividades/educacao-fisica.png</image:loc>
+      <image:title>Educação Física</image:title>
+      <image:caption>Atividades físicas e desenvolvimento motor das crianças</image:caption>
+    </image:image>
+  </url>
+  
+</urlset>

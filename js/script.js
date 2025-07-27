@@ -1,25 +1,42 @@
-// Mobile menu toggle
+// Mobile menu toggle - VERSÃO CORRIGIDA
 const navToggle = document.getElementById('navToggle');
 const navMenu = document.querySelector('.nav-menu');
 
 if (navToggle && navMenu) {
+    // Toggle menu ao clicar no hamburger
     navToggle.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        navMenu.classList.toggle('active');
-        navToggle.classList.toggle('active');
         
-        // Prevent body scroll when menu is open
-        if (navMenu.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
+        const isActive = navMenu.classList.contains('active');
+        
+        if (isActive) {
+            // Fechar menu
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            document.body.style.overflow = '';
         } else {
+            // Abrir menu
+            navMenu.classList.add('active');
+            navToggle.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+    
+    // Fechar menu ao clicar fora
+    document.addEventListener('click', (e) => {
+        if (navMenu.classList.contains('active') && 
+            !navToggle.contains(e.target) && 
+            !navMenu.contains(e.target)) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
             document.body.style.overflow = '';
         }
     });
     
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+    // Fechar menu ao redimensionar para desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) {
             navMenu.classList.remove('active');
             navToggle.classList.remove('active');
             document.body.style.overflow = '';
@@ -109,45 +126,153 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Enhanced form submission (only if form exists)
+// Sistema de formulário simplificado para Vercel
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData);
-    
-    // Show loading state
-    const submitBtn = this.querySelector('.submit-btn');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-    submitBtn.disabled = true;
-    
-    // Simulate form submission (replace with actual API call)
-    setTimeout(() => {
-        // Hide form and show success message
-        this.style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
+        e.preventDefault();
         
-        // Reset form after 5 seconds
-        setTimeout(() => {
-            this.style.display = 'block';
-            document.getElementById('formSuccess').style.display = 'none';
-            this.reset();
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        }, 5000);
+        // Get form data
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
         
-        // Log form data (for development)
-        console.log('Dados do formulário:', data);
+        // Show loading state
+        const submitBtn = this.querySelector('.submit-btn');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+        submitBtn.disabled = true;
         
-        // Here you would typically send the data to your server
-        // Example: fetch('/api/contact', { method: 'POST', body: formData })
-        
-    }, 2000);
+        // Send email using Formspree
+        sendContactEmail(data)
+            .then(() => {
+                // Success - Hide form and show success message
+                this.style.display = 'none';
+                document.getElementById('formSuccess').style.display = 'block';
+                
+                // Reset form after 5 seconds
+                setTimeout(() => {
+                    this.style.display = 'block';
+                    document.getElementById('formSuccess').style.display = 'none';
+                    this.reset();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 5000);
+                
+                // Track successful submission
+                if (window.analytics) {
+                    window.analytics.trackEvent('form_submission_success', {
+                        form: 'contact',
+                        method: 'formspree'
+                    });
+                }
+            })
+            .catch((error) => {
+                // Error handling
+                console.error('Erro ao enviar formulário:', error);
+                
+                // Show error message with WhatsApp fallback
+                showFormError('Erro ao enviar mensagem. Tente novamente ou entre em contato via WhatsApp.');
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Track failed submission
+                if (window.analytics) {
+                    window.analytics.trackEvent('form_submission_error', {
+                        form: 'contact',
+                        error: error.message
+                    });
+                }
+            });
     });
+}
+
+// Send contact email via Formspree
+async function sendContactEmail(formData) {
+    // Formspree endpoint - substitua pelo seu ID real
+    const formspreeEndpoint = 'https://formspree.io/f/xdkogqpv'; // Endpoint temporário para colegiobabyavancar@gmail.com
+    
+    const emailData = {
+        email: formData.email,
+        nome: formData.nome,
+        telefone: formData.telefone,
+        assunto: formData.assunto,
+        'idade-crianca': formData['idade-crianca'] || 'Não informado',
+        mensagem: formData.mensagem,
+        _replyto: formData.email,
+        _subject: `Novo Contato - ${formData.assunto || 'Formulário do Site'}`,
+        _template: 'table'
+    };
+    
+    const response = await fetch(formspreeEndpoint, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(emailData)
+    });
+    
+    if (!response.ok) {
+        throw new Error(`Erro no envio: ${response.status}`);
+    }
+    
+    const result = await response.json();
+    
+    if (result.errors) {
+        throw new Error('Erro na validação dos dados');
+    }
+    
+    return result;
+}
+
+// Show form error message with WhatsApp fallback
+function showFormError(message) {
+    // Create or update error message element
+    let errorElement = document.getElementById('formError');
+    if (!errorElement) {
+        errorElement = document.createElement('div');
+        errorElement.id = 'formError';
+        errorElement.style.cssText = `
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 1rem;
+            text-align: center;
+            display: none;
+            box-shadow: 0 4px 20px rgba(220, 53, 69, 0.3);
+        `;
+        document.getElementById('contactForm').parentNode.appendChild(errorElement);
+    }
+    
+    errorElement.innerHTML = `
+        <div style="margin-bottom: 1rem;">
+            <i class="fas fa-exclamation-triangle" style="font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+            <p style="margin: 0; font-weight: 600;">${message}</p>
+        </div>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="https://wa.me/5585999701822?text=Olá! Tive problemas com o formulário do site e gostaria de entrar em contato." 
+               target="_blank" 
+               style="background: #25D366; color: white; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; transition: all 0.3s ease;">
+                <i class="fab fa-whatsapp"></i>
+                Contato via WhatsApp
+            </a>
+            <button onclick="this.parentElement.parentElement.style.display='none'" 
+                    style="background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3); padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer; font-weight: 600;">
+                Fechar
+            </button>
+        </div>
+    `;
+    errorElement.style.display = 'block';
+    
+    // Hide error after 15 seconds
+    setTimeout(() => {
+        if (errorElement.style.display !== 'none') {
+            errorElement.style.display = 'none';
+        }
+    }, 15000);
 }
 
 // Phone number formatting (only if field exists)

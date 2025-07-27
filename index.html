@@ -74,6 +74,7 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css?v=1.2" />
+    <link rel="stylesheet" href="css/mobile-menu-fix.css?v=1.0" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
@@ -169,6 +170,12 @@
               <a href="#ensino" class="nav-link" role="menuitem">
                 <i class="fas fa-book-open" aria-hidden="true"></i>
                 <span>Ensino</span>
+              </a>
+            </li>
+            <li class="nav-item" role="none">
+              <a href="cursos-extras.html" class="nav-link" role="menuitem">
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <span>Cursos Extras</span>
               </a>
             </li>
             <li class="nav-item" role="none">
@@ -298,9 +305,119 @@
         </div>
       </section>
 
-      <section class="section info">
+      <section
+        id="cursos-extras"
+        class="section extras-section"
+        aria-labelledby="extras-title"
+      >
         <div class="container">
-          <h2 class="section-title fade-in">Diferenciais</h2>
+          <h2 id="extras-title" class="section-title fade-in">
+            Atividades Extracurriculares
+          </h2>
+          <p class="section-subtitle fade-in">
+            Complementamos a educação formal com atividades que desenvolvem
+            habilidades especiais e valores importantes para a vida
+          </p>
+
+          <div class="extras-grid">
+            <div class="extra-card fade-in">
+              <div class="extra-icon">
+                <i class="fas fa-heart-pulse"></i>
+              </div>
+              <h3>Primeiros Socorros</h3>
+              <p class="extra-description">
+                Curso educativo que ensina as crianças noções básicas de
+                primeiros socorros, desenvolvendo responsabilidade e cuidado com
+                o próximo.
+              </p>
+              <div class="extra-details">
+                <div class="extra-info">
+                  <i class="fas fa-users"></i>
+                  <span>A partir de 5 anos</span>
+                </div>
+                <div class="extra-info">
+                  <i class="fas fa-clock"></i>
+                  <span>1x por semana</span>
+                </div>
+              </div>
+              <a href="cursos-extras.html#primeiros-socorros" class="extra-btn">
+                <i class="fas fa-arrow-right"></i>
+                Saiba Mais
+              </a>
+            </div>
+
+            <div class="extra-card fade-in">
+              <div class="extra-icon">
+                <i class="fas fa-fist-raised"></i>
+              </div>
+              <h3>Jiu-Jitsu</h3>
+              <p class="extra-description">
+                Arte marcial que desenvolve disciplina, respeito, coordenação
+                motora e autoconfiança, além de ensinar defesa pessoal de forma
+                lúdica.
+              </p>
+              <div class="extra-details">
+                <div class="extra-info">
+                  <i class="fas fa-users"></i>
+                  <span>A partir de 4 anos</span>
+                </div>
+                <div class="extra-info">
+                  <i class="fas fa-clock"></i>
+                  <span>2x por semana</span>
+                </div>
+              </div>
+              <a href="cursos-extras.html#jiu-jitsu" class="extra-btn">
+                <i class="fas fa-arrow-right"></i>
+                Saiba Mais
+              </a>
+            </div>
+
+            <div class="extra-card fade-in">
+              <div class="extra-icon">
+                <i class="fas fa-book-reader"></i>
+              </div>
+              <h3>Reforço Escolar</h3>
+              <p class="extra-description">
+                Apoio pedagógico personalizado para fortalecer o aprendizado e
+                desenvolver o potencial máximo de cada aluno em suas
+                dificuldades.
+              </p>
+              <div class="extra-details">
+                <div class="extra-info">
+                  <i class="fas fa-users"></i>
+                  <span>Todas as idades</span>
+                </div>
+                <div class="extra-info">
+                  <i class="fas fa-clock"></i>
+                  <span>Horário flexível</span>
+                </div>
+              </div>
+              <a href="cursos-extras.html#reforco-escolar" class="extra-btn">
+                <i class="fas fa-arrow-right"></i>
+                Saiba Mais
+              </a>
+            </div>
+          </div>
+
+          <div class="extras-cta fade-in">
+            <h3>Interessado em nossos cursos extras?</h3>
+            <p>
+              Conheça todos os detalhes, horários e metodologias de cada
+              atividade
+            </p>
+            <a href="cursos-extras.html" class="cta-button-large">
+              <i class="fas fa-star"></i>
+              Ver Todos os Cursos
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section info" aria-labelledby="diferenciais-title">
+        <div class="container">
+          <h2 id="diferenciais-title" class="section-title fade-in">
+            Diferenciais
+          </h2>
           <div class="info-grid">
             <div class="info-item fade-in">
               <div class="info-icon">
@@ -311,7 +428,7 @@
             </div>
             <div class="info-item fade-in">
               <div class="info-icon">
-                <i class="fas fa-microscope"></i>
+                <i class="fas fa-lightbulb"></i>
               </div>
               <h3>Metodologia Inovadora</h3>
               <p>Práticas pedagógicas modernas e eficazes</p>
@@ -401,6 +518,7 @@
                 <div class="contact-card schedule-card">
                   <div class="contact-card-header">
                     <i class="fas fa-clock"></i>
+
                     <h3>Horário de Funcionamento</h3>
                   </div>
                   <div class="contact-card-content">
@@ -453,7 +571,12 @@
                   </p>
                 </div>
 
-                <form class="contact-form" id="contactForm">
+                <form
+                  class="contact-form"
+                  id="contactForm"
+                  action="https://formspree.io/f/xdkogqpv"
+                  method="POST"
+                >
                   <div class="form-row">
                     <div class="form-group">
                       <label for="nome">Nome Completo *</label>

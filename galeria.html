@@ -40,6 +40,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css?v=1.2" />
     <link rel="stylesheet" href="css/gallery-responsive.css?v=1.2" />
+    <link rel="stylesheet" href="css/mobile-menu-fix.css?v=1.0" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     
     <!-- PWA Manifest -->
@@ -88,39 +89,50 @@
             </a>
           </div>
 
-          <ul class="nav-menu">
-            <li class="nav-item">
-              <a href="index.html#inicio" class="nav-link">
-                <i class="fas fa-home"></i>
+          <ul class="nav-menu" role="menubar">
+            <li class="nav-item" role="none">
+              <a
+                href="index.html#inicio"
+                class="nav-link"
+                role="menuitem"
+              >
+                <i class="fas fa-home" aria-hidden="true"></i>
                 <span>Início</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="index.html#sobre" class="nav-link">
-                <i class="fas fa-users"></i>
+            <li class="nav-item" role="none">
+              <a href="index.html#sobre" class="nav-link" role="menuitem">
+                <i class="fas fa-users" aria-hidden="true"></i>
                 <span>Sobre</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="index.html#ensino" class="nav-link">
-                <i class="fas fa-book-open"></i>
+            <li class="nav-item" role="none">
+              <a href="index.html#ensino" class="nav-link" role="menuitem">
+                <i class="fas fa-book-open" aria-hidden="true"></i>
                 <span>Ensino</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="galeria.html" class="nav-link active">
-                <i class="fas fa-images"></i>
+            <li class="nav-item" role="none">
+              <a href="cursos-extras.html" class="nav-link" role="menuitem">
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <span>Cursos Extras</span>
+              </a>
+            </li>
+            <li class="nav-item" role="none">
+              <a href="galeria.html" class="nav-link active" role="menuitem" aria-current="page">
+                <i class="fas fa-images" aria-hidden="true"></i>
                 <span>Galeria</span>
               </a>
             </li>
-            
-            <li class="nav-item">
+            <li class="nav-item" role="none">
               <a
                 href="https://wa.me/5585999701822"
                 class="nav-link cta-nav"
                 target="_blank"
+                role="menuitem"
+                aria-label="Contato via WhatsApp - abre em nova aba"
               >
-                <i class="fab fa-whatsapp"></i>
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
                 <span>WhatsApp</span>
               </a>
             </li>

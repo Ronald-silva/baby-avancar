@@ -1,0 +1,34 @@
+/* ========================================
+   LAYOUT & CONTAINER SYSTEM - COLÉGIO BABY AVANÇAR
+   ======================================== */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+@media (min-width: 576px) {
+  .container {
+    padding: 0 var(--spacing-lg);
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-xl);
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    padding: 0 var(--spacing-xl);
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 var(--spacing-xl);
+  }
+}

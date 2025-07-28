@@ -1,0 +1,79 @@
+/* ========================================
+   VARIÁVEIS CSS - COLÉGIO BABY AVANÇAR
+   ======================================== */
+
+:root {
+  /* === CORES PRINCIPAIS === */
+  --primary-blue: #4a90e2;
+  --primary-blue-light: #667eea;
+  --primary-purple: #764ba2;
+  
+  /* === CORES SECUNDÁRIAS === */
+  --whatsapp-green: #25d366;
+  --whatsapp-dark: #128c7e;
+  
+  /* === CORES NEUTRAS === */
+  --text-primary: #333;
+  --text-secondary: #555;
+  --text-muted: #666;
+  --background-light: #f8f9fa;
+  --background-lighter: #e9ecef;
+  --white: #ffffff;
+  
+  /* === GRADIENTES === */
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #4a90e2 100%);
+  --gradient-secondary: linear-gradient(135deg, #4a90e2, #667eea);
+  --gradient-purple: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-whatsapp: linear-gradient(135deg, #25d366, #128c7e);
+  --gradient-whatsapp-hover: linear-gradient(135deg, #128c7e, #25d366);
+  --gradient-background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  --gradient-accent: linear-gradient(90deg, #4a90e2, #667eea);
+  
+  /* === TIPOGRAFIA === */
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.6;
+  --letter-spacing-tight: -0.5px;
+  
+  /* === ESPAÇAMENTOS === */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  --spacing-4xl: 5rem;
+  
+  /* === BORDAS E RAIOS === */
+  --border-radius-sm: 2px;
+  --border-radius-md: 15px;
+  --border-radius-lg: 20px;
+  --border-radius-full: 50px;
+  
+  /* === SOMBRAS === */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 5px 20px rgba(74, 144, 226, 0.1);
+  --shadow-xl: 0 6px 20px rgba(37, 211, 102, 0.4);
+  
+  /* === TRANSIÇÕES === */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* === Z-INDEX === */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  
+  /* === BREAKPOINTS (para uso em JS) === */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+}

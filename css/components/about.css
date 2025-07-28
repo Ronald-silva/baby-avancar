@@ -1,0 +1,90 @@
+/* ========================================
+   ABOUT SECTION - COLÉGIO BABY AVANÇAR
+   ======================================== */
+
+.about {
+  background: var(--gradient-background);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4xl);
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    text-align: center;
+  }
+
+  .about-image {
+    order: -1;
+    padding: var(--spacing-xl);
+  }
+
+  .about-image i {
+    font-size: 4rem;
+  }
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.about-text p {
+  margin-bottom: var(--spacing-lg);
+}
+
+.about-text strong {
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+.about-highlight {
+  background: var(--white);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-lg);
+  box-shadow: var(--shadow-lg);
+  border-left: 4px solid var(--primary-blue);
+  transition: var(--transition-normal);
+}
+
+.about-highlight:hover {
+  transform: translateX(5px);
+  box-shadow: 0 8px 25px rgba(74, 144, 226, 0.15);
+}
+
+.about-highlight h3 {
+  color: var(--primary-blue);
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.about-highlight p {
+  margin-bottom: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.about-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-secondary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-2xl);
+  box-shadow: 0 15px 40px rgba(74, 144, 226, 0.2);
+}
+
+.about-image i {
+  font-size: 6rem;
+  color: var(--white);
+  opacity: 0.9;
+}

@@ -37,7 +37,7 @@
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" />
     
     <!-- Stylesheets - ESTRUTURA ORGANIZADA -->
-    <link rel="stylesheet" href="css/components/main.css?v=2.0" />
+    <link rel="stylesheet" href="css/components/main.css?v=3.0" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     
     <!-- PWA Manifest -->
@@ -415,7 +415,9 @@
     <!-- Modal for Image Viewing -->
     <div class="modal" id="imageModal">
       <div class="modal-content">
-        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <button class="modal-close" onclick="closeModal()" aria-label="Fechar modal">
+          <i class="fas fa-times"></i>
+        </button>
         <div class="modal-body">
           <div class="modal-image">
             <div class="placeholder-image large">

@@ -27,9 +27,9 @@
 /* @import 'modals.css'; */
 /* @import 'animations.css'; */
 
-/* 6. Sections restantes - Em desenvolvimento */
+/* 6. Sections restantes - Organizados */
 /* @import 'services.css'; */
-/* @import 'gallery.css'; */
+@import 'gallery.css';
 /* @import 'courses.css'; */
 /* @import 'contact.css'; */
 /* @import 'footer.css'; */

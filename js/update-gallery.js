@@ -5,7 +5,7 @@ const galleryImages = [
     {
         id: 'modal1',
         category: 'atividades',
-        src: 'img/galeria/atividades/arte-1.jpg',
+        src: 'img/galeria/atividades/arte-1.webp',
         title: 'Artes e Criatividade',
         description: 'Desenvolvimento da expressão artística das crianças',
         tag: 'Atividades'
@@ -13,7 +13,7 @@ const galleryImages = [
     {
         id: 'modal2',
         category: 'atividades',
-        src: 'img/galeria/atividades/educacao-fisica-1.jpg',
+        src: 'img/galeria/atividades/educacao-fisica-1.webp',
         title: 'Atividades Físicas',
         description: 'Desenvolvimento motor e trabalho em equipe',
         tag: 'Atividades'
@@ -21,7 +21,7 @@ const galleryImages = [
     {
         id: 'modal3',
         category: 'eventos',
-        src: 'img/galeria/eventos/festa-junina-1.jpg',
+        src: 'img/galeria/eventos/festa-junina-1.webp',
         title: 'Festa Junina 2024',
         description: 'Celebração tradicional com toda a comunidade escolar',
         tag: 'Eventos'
@@ -29,7 +29,7 @@ const galleryImages = [
     {
         id: 'modal4',
         category: 'eventos',
-        src: 'img/galeria/eventos/formatura-1.jpg',
+        src: 'img/galeria/eventos/formatura-1.webp',
         title: 'Formatura Infantil V',
         description: 'Momento especial de conquista dos nossos pequenos',
         tag: 'Eventos'
@@ -37,7 +37,7 @@ const galleryImages = [
     {
         id: 'modal5',
         category: 'estrutura',
-        src: 'img/galeria/estrutura/sala-aula-1.jpg',
+        src: 'img/galeria/estrutura/sala-aula-1.webp',
         title: 'Salas de Aula',
         description: 'Ambientes preparados para o aprendizado',
         tag: 'Estrutura'
@@ -45,7 +45,7 @@ const galleryImages = [
     {
         id: 'modal6',
         category: 'estrutura',
-        src: 'img/galeria/estrutura/playground-1.jpg',
+        src: 'img/galeria/estrutura/playground-1.webp',
         title: 'Área de Recreação',
         description: 'Espaço seguro para brincadeiras e atividades ao ar livre',
         tag: 'Estrutura'
@@ -53,7 +53,7 @@ const galleryImages = [
     {
         id: 'modal7',
         category: 'educacao',
-        src: 'img/galeria/educacao/leitura-1.jpg',
+        src: 'img/galeria/educacao/leitura-1.webp',
         title: 'Hora da Leitura',
         description: 'Incentivo ao amor pelos livros desde cedo',
         tag: 'Educação'
@@ -61,7 +61,7 @@ const galleryImages = [
     {
         id: 'modal8',
         category: 'educacao',
-        src: 'img/galeria/educacao/ciencias-1.jpg',
+        src: 'img/galeria/educacao/ciencias-1.webp',
         title: 'Experimentos',
         description: 'Descobrindo o mundo através da ciência',
         tag: 'Educação'

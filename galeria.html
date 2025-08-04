@@ -190,32 +190,33 @@
     <section class="section gallery-section">
       <div class="container">
         <div class="gallery-grid" id="galleryGrid">
-          <!-- Atividades -->
+          <!-- ATIVIDADES -->
           <div class="gallery-item fade-in" data-category="atividades">
             <div class="gallery-card">
               <div class="gallery-image">
                 <img
-                  src="img/galeria/atividades/arte-1.jpg"
-                  alt="Atividades Artísticas"
+                  src="img/galeria/atividades/atividade-1.png"
+                  alt="Atividades Pedagógicas - Desenvolvimento Infantil"
                   loading="lazy"
                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
                 />
                 <div class="placeholder-image" style="display: none">
-                  <i class="fas fa-paint-brush"></i>
-                  <p>Atividades Artísticas</p>
+                  <i class="fas fa-child"></i>
+                  <p>Atividades Pedagógicas</p>
                 </div>
                 <div class="gallery-overlay">
                   <button
                     class="gallery-btn"
-                    onclick="openModal('modal1', 'img/galeria/atividades/arte-2.jpg')"
+                    onclick="openModal('modal1', 'img/galeria/atividades/atividade-1.png')"
+                    aria-label="Ver imagem em tamanho maior"
                   >
                     <i class="fas fa-expand"></i>
                   </button>
                 </div>
               </div>
               <div class="gallery-info">
-                <h3>Artes e Criatividade</h3>
-                <p>Desenvolvimento da expressão artística das crianças</p>
+                <h3>Atividades Pedagógicas</h3>
+                <p>Desenvolvimento integral através de atividades lúdicas</p>
                 <span class="gallery-tag">Atividades</span>
               </div>
             </div>
@@ -225,8 +226,70 @@
             <div class="gallery-card">
               <div class="gallery-image">
                 <img
-                  src="img/galeria/atividades/educacao-fisica.png"
-                  alt="Educação Física"
+                  src="img/galeria/atividades/atividade-2.png"
+                  alt="Brincadeiras Educativas - Aprendizado Divertido"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-puzzle-piece"></i>
+                  <p>Brincadeiras Educativas</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal2', 'img/galeria/atividades/atividade-2.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Brincadeiras Educativas</h3>
+                <p>Aprendizado através de jogos e atividades divertidas</p>
+                <span class="gallery-tag">Atividades</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" data-category="atividades">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/atividades/atividade-3.png"
+                  alt="Atividades Criativas - Expressão Artística"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-paint-brush"></i>
+                  <p>Atividades Criativas</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal3', 'img/galeria/atividades/atividade-3.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Atividades Criativas</h3>
+                <p>Desenvolvimento da criatividade e expressão artística</p>
+                <span class="gallery-tag">Atividades</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" data-category="atividades">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/atividades/atividade-4.png"
+                  alt="Educação Física - Desenvolvimento Motor"
                   loading="lazy"
                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
                 />
@@ -237,122 +300,109 @@
                 <div class="gallery-overlay">
                   <button
                     class="gallery-btn"
-                    onclick="openModal('modal2', 'img/galeria/eventos/festa-junina.jpg')"
+                    onclick="openModal('modal4', 'img/galeria/atividades/atividade-4.png')"
+                    aria-label="Ver imagem em tamanho maior"
                   >
                     <i class="fas fa-expand"></i>
                   </button>
                 </div>
               </div>
               <div class="gallery-info">
-                <h3>Atividades Físicas</h3>
-                <p>Desenvolvimento motor e trabalho em equipe</p>
+                <h3>Educação Física</h3>
+                <p>Desenvolvimento motor e coordenação das crianças</p>
                 <span class="gallery-tag">Atividades</span>
               </div>
             </div>
           </div>
 
-          <!-- Eventos -->
-          <div class="gallery-item fade-in" data-category="eventos">
-            <div class="gallery-card">
-              <div class="gallery-image">
-                <div class="placeholder-image">
-                  <i class="fas fa-birthday-cake"></i>
-                  <p>Festa Junina</p>
-                </div>
-                <div class="gallery-overlay">
-                  <button class="gallery-btn" onclick="openModal('modal3')">
-                    <i class="fas fa-expand"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="gallery-info">
-                <h3>Festa Junina 2024</h3>
-                <p>Celebração tradicional com toda a comunidade escolar</p>
-                <span class="gallery-tag">Eventos</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item fade-in" data-category="eventos">
-            <div class="gallery-card">
-              <div class="gallery-image">
-                <div class="placeholder-image">
-                  <i class="fas fa-graduation-cap"></i>
-                  <p>Formatura</p>
-                </div>
-                <div class="gallery-overlay">
-                  <button class="gallery-btn" onclick="openModal('modal4')">
-                    <i class="fas fa-expand"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="gallery-info">
-                <h3>Formatura Infantil V</h3>
-                <p>Momento especial de conquista dos nossos pequenos</p>
-                <span class="gallery-tag">Eventos</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Estrutura -->
-          <div class="gallery-item fade-in" data-category="estrutura">
-            <div class="gallery-card">
-              <div class="gallery-image">
-                <div class="placeholder-image">
-                  <i class="fas fa-chalkboard"></i>
-                  <p>Salas de Aula</p>
-                </div>
-                <div class="gallery-overlay">
-                  <button class="gallery-btn" onclick="openModal('modal5')">
-                    <i class="fas fa-expand"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="gallery-info">
-                <h3>Salas de Aula</h3>
-                <p>Ambientes preparados para o aprendizado</p>
-                <span class="gallery-tag">Estrutura</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item fade-in" data-category="estrutura">
-            <div class="gallery-card">
-              <div class="gallery-image">
-                <div class="placeholder-image">
-                  <i class="fas fa-tree"></i>
-                  <p>Área Externa</p>
-                </div>
-                <div class="gallery-overlay">
-                  <button class="gallery-btn" onclick="openModal('modal6')">
-                    <i class="fas fa-expand"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="gallery-info">
-                <h3>Área de Recreação</h3>
-                <p>Espaço seguro para brincadeiras e atividades ao ar livre</p>
-                <span class="gallery-tag">Estrutura</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Educação -->
+          <!-- EDUCAÇÃO -->
           <div class="gallery-item fade-in" data-category="educacao">
             <div class="gallery-card">
               <div class="gallery-image">
-                <div class="placeholder-image">
-                  <i class="fas fa-book-reader"></i>
-                  <p>Leitura</p>
+                <img
+                  src="img/galeria/educacao/educacao-1.png"
+                  alt="Ambiente Educativo - Sala de Aula"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-chalkboard-teacher"></i>
+                  <p>Ambiente Educativo</p>
                 </div>
                 <div class="gallery-overlay">
-                  <button class="gallery-btn" onclick="openModal('modal7')">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal5', 'img/galeria/educacao/educacao-1.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
                     <i class="fas fa-expand"></i>
                   </button>
                 </div>
               </div>
               <div class="gallery-info">
-                <h3>Hora da Leitura</h3>
+                <h3>Ambiente Educativo</h3>
+                <p>Salas preparadas para o melhor aprendizado</p>
+                <span class="gallery-tag">Educação</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" data-category="educacao">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/educacao/edicacao-2.png"
+                  alt="Metodologia de Ensino - Aprendizado Ativo"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-graduation-cap"></i>
+                  <p>Metodologia de Ensino</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal6', 'img/galeria/educacao/edicacao-2.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Metodologia de Ensino</h3>
+                <p>Abordagem pedagógica moderna e eficaz</p>
+                <span class="gallery-tag">Educação</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" data-category="educacao">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/educacao/educacao-3.png"
+                  alt="Atividades de Leitura - Desenvolvimento Cognitivo"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-book-reader"></i>
+                  <p>Atividades de Leitura</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal7', 'img/galeria/educacao/educacao-3.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Atividades de Leitura</h3>
                 <p>Incentivo ao amor pelos livros desde cedo</p>
                 <span class="gallery-tag">Educação</span>
               </div>
@@ -362,20 +412,590 @@
           <div class="gallery-item fade-in" data-category="educacao">
             <div class="gallery-card">
               <div class="gallery-image">
-                <div class="placeholder-image">
-                  <i class="fas fa-microscope"></i>
-                  <p>Ciências</p>
+                <img
+                  src="img/galeria/educacao/educacao-4.png"
+                  alt="Ensino Personalizado - Atenção Individual"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-user-graduate"></i>
+                  <p>Ensino Personalizado</p>
                 </div>
                 <div class="gallery-overlay">
-                  <button class="gallery-btn" onclick="openModal('modal8')">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal8', 'img/galeria/educacao/educacao-4.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
                     <i class="fas fa-expand"></i>
                   </button>
                 </div>
               </div>
               <div class="gallery-info">
-                <h3>Experimentos</h3>
-                <p>Descobrindo o mundo através da ciência</p>
+                <h3>Ensino Personalizado</h3>
+                <p>Atenção individual para cada criança</p>
                 <span class="gallery-tag">Educação</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" data-category="educacao">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/educacao/educacao-5.png"
+                  alt="Recursos Pedagógicos - Material Didático"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-book-open"></i>
+                  <p>Recursos Pedagógicos</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal9', 'img/galeria/educacao/educacao-5.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Recursos Pedagógicos</h3>
+                <p>Material didático moderno e diversificado</p>
+                <span class="gallery-tag">Educação</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" data-category="educacao">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/educacao/educacao-6.png"
+                  alt="Desenvolvimento Cognitivo - Aprendizado Integral"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-brain"></i>
+                  <p>Desenvolvimento Cognitivo</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal10', 'img/galeria/educacao/educacao-6.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Desenvolvimento Cognitivo</h3>
+                <p>Estímulo ao pensamento crítico e criativo</p>
+                <span class="gallery-tag">Educação</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" data-category="educacao">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/educacao/educacao-7.png"
+                  alt="Alfabetização - Primeiros Passos na Leitura"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-spell-check"></i>
+                  <p>Alfabetização</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal11', 'img/galeria/educacao/educacao-7.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Alfabetização</h3>
+                <p>Primeiros passos no mundo da leitura e escrita</p>
+                <span class="gallery-tag">Educação</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ESTRUTURA -->
+          <div class="gallery-item fade-in" data-category="estrutura">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/estrutura/estrutura-1.png"
+                  alt="Fachada da Escola - Entrada Principal"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-school"></i>
+                  <p>Fachada da Escola</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal12', 'img/galeria/estrutura/estrutura-1.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Fachada da Escola</h3>
+                <p>Entrada acolhedora e moderna da nossa instituição</p>
+                <span class="gallery-tag">Estrutura</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" data-category="estrutura">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/estrutura/estrutura-2.png"
+                  alt="Salas de Aula - Ambiente de Aprendizado"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-chalkboard"></i>
+                  <p>Salas de Aula</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal13', 'img/galeria/estrutura/estrutura-2.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Salas de Aula</h3>
+                <p>Ambientes preparados e equipados para o ensino</p>
+                <span class="gallery-tag">Estrutura</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" data-category="estrutura">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/estrutura/estrutura-3.png"
+                  alt="Área de Recreação - Playground"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-child"></i>
+                  <p>Área de Recreação</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal14', 'img/galeria/estrutura/estrutura-3.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Área de Recreação</h3>
+                <p>Playground seguro para diversão das crianças</p>
+                <span class="gallery-tag">Estrutura</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" data-category="estrutura">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/estrutura/estrutura-4.png"
+                  alt="Pátio Interno - Área de Convivência"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-home"></i>
+                  <p>Pátio Interno</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal15', 'img/galeria/estrutura/estrutura-4.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Pátio Interno</h3>
+                <p>Espaço amplo para convivência e atividades</p>
+                <span class="gallery-tag">Estrutura</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" data-category="estrutura">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/estrutura/estrutura-5.png"
+                  alt="Biblioteca - Espaço de Leitura"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-book"></i>
+                  <p>Biblioteca</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal16', 'img/galeria/estrutura/estrutura-5.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Biblioteca</h3>
+                <p>Espaço dedicado à leitura e pesquisa</p>
+                <span class="gallery-tag">Estrutura</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" data-category="estrutura">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/estrutura/estrutura-6.png"
+                  alt="Refeitório - Alimentação Saudável"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-utensils"></i>
+                  <p>Refeitório</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal17', 'img/galeria/estrutura/estrutura-6.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Refeitório</h3>
+                <p>Espaço para refeições saudáveis e nutritivas</p>
+                <span class="gallery-tag">Estrutura</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" data-category="estrutura">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/estrutura/estrutura-7.png"
+                  alt="Área Externa - Jardim e Natureza"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-tree"></i>
+                  <p>Área Externa</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal18', 'img/galeria/estrutura/estrutura-7.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Área Externa</h3>
+                <p>Jardim e espaços verdes para contato com a natureza</p>
+                <span class="gallery-tag">Estrutura</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- EVENTOS -->
+          <div class="gallery-item fade-in" data-category="eventos">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/eventos/evento-1.png"
+                  alt="Festa Junina - Tradições Brasileiras"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-fire"></i>
+                  <p>Festa Junina</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal19', 'img/galeria/eventos/evento-1.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Festa Junina</h3>
+                <p>Celebração das tradições culturais brasileiras</p>
+                <span class="gallery-tag">Eventos</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" data-category="eventos">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/eventos/evento-2.png"
+                  alt="Formatura - Conquistas dos Alunos"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-graduation-cap"></i>
+                  <p>Formatura</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal20', 'img/galeria/eventos/evento-2.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Formatura</h3>
+                <p>Momento especial de celebração das conquistas</p>
+                <span class="gallery-tag">Eventos</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" data-category="eventos">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/eventos/evento-3.png"
+                  alt="Dia das Crianças - Diversão e Alegria"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-birthday-cake"></i>
+                  <p>Dia das Crianças</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal21', 'img/galeria/eventos/evento-3.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Dia das Crianças</h3>
+                <p>Celebração especial com muita diversão e alegria</p>
+                <span class="gallery-tag">Eventos</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" data-category="eventos">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/eventos/evento-4.png"
+                  alt="Apresentações Culturais - Talentos dos Alunos"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-theater-masks"></i>
+                  <p>Apresentações Culturais</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal22', 'img/galeria/eventos/evento-4.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Apresentações Culturais</h3>
+                <p>Demonstração dos talentos e habilidades dos alunos</p>
+                <span class="gallery-tag">Eventos</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" data-category="eventos">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/eventos/evento-5.png"
+                  alt="Feira de Ciências - Descobertas e Experimentos"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-microscope"></i>
+                  <p>Feira de Ciências</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal23', 'img/galeria/eventos/evento-5.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Feira de Ciências</h3>
+                <p>Exposição de descobertas e experimentos científicos</p>
+                <span class="gallery-tag">Eventos</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" data-category="eventos">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/eventos/evento-6.png"
+                  alt="Olimpíadas Escolares - Esporte e Competição"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-medal"></i>
+                  <p>Olimpíadas Escolares</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal24', 'img/galeria/eventos/evento-6.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Olimpíadas Escolares</h3>
+                <p>Competições esportivas e espírito de equipe</p>
+                <span class="gallery-tag">Eventos</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" data-category="eventos">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/eventos/evento-7.png"
+                  alt="Festa da Família - Integração e Comunidade"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-heart"></i>
+                  <p>Festa da Família</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal25', 'img/galeria/eventos/evento-7.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Festa da Família</h3>
+                <p>Evento de integração entre escola e famílias</p>
+                <span class="gallery-tag">Eventos</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item fade-in" data-category="eventos">
+            <div class="gallery-card">
+              <div class="gallery-image">
+                <img
+                  src="img/galeria/eventos/evento-8.png"
+                  alt="Natal Solidário - Valores e Solidariedade"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="placeholder-image" style="display: none">
+                  <i class="fas fa-gift"></i>
+                  <p>Natal Solidário</p>
+                </div>
+                <div class="gallery-overlay">
+                  <button
+                    class="gallery-btn"
+                    onclick="openModal('modal26', 'img/galeria/eventos/evento-8.png')"
+                    aria-label="Ver imagem em tamanho maior"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="gallery-info">
+                <h3>Natal Solidário</h3>
+                <p>Celebração natalina com foco em valores e solidariedade</p>
+                <span class="gallery-tag">Eventos</span>
               </div>
             </div>
           </div>

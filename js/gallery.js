@@ -252,6 +252,12 @@ function openModal(modalId, imageSrc = null) {
   modal.style.display = "flex";
   document.body.style.overflow = "hidden";
 
+  // Otimiza layout do modal baseado na imagem
+  const finalImageSrc = imageSrc || (data ? data.src : null);
+  if (finalImageSrc) {
+    optimizeModalLayout(finalImageSrc);
+  }
+
   // Animate modal
   setTimeout(() => {
     modal.classList.add("active");
@@ -314,3 +320,203 @@ function observeGalleryItems() {
 
 // Initialize lazy loading
 observeGalleryItems();
+
+// ========================================
+// OTIMIZAÇÃO AUTOMÁTICA PARA IMAGENS VERTICAIS
+// ========================================
+
+// Função para detectar proporção da imagem e aplicar classe apropriada
+function optimizeImageLayout() {
+    const galleryImages = document.querySelectorAll('.gallery-image img');
+    
+    galleryImages.forEach(img => {
+        // Aguarda o carregamento da imagem
+        if (img.complete) {
+            classifyImageAspect(img);
+        } else {
+            img.addEventListener('load', () => classifyImageAspect(img));
+        }
+    });
+}
+
+// Classifica a imagem baseada na proporção
+function classifyImageAspect(img) {
+    const aspectRatio = img.naturalWidth / img.naturalHeight;
+    const galleryCard = img.closest('.gallery-card');
+    
+    // Remove classes existentes
+    galleryCard.classList.remove('portrait', 'landscape', 'square');
+    
+    // Adiciona classe baseada na proporção
+    if (aspectRatio < 0.8) {
+        galleryCard.classList.add('portrait');
+        // Ajusta altura para imagens muito verticais
+        if (aspectRatio < 0.6) {
+            img.closest('.gallery-image').style.height = '450px';
+        } else {
+            // Mantém altura padrão para imagens verticais
+            img.closest('.gallery-image').style.height = '420px';
+        }
+    } else if (aspectRatio > 1.2) {
+        galleryCard.classList.add('landscape');
+    } else {
+        galleryCard.classList.add('square');
+    }
+    
+    // Otimiza object-position baseado na proporção
+    if (aspectRatio < 0.7) {
+        img.style.objectPosition = 'center top';
+    } else if (aspectRatio > 1.5) {
+        img.style.objectPosition = 'center center';
+    }
+}
+
+// Otimiza modal baseado na proporção da imagem
+function optimizeModalLayout(imageSrc) {
+    if (!imageSrc) return;
+    
+    const tempImg = new Image();
+    tempImg.onload = function() {
+        const aspectRatio = this.naturalWidth / this.naturalHeight;
+        const modalBody = document.querySelector('.modal-body');
+        
+        // Remove classes existentes
+        modalBody.classList.remove('portrait', 'landscape', 'square');
+        
+        // Adiciona classe baseada na proporção
+        if (aspectRatio < 0.8) {
+            modalBody.classList.add('portrait');
+        } else if (aspectRatio > 1.2) {
+            modalBody.classList.add('landscape');
+        } else {
+            modalBody.classList.add('square');
+        }
+    };
+    tempImg.src = imageSrc;
+}
+
+// Função openModal já integrada com otimizações acima
+
+// Lazy loading melhorado com otimização de layout
+function enhancedLazyLoading() {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                const galleryImage = img.closest('.gallery-image');
+                
+                // Adiciona classe de loading
+                galleryImage.classList.add('loading');
+                
+                // Carrega a imagem
+                img.src = img.dataset.src || img.src;
+                
+                img.addEventListener('load', () => {
+                    // Remove loading state
+                    galleryImage.classList.remove('loading');
+                    
+                    // Otimiza layout baseado na proporção
+                    classifyImageAspect(img);
+                    
+                    // Adiciona animação de entrada
+                    img.style.animation = 'imageLoad 0.5s ease-out';
+                });
+                
+                img.addEventListener('error', () => {
+                    galleryImage.classList.remove('loading');
+                    // Mostra placeholder em caso de erro
+                    img.style.display = 'none';
+                    const placeholder = img.nextElementSibling;
+                    if (placeholder && placeholder.classList.contains('placeholder-image')) {
+                        placeholder.style.display = 'flex';
+                    }
+                });
+                
+                observer.unobserve(img);
+            }
+        });
+    }, {
+        rootMargin: '50px 0px',
+        threshold: 0.1
+    });
+    
+    // Observa todas as imagens da galeria
+    document.querySelectorAll('.gallery-image img').forEach(img => {
+        imageObserver.observe(img);
+    });
+}
+
+// Performance monitoring para imagens
+function monitorImagePerformance() {
+    const images = document.querySelectorAll('.gallery-image img');
+    let loadedImages = 0;
+    const totalImages = images.length;
+    
+    images.forEach(img => {
+        img.addEventListener('load', () => {
+            loadedImages++;
+            const progress = (loadedImages / totalImages) * 100;
+            
+            // Atualiza indicador de progresso se existir
+            const progressIndicator = document.querySelector('.loading-progress');
+            if (progressIndicator) {
+                progressIndicator.style.width = `${progress}%`;
+            }
+            
+            // Todas as imagens carregadas
+            if (loadedImages === totalImages) {
+                document.body.classList.add('gallery-loaded');
+                
+                // Remove indicador de loading após delay
+                setTimeout(() => {
+                    const loadingIndicator = document.querySelector('.gallery-loading');
+                    if (loadingIndicator) {
+                        loadingIndicator.style.opacity = '0';
+                        setTimeout(() => loadingIndicator.remove(), 300);
+                    }
+                }, 500);
+            }
+        });
+    });
+}
+
+// Inicialização quando DOM estiver pronto
+document.addEventListener('DOMContentLoaded', function() {
+    // Otimiza layout das imagens
+    optimizeImageLayout();
+    
+    // Inicializa lazy loading melhorado
+    enhancedLazyLoading();
+    
+    // Monitora performance de carregamento
+    monitorImagePerformance();
+    
+    // Re-otimiza layout quando janela é redimensionada
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            optimizeImageLayout();
+        }, 250);
+    });
+});
+
+// Função utilitária para preload de imagens críticas
+function preloadCriticalImages() {
+    const criticalImages = document.querySelectorAll('.gallery-image img[loading="eager"]');
+    
+    criticalImages.forEach(img => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = img.src;
+        document.head.appendChild(link);
+    });
+}
+
+// Executa preload se suportado
+if ('requestIdleCallback' in window) {
+    requestIdleCallback(preloadCriticalImages);
+} else {
+    setTimeout(preloadCriticalImages, 100);
+}

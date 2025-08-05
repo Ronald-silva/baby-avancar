@@ -2,15 +2,17 @@
    GALLERY & MODAL - COLÉGIO BABY AVANÇAR
    ======================================== */
 
-/* GALLERY GRID */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  align-items: stretch; /* Força todos os cards a terem a mesma altura */
+/* GALLERY GRID - OTIMIZADO PARA IMAGENS VERTICAIS */
+.gallery-section .gallery-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+  gap: 2rem !important;
+  align-items: start !important;
+  padding: 0;
+  margin: 0;
 }
 
-/* GALLERY CARDS - DIMENSÕES UNIFORMES */
+/* GALLERY CARDS - ADAPTADO PARA FORMATO VERTICAL */
 .gallery-card {
   background: var(--white);
   border-radius: 20px;
@@ -21,31 +23,36 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100%; /* Força altura uniforme */
+  break-inside: avoid;
+  height: auto;
 }
 
 .gallery-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 25px 50px rgba(74, 144, 226, 0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(74, 144, 226, 0.15);
 }
 
-/* GALLERY IMAGE - ALTURA FIXA PARA UNIFORMIDADE */
-.gallery-image {
+/* GALLERY IMAGE - ALTURA OTIMIZADA PARA IMAGENS VERTICAIS */
+.gallery-item .gallery-card .gallery-image {
   position: relative;
-  height: 250px; /* Altura fixa para todos os cards */
+  height: 420px !important; /* Altura maior para imagens verticais */
   overflow: hidden;
-  flex-shrink: 0; /* Não permite encolher */
+  flex-shrink: 0;
+  border-radius: 15px 15px 0 0;
+  background: #f8f9fa;
 }
 
-.gallery-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.gallery-item .gallery-card .gallery-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important; /* Foca na parte superior para retratos */
   transition: var(--transition-normal);
+  display: block;
 }
 
 .gallery-card:hover .gallery-image img {
-  transform: scale(1.05);
+  transform: scale(1.03); /* Zoom mais sutil para imagens verticais */
 }
 
 /* PLACEHOLDER IMAGE - MESMO TAMANHO */
@@ -231,15 +238,15 @@
   transform: scale(0.95);
 }
 
-/* MODAL BODY */
+/* MODAL BODY - OTIMIZADO PARA IMAGENS VERTICAIS */
 .modal-body {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 400px;
+  grid-template-columns: 1.2fr 1fr; /* Mais espaço para a imagem */
+  min-height: 500px;
 }
 
 .modal-image {
-  height: 400px;
+  height: 500px; /* Altura maior para imagens verticais */
   background: var(--light-gray);
   display: flex;
   align-items: center;
@@ -250,7 +257,9 @@
 .modal-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* Mostra a imagem completa sem cortar */
+  object-position: center;
+  background: var(--white);
 }
 
 .modal-image .placeholder-image {
@@ -294,32 +303,57 @@
   align-self: flex-start;
 }
 
-/* RESPONSIVIDADE */
+/* RESPONSIVIDADE - OTIMIZADA PARA IMAGENS VERTICAIS */
+@media (max-width: 1200px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.8rem;
+  }
+  
+  .gallery-image {
+    height: 380px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .gallery-image {
+    height: 360px;
+  }
+}
+
 @media (max-width: 768px) {
   .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
   }
 
   .gallery-image {
-    height: 200px;
+    height: 340px;
   }
 
   .modal-content {
     width: 95%;
-    max-height: 85%;
+    max-height: 90%;
   }
 
   .modal-body {
     grid-template-columns: 1fr;
+    min-height: auto;
   }
 
   .modal-image {
-    height: 250px;
+    height: 400px;
+    order: 1;
   }
 
   .modal-info {
     padding: 1.5rem;
+    order: 2;
   }
 
   .modal-close {
@@ -332,8 +366,13 @@
 }
 
 @media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
   .gallery-image {
-    height: 180px;
+    height: 320px;
   }
 
   .gallery-info {
@@ -341,10 +380,259 @@
   }
 
   .modal-image {
-    height: 200px;
+    height: 350px;
   }
 
   .modal-info {
     padding: 1rem;
   }
 }
+
+/* MELHORIAS ESPECÍFICAS PARA IMAGENS VERTICAIS */
+@media (orientation: portrait) {
+  .gallery-image {
+    height: 340px; /* Altura extra em dispositivos portrait */
+  }
+  
+  .modal-image {
+    height: 450px;
+  }
+}
+
+/* GRID MASONRY EFFECT PARA MELHOR APROVEITAMENTO */
+@supports (grid-template-rows: masonry) {
+  .gallery-grid {
+    grid-template-rows: masonry;
+    align-items: start;
+  }
+}
+
+/* FALLBACK PARA NAVEGADORES SEM SUPORTE A MASONRY */
+.gallery-grid {
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
+}
+
+/* OTIMIZAÇÃO PARA IMAGENS CARREGANDO */
+.gallery-image img[loading="lazy"] {
+  transition: opacity 0.3s ease;
+}
+
+.gallery-image img[loading="lazy"]:not([src]) {
+  opacity: 0;
+}
+
+/* PLACEHOLDER MELHORADO PARA IMAGENS VERTICAIS */
+.placeholder-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: var(--dark-gray);
+  text-align: center;
+  border-radius: 15px 15px 0 0;
+}
+
+.placeholder-image i {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-blue);
+  opacity: 0.7;
+}
+
+.placeholder-image p {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* ========================================
+   OTIMIZAÇÕES ESPECÍFICAS PARA IMAGENS VERTICAIS
+   ======================================== */
+
+/* DETECÇÃO AUTOMÁTICA DE PROPORÇÃO DA IMAGEM */
+.gallery-image img[style*="aspect-ratio"] {
+  object-fit: cover;
+  object-position: center top; /* Foca na parte superior para retratos */
+}
+
+/* ESTILOS PARA DIFERENTES PROPORÇÕES */
+.gallery-card.portrait .gallery-image {
+  height: 380px; /* Altura extra para imagens portrait */
+}
+
+.gallery-card.landscape .gallery-image {
+  height: 280px; /* Altura menor para imagens landscape */
+}
+
+.gallery-card.square .gallery-image {
+  height: 320px; /* Altura padrão para imagens quadradas */
+}
+
+/* MODAL ADAPTATIVO PARA DIFERENTES PROPORÇÕES */
+.modal-body.portrait {
+  grid-template-columns: 1.5fr 1fr; /* Mais espaço para imagem vertical */
+}
+
+.modal-body.landscape {
+  grid-template-columns: 1fr 0.8fr; /* Menos espaço para imagem horizontal */
+}
+
+/* ANIMAÇÕES SUAVES PARA CARREGAMENTO */
+@keyframes imageLoad {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.gallery-image img {
+  animation: imageLoad 0.5s ease-out;
+}
+
+/* OTIMIZAÇÃO PARA RETINA E ALTA DENSIDADE */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .gallery-image img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+  }
+}
+
+/* MELHORIAS PARA ACESSIBILIDADE */
+.gallery-image img:focus {
+  outline: 3px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
+/* LOADING STATE MELHORADO */
+.gallery-image.loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* OTIMIZAÇÃO PARA IMPRESSÃO */
+@media print {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .gallery-image {
+    height: 200px;
+  }
+  
+  .gallery-overlay,
+  .gallery-btn {
+    display: none;
+  }
+}
+
+/* DARK MODE SUPPORT (FUTURO) */
+@media (prefers-color-scheme: dark) {
+  .gallery-card {
+    background: #1a1a1a;
+    border-color: rgba(74, 144, 226, 0.2);
+  }
+  
+  .gallery-info h3 {
+    color: #ffffff;
+  }
+  
+  .gallery-info p {
+    color: #cccccc;
+  }
+  
+  .placeholder-image {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    color: #cccccc;
+  }
+}
+
+/* PERFORMANCE OPTIMIZATIONS */
+.gallery-image {
+  contain: layout style paint;
+  will-change: transform;
+}
+
+.gallery-card {
+  contain: layout style;
+}
+
+/* SMOOTH SCROLLING PARA NAVEGAÇÃO */
+html {
+  scroll-behavior: smooth;
+}
+
+/* FOCUS MANAGEMENT PARA ACESSIBILIDADE */
+.gallery-btn:focus-visible {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
+.modal-close:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+/* =====
+===================================
+   FORÇAR ESTILOS PARA IMAGENS VERTICAIS
+   ======================================== */
+
+/* Especificidade máxima para garantir aplicação */
+.gallery-section .container .gallery-grid .gallery-item .gallery-card .gallery-image {
+  height: 420px !important;
+  min-height: 420px !important;
+}
+
+.gallery-section .container .gallery-grid .gallery-item .gallery-card .gallery-image img {
+  object-fit: cover !important;
+  object-position: center top !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Classes específicas para diferentes proporções */
+.gallery-card.portrait .gallery-image {
+  height: 450px !important;
+}
+
+.gallery-card.landscape .gallery-image {
+  height: 350px !important;
+}
+
+.gallery-card.square .gallery-image {
+  height: 420px !important;
+}
+
+/* Responsividade forçada */
+@media (max-width: 768px) {
+  .gallery-section .container .gallery-grid .gallery-item .gallery-card .gallery-image {
+    height: 350px !important;
+    min-height: 350px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-section .container .gallery-grid .gallery-item .gallery-card .gallery-image {
+    height: 320px !important;
+    min-height: 320px !important;
+  }
+}
+

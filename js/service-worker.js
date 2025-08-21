@@ -8,13 +8,20 @@ const STATIC_FILES = [
   '/',
   '/index.html',
   '/galeria.html',
-  '/style.css',
-  '/gallery-responsive.css',
-  '/script.js',
-  '/gallery.js',
+  '/cursos-extras.html',
+  '/css/components/main.css',
+  '/css/components/testimonials.css',
+  '/js/script.js',
+  '/js/gallery.js',
+  '/js/accessibility.js',
+  '/js/analytics.js',
+  '/js/performance-optimizer.js',
+  '/js/testimonials.js',
   '/manifest.json',
   '/img/logo.png',
-  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'
+  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css',
+  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2',
+  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-brands-400.woff2'
 ];
 
 // Instalar Service Worker

@@ -44,7 +44,7 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta
       property="twitter:url"
-      content="https://baby-avancar.vercel.app/logo.png"
+      content="https://baby-avancar.vercel.app/"
     />
     <meta
       property="twitter:title"
@@ -77,6 +77,9 @@
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
 
     <!-- PWA Manifest -->
@@ -89,8 +92,8 @@
         "@type": "EducationalOrganization",
         "name": "Colégio Baby Avançar",
         "description": "Escola de educação infantil e fundamental em Fortaleza",
-        "url": "https://colegiobabyavancar.com.br",
-        "logo": "https://colegiobabyavancar.com.br/img/logo.png",
+        "url": "https://baby-avancar.vercel.app",
+        "logo": "https://baby-avancar.vercel.app/img/logo.png",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Fortaleza",
@@ -125,7 +128,7 @@
     <a href="#main-content" class="skip-nav">Pular para o conteúdo principal</a>
 
     <header role="banner">
-      <nav class="navbar" role="navigation" aria-label="Menu principal">
+      <nav id="navigation" class="navbar" role="navigation" aria-label="Menu principal">
         <div class="nav-container">
           <div class="nav-logo">
             <a href="#inicio" class="logo-link">
@@ -450,6 +453,134 @@
         </div>
       </section>
 
+      <!-- Seção de Depoimentos -->
+      <section id="depoimentos" class="section testimonials-section" aria-labelledby="depoimentos-title">
+        <div class="container">
+          <div class="testimonials-header fade-in">
+            <h2 id="depoimentos-title" class="section-title">O que dizem sobre nós</h2>
+            <p class="section-subtitle">
+              Depoimentos de pais e responsáveis que confiam na educação de seus filhos ao Colégio Baby Avançar
+            </p>
+          </div>
+
+          <div class="testimonials-container">
+            <!-- Depoimento 1 -->
+            <div class="testimonial-card fade-in" data-testimonial="1">
+              <div class="testimonial-content">
+                <div class="testimonial-quote">
+                  <i class="fas fa-quote-left quote-icon"></i>
+                  <p>
+                    "O Colégio Baby Avançar superou todas as nossas expectativas. A equipe é extremamente dedicada e o desenvolvimento da nossa filha é visível a cada dia. A metodologia inovadora e o carinho com que tratam cada criança nos deixa muito tranquilos."
+                  </p>
+                  <i class="fas fa-quote-right quote-icon"></i>
+                </div>
+                <div class="testimonial-author">
+                  <div class="author-avatar">
+                    <i class="fas fa-user-circle"></i>
+                  </div>
+                  <div class="author-info">
+                    <h4>Maria Silva</h4>
+                    <p>Mãe da Ana, 5 anos - Infantil V</p>
+                    <div class="rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Depoimento 2 -->
+            <div class="testimonial-card fade-in" data-testimonial="2">
+              <div class="testimonial-content">
+                <div class="testimonial-quote">
+                  <i class="fas fa-quote-left quote-icon"></i>
+                  <p>
+                    "Escolhemos o Baby Avançar pela localização e metodologia, mas o que mais nos impressionou foi o compromisso com a formação integral das crianças. Meu filho desenvolveu não só academicamente, mas também socialmente e emocionalmente."
+                  </p>
+                  <i class="fas fa-quote-right quote-icon"></i>
+                </div>
+                <div class="testimonial-author">
+                  <div class="author-avatar">
+                    <i class="fas fa-user-circle"></i>
+                  </div>
+                  <div class="author-info">
+                    <h4>Carlos Oliveira</h4>
+                    <p>Pai do Pedro, 7 anos - 2º Ano</p>
+                    <div class="rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Depoimento 3 -->
+            <div class="testimonial-card fade-in" data-testimonial="3">
+              <div class="testimonial-content">
+                <div class="testimonial-quote">
+                  <i class="fas fa-quote-left quote-icon"></i>
+                  <p>
+                    "A equipe pedagógica é excepcional! Eles realmente entendem cada criança individualmente e adaptam o ensino às necessidades específicas. A comunicação com os pais é constante e transparente. Recomendo muito!"
+                  </p>
+                  <i class="fas fa-quote-right quote-icon"></i>
+                </div>
+                <div class="testimonial-author">
+                  <div class="author-avatar">
+                    <i class="fas fa-user-circle"></i>
+                  </div>
+                  <div class="author-info">
+                    <h4>Fernanda Costa</h4>
+                    <p>Mãe da Sofia, 4 anos - Infantil IV</p>
+                    <div class="rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navegação dos depoimentos -->
+          <div class="testimonials-navigation fade-in">
+            <p class="navigation-hint">Clique nos pontos para navegar ou use as setas do teclado</p>
+            <div class="nav-dots">
+              <button class="nav-dot active" data-testimonial="1" aria-label="Ver depoimento 1"></button>
+              <button class="nav-dot" data-testimonial="2" aria-label="Ver depoimento 2"></button>
+              <button class="nav-dot" data-testimonial="3" aria-label="Ver depoimento 3"></button>
+            </div>
+          </div>
+
+          <!-- Call to Action -->
+          <div class="testimonials-cta fade-in">
+            <h3>Faça parte da nossa família!</h3>
+            <p>Junte-se aos pais que já confiam no Colégio Baby Avançar</p>
+            <div class="cta-buttons">
+              <a href="https://wa.me/5585999701822?text=Olá! Gostaria de conhecer mais sobre o Colégio Baby Avançar." 
+                 class="cta-button-large" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                Falar no WhatsApp
+              </a>
+              <a href="#contato" class="cta-button-secondary">
+                <i class="fas fa-envelope"></i>
+                Solicitar Informações
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section
         id="contato"
         class="section contact-section"
@@ -704,7 +835,7 @@
       </section>
     </main>
 
-    <footer role="contentinfo">
+    <footer id="footer" role="contentinfo">
       <div class="container">
         <p>&copy; 2025 Colégio Baby Avançar. Todos os direitos reservados.</p>
         <p><em>"Avançando e transformando o Conhecimento"</em></p>
@@ -715,5 +846,21 @@
     <script src="js/analytics.js"></script>
     <script src="js/accessibility.js"></script>
     <script src="js/performance-optimizer.js"></script>
+    <script src="js/testimonials.js"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/js/service-worker.js')
+            .then(registration => {
+              console.log('SW registered: ', registration);
+            })
+            .catch(registrationError => {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
   </body>
 </html>

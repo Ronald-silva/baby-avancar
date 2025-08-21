@@ -22,6 +22,7 @@ Site institucional moderno e responsivo para o Colégio Baby Avançar, uma escol
 - **Endpoint temporário**: `https://formspree.io/f/xdkogqpv`
 - **Email de destino**: `colegiobabyavancar@gmail.com`
 - **Método**: POST com JSON
+- **Domínio canônico**: `https://baby-avancar.vercel.app`
 
 ## ✨ Funcionalidades Principais
 
@@ -31,6 +32,7 @@ Site institucional moderno e responsivo para o Colégio Baby Avançar, uma escol
 - **Seção Sobre** com informações da escola
 - **Proposta de Ensino** com cards informativos
 - **Diferenciais** da instituição
+- **Seção de Depoimentos** com carrossel interativo
 - **Formulário de Contato** completo com validação
 - **Cards de Contato** com WhatsApp, localização e redes sociais
 
@@ -96,9 +98,10 @@ Site institucional moderno e responsivo para o Colégio Baby Avançar, uma escol
 ### 🔧 PWA (Progressive Web App)
 
 - **Manifest.json** configurado
-- **Service Worker** para funcionamento offline
-- **Cache Strategy** inteligente
+- **Service Worker** registrado e funcionando
+- **Cache Strategy** inteligente (Cache First para estáticos, Network First para dinâmicos)
 - **Instalação** como app nativo
+- **Preload** de recursos críticos
 
 ## 📁 Estrutura de Arquivos
 
@@ -110,6 +113,7 @@ Site institucional moderno e responsivo para o Colégio Baby Avançar, uma escol
 ├── gallery-responsive.css    # Estilos específicos da galeria
 ├── script.js                 # JavaScript principal
 ├── gallery.js               # JavaScript da galeria
+├── testimonials.js          # Sistema de depoimentos
 ├── analytics.js             # Sistema de analytics
 ├── accessibility.js         # Sistema de acessibilidade
 ├── performance-optimizer.js  # Otimizações de performance
@@ -191,7 +195,19 @@ Site institucional moderno e responsivo para o Colégio Baby Avançar, uma escol
 
 1. Adicione as imagens ao diretório `img/galeria/`
 2. Edite `galeria.html` para incluir os novos itens
-3. Execute `update-gallery.js` se necessário
+3. Atualize os textos alternativos (alt) para melhor SEO e acessibilidade
+4. Execute `update-gallery.js` se necessário
+
+### Correções Recentes Aplicadas
+
+- ✅ **Domínios unificados**: Padronizado para `baby-avancar.vercel.app`
+- ✅ **Service Worker**: Registrado e com caminhos corretos
+- ✅ **Ícones da galeria**: Corrigidos ícones inválidos do Font Awesome
+- ✅ **Acessibilidade**: Adicionados IDs para navegação e rodapé
+- ✅ **Performance**: Preload de recursos críticos corrigido
+- ✅ **SEO**: Textos alternativos melhorados
+- ✅ **Segurança**: SRI adicionado ao Font Awesome
+- ✅ **Depoimentos**: Nova seção com carrossel interativo e acessibilidade
 
 ### Atualizando Informações
 

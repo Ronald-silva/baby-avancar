@@ -23,14 +23,14 @@
     <meta name="robots" content="index, follow" />
     <link
       rel="canonical"
-      href="https://colegiobabyavancar.com.br/cursos-extras.html"
+      href="https://baby-avancar.vercel.app/cursos-extras.html"
     />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta
       property="og:url"
-      content="https://colegiobabyavancar.com.br/cursos-extras.html"
+      content="https://baby-avancar.vercel.app/cursos-extras.html"
     />
     <meta property="og:title" content="Cursos Extras | Colégio Baby Avançar" />
     <meta
@@ -47,7 +47,7 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta
       property="twitter:url"
-      content="https://colegiobabyavancar.com.br/cursos-extras.html"
+      content="https://baby-avancar.vercel.app/cursos-extras.html"
     />
     <meta
       property="twitter:title"
@@ -80,6 +80,9 @@
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
 
     <!-- PWA Manifest -->
@@ -92,11 +95,11 @@
         "@type": "EducationalOrganization",
         "name": "Colégio Baby Avançar - Cursos Extras",
         "description": "Atividades extracurriculares: Primeiros Socorros, Jiu-Jitsu e Reforço Escolar",
-        "url": "https://colegiobabyavancar.com.br/cursos-extras.html",
+        "url": "https://baby-avancar.vercel.app/cursos-extras.html",
         "publisher": {
           "@type": "EducationalOrganization",
           "name": "Colégio Baby Avançar",
-          "url": "https://colegiobabyavancar.com.br"
+          "url": "https://baby-avancar.vercel.app"
         },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
@@ -127,7 +130,7 @@
     <a href="#main-content" class="skip-nav">Pular para o conteúdo principal</a>
 
     <header role="banner">
-      <nav class="navbar" role="navigation" aria-label="Menu principal">
+      <nav id="navigation" class="navbar" role="navigation" aria-label="Menu principal">
         <div class="nav-container">
           <div class="nav-logo">
             <a href="index.html" class="logo-link">
@@ -663,7 +666,7 @@
       </section>
     </main>
 
-    <footer role="contentinfo">
+    <footer id="footer" role="contentinfo">
       <div class="container">
         <p>&copy; 2025 Colégio Baby Avançar. Todos os direitos reservados.</p>
         <p><em>"Avançando e transformando o Conhecimento"</em></p>
@@ -674,5 +677,20 @@
     <script src="js/analytics.js"></script>
     <script src="js/accessibility.js"></script>
     <script src="js/performance-optimizer.js"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/js/service-worker.js')
+            .then(registration => {
+              console.log('SW registered: ', registration);
+            })
+            .catch(registrationError => {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
   </body>
 </html>

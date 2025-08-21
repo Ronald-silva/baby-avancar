@@ -237,11 +237,23 @@ class PerformanceOptimizer {
 
   preloadCriticalResources() {
     const criticalResources = [
-      { href: "style.css", as: "style" },
+      { href: "css/components/main.css", as: "style" },
       {
         href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css",
         as: "style",
       },
+      {
+        href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossorigin: "anonymous"
+      },
+      {
+        href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-brands-400.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossorigin: "anonymous"
+      }
     ];
 
     criticalResources.forEach((resource) => {
@@ -290,7 +302,7 @@ class PerformanceOptimizer {
   }
 
   isCriticalScript(src) {
-    const criticalScripts = ["script.js", "analytics.js"];
+    const criticalScripts = ["script.js", "analytics.js", "testimonials.js"];
     return criticalScripts.some((critical) => src.includes(critical));
   }
 

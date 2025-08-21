@@ -25,18 +25,5 @@
   "lang": "pt-BR",
   "dir": "ltr",
   "scope": "/",
-  "screenshots": [
-    {
-      "src": "img/screenshot-desktop.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide"
-    },
-    {
-      "src": "img/screenshot-mobile.png", 
-      "sizes": "375x667",
-      "type": "image/png",
-      "form_factor": "narrow"
-    }
-  ]
+  "screenshots": []
 }

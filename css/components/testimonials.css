@@ -139,6 +139,10 @@
   flex-shrink: 0;
 }
 
+.author-avatar img {
+  border-radius: 5px;
+}
+
 .author-avatar i {
   font-size: 2rem;
   color: var(--white);

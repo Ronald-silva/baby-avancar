@@ -577,16 +577,15 @@ document.addEventListener('DOMContentLoaded', () => {
 const accessibilityCSS = `
     .accessibility-toggle {
         position: fixed;
-        top: 50%;
+        top: 20px;
         right: 20px;
-        transform: translateY(-50%);
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
         background: #4A90E2;
         color: white;
         border: none;
         border-radius: 50%;
-        font-size: 24px;
+        font-size: 20px;
         cursor: pointer;
         z-index: 1001;
         box-shadow: 0 4px 20px rgba(74, 144, 226, 0.3);
@@ -595,16 +594,15 @@ const accessibilityCSS = `
     
     .accessibility-toggle:hover {
         background: #357ABD;
-        transform: translateY(-50%) scale(1.1);
+        transform: scale(1.1);
     }
     
     .accessibility-panel {
         position: fixed;
-        top: 50%;
-        right: 100px;
-        transform: translateY(-50%);
-        width: 350px;
-        max-height: 80vh;
+        top: 80px;
+        right: 20px;
+        width: 320px;
+        max-height: calc(100vh - 100px);
         background: white;
         border-radius: 15px;
         box-shadow: 0 10px 40px rgba(0,0,0,0.2);
@@ -788,14 +786,16 @@ const accessibilityCSS = `
     .skip-links {
         position: absolute;
         top: -40px;
-        left: 6px;
+        left: 50%;
+        transform: translateX(-50%);
         z-index: 1000;
     }
     
     .skip-link {
         position: absolute;
         top: -40px;
-        left: 6px;
+        left: 50%;
+        transform: translateX(-50%);
         background: #000;
         color: white;
         padding: 8px;
@@ -810,15 +810,18 @@ const accessibilityCSS = `
     
     @media (max-width: 768px) {
         .accessibility-toggle {
-            right: 10px;
-            width: 50px;
-            height: 50px;
-            font-size: 20px;
+            top: 15px;
+            right: 15px;
+            width: 45px;
+            height: 45px;
+            font-size: 18px;
         }
         
         .accessibility-panel {
-            right: 70px;
-            width: 300px;
+            top: 70px;
+            right: 15px;
+            width: calc(100vw - 30px);
+            max-width: 300px;
         }
     }
 `;

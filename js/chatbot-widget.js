@@ -10,17 +10,20 @@ let messageCount = 0;
 // Função para alternar a visibilidade do chat
 function toggleChat() {
   const container = document.getElementById("chatbot-container");
+  const button = document.getElementById("chatbot-button");
   chatOpen = !chatOpen;
-  
+
   if (chatOpen) {
     container.style.display = "flex";
+    if (button) button.classList.add("hidden");
     container.setAttribute("aria-hidden", "false");
     setTimeout(() => {
       const input = document.getElementById("chat-input");
       if (input) input.focus();
-    }, 100);
+    }, 300); // Aumentado para dar tempo para a animação CSS
   } else {
     container.style.display = "none";
+    if (button) button.classList.remove("hidden");
     container.setAttribute("aria-hidden", "true");
   }
 }
@@ -97,6 +100,16 @@ document.addEventListener("DOMContentLoaded", function() {
   // Permite fechar o chat com a tecla ESC
   document.addEventListener("keydown", function(e) {
     if (e.key === "Escape" && chatOpen) {
+      toggleChat();
+    }
+  });
+
+  // Permite fechar o chat clicando fora dele (em modo desktop)
+  document.addEventListener('click', (event) => {
+    const container = document.getElementById('chatbot-container');
+    const button = document.getElementById('chatbot-button');
+    
+    if (chatOpen && container && !container.contains(event.target) && button && !button.contains(event.target)) {
       toggleChat();
     }
   });

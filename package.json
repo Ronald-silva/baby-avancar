@@ -1,0 +1,24 @@
+{
+  "name": "baby-avancar-chatbot",
+  "version": "1.0.0",
+  "description": "Colégio Baby Avançar - Chatbot Inteligente",
+  "main": "test-server.js",
+  "scripts": {
+    "test": "node test-server.js",
+    "dev": "node test-server.js",
+    "start": "node test-server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "openai": "^5.20.2"
+  },
+  "keywords": [
+    "chatbot",
+    "education",
+    "vercel",
+    "openrouter",
+    "openai"
+  ],
+  "author": "Colégio Baby Avançar",
+  "license": "MIT"
+}

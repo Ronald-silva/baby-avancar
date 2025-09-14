@@ -306,69 +306,79 @@
   transform: scale(0.95);
 }
 
-/* === RESPONSIVIDADE === */
+/* === RESPONSIVIDADE E UX MOBILE === */
 @media (max-width: 768px) {
+  /* Botão flutuante com melhor posicionamento ergonômico */
   #chatbot-button {
+    width: 60px;
+    height: 60px;
+    font-size: 26px;
     bottom: 20px;
     right: 20px;
-    width: 56px;
-    height: 56px;
-    font-size: 24px;
+    /* Adiciona um pouco de margem para a área segura inferior */
+    margin-bottom: env(safe-area-inset-bottom, 0);
   }
 
+  /* Container do chat em modo "quase tela cheia" para imersão */
   #chatbot-container {
-    width: calc(100vw - 20px);
-    height: calc(100vh - 100px);
-    right: 10px;
-    left: 10px;
-    bottom: 80px;
-    border-radius: 12px;
+    width: 100vw;
+    height: 100%; /* Ocupa toda a altura disponível */
+    max-height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0; /* Remove bordas arredondadas para preencher a tela */
+    animation: slideUpFromBottom 0.4s ease-out;
   }
 
+  @keyframes slideUpFromBottom {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  /* Ajuste no cabeçalho para acomodar a barra de status de celulares modernos */
   .chatbot-header {
-    padding: 16px 20px;
+    padding-top: calc(14px + env(safe-area-inset-top, 0));
+    border-radius: 0;
+  }
+
+  /* Ajuste no input para não ser coberto pelo teclado ou pela home bar */
+  .chatbot-input {
+    padding-bottom: calc(14px + env(safe-area-inset-bottom, 20px));
   }
 
   #chat-messages {
     padding: 16px;
   }
 
-  .chatbot-input {
-    padding: 16px 20px;
-  }
-
   .quick-action-btn {
-    padding: 8px 12px;
-    font-size: 11px;
+    padding: 8px 14px;
+    font-size: 12px;
   }
 }
 
+/* Ajustes finos para telas menores */
 @media (max-width: 480px) {
   #chatbot-button {
+    width: 56px;
+    height: 56px;
     bottom: 16px;
     right: 16px;
-    width: 52px;
-    height: 52px;
-    font-size: 22px;
-  }
-
-  #chatbot-container {
-    width: calc(100vw - 16px);
-    height: calc(100vh - 90px);
-    right: 8px;
-    left: 8px;
-    bottom: 70px;
-    border-radius: 10px;
   }
 
   .chatbot-header {
-    padding: 12px 16px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
-  .chatbot-avatar {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
+  .chatbot-input {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   #chat-messages {
@@ -376,30 +386,14 @@
     gap: 10px;
   }
 
-  .chatbot-input {
-    padding: 12px 16px;
-    gap: 8px;
+  .message-user,
+  .message-bot {
+    font-size: 13px; /* Aumenta a fonte para melhor legibilidade */
+    padding: 10px 14px;
   }
 
   #chat-input {
-    padding: 8px 14px;
-    font-size: 13px;
-  }
-
-  .send-button {
-    width: 32px;
-    height: 32px;
     font-size: 14px;
-  }
-
-  .message-welcome {
-    padding: 12px;
-  }
-
-  .message-user,
-  .message-bot {
-    font-size: 12px;
-    padding: 8px 12px;
   }
 }
 

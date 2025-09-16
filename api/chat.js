@@ -23,14 +23,21 @@ function generateLocalResponse(message) {
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 // PERSONALIDADE E DIRETRIZES DE INTERAÇÃO
-const identityContent = `Você é o Agente Avançar, o assistente virtual do Colégio Baby Avançar. Sua voz é calorosa, acolhedora, prestativa, transparente e highly informative. O objetivo é construir confiança e facilitar a jornada dos pais.
+const identityContent = `Você é o Agente Avançar, o assistente virtual do Colégio Baby Avançar.
 
-**REGRAS DE OURO:**
-1.  **SEJA DIRETO E PROATIVO:** Responda à pergunta do usuário de forma objetiva primeiro. Depois, antecipe a próxima dúvida lógica e ofereça informações relacionadas. Ex: Se perguntarem da mensalidade, responda o valor e já mencione as atividades extras, perguntando se o usuário quer saber mais.
-2.  **USE APENAS O CONHECIMENTO FORNECIDO:** Sua base de respostas é estritamente o documento "BASE DE CONHECIMENTO".
-3.  **NÃO INVENTE NADA:** Se a resposta não estiver na base de conhecimento, diga que não possui a informação e direcione para o WhatsApp oficial: (85) 9 9970-1822.
-4.  **DIRECIONE QUANDO NECESSÁRIO:** Para ações decisivas como "Quero matricular agora", direcione o usuário para o WhatsApp, explicando que lá o atendimento é personalizado para esses trâmites.
-5.  **SEMPRE CONVIDE PARA A PRÓXIMA AÇÃO:** Quando pertinente, termine a resposta com um convite para agendar uma visita ou tirar mais dúvidas no WhatsApp.`;
+**Sua Personalidade:** Você é uma pessoa real, a secretária da escola. Você é extremamente prestativa, paciente, e tem um tom de voz caloroso e amigável. Você está aqui para ajudar os pais a encontrar as informações que precisam, e para fazer isso de uma forma que os deixe sentindo-se acolhidos e seguros.
+
+**Sua Missão:** Ter uma conversa natural e fluida com os pais. Ajude-os a tirar todas as suas dúvidas, uma de cada vez, de forma clara e concisa.
+
+**Como você conversa:**
+
+*   **Seja uma pessoa, não um robô:** Não use menus, listas numeradas, ou qualquer outra coisa que soe como um robô. Converse como se estivesse falando com alguém pessoalmente.
+*   **Foco no usuário:** Preste atenção ao que o usuário está perguntando e responda diretamente a essa pergunta.
+*   **Um passo de cada vez:** Não sobrecarregue o usuário com informações. Responda a uma pergunta de cada vez.
+*   **Mantenha a conversa viva:** Após responder, faça uma pergunta aberta e natural para ver se o usuário tem mais alguma dúvida. Use frases como "Isso ajuda?", "O que mais você gostaria de saber?", ou "Posso te ajudar com mais alguma coisa?".
+*   **Resolva, não redirecione:** Seu objetivo é resolver todas as dúvidas do usuário. Só redirecione para o WhatsApp se o usuário pedir para falar com um atendente ou se ele quiser iniciar o processo de matrícula.
+
+**O mais importante:** Sua prioridade número um é a experiência do usuário. Faça com que cada interação seja positiva, útil e humana.`;
 
 // BASE DE CONHECIMENTO COMPLETA
 const responsesContent = `# BASE DE CONHECIMENTO - COLÉGIO BABY AVANÇAR
@@ -44,9 +51,12 @@ const responsesContent = `# BASE DE CONHECIMENTO - COLÉGIO BABY AVANÇAR
 - **Registro no MEC:** A autorização e supervisão são feitas pela Secretaria Municipal de Educação de Fortaleza (SME Fortaleza), com a qual a escola está em total conformidade.
 
 ## 2. PROPOSTA DE ENSINO
-- **Níveis:** Da Educação Infantil II (2 anos) ao 5º ano do Fundamental.
-- **Expansão:** Planejamento para atender todo o Ensino Fundamental (até o 9º ano) até 2026.
-- **Mensalidade:** R$ 260,00.
+- **Níveis:** Da Educação Infantil II (2 anos) ao 5º ano do Ensino Fundamental.
+- **Valor Ano Corrente (2025):**
+    - **Educação Infantil:** R$ 280,00
+- **Valores para 2026:**
+    - **Educação Infantil:** R$ 300,00 (R$ 280,00 para pagamento até o vencimento).
+    - **Ensino Fundamental (1º ao 5º ano):** R$ 320,00 (R$ 300,00 para pagamento até o vencimento).
 - **Educação Infantil (II ao V):** Foco no desenvolvimento integral com atividades lúdicas. Infantil II (2-3 anos), III (3-4), IV (4-5), V (5-6).
 - **Ensino Fundamental (1º ao 5º):** Foco no aprendizado significativo e desenvolvimento de competências. 1º ano (6-7 anos), 2º (7-8), 3º (8-9), 4º (9-10), 5º (10-11).
 
@@ -69,13 +79,13 @@ const responsesContent = `# BASE DE CONHECIMENTO - COLÉGIO BABY AVANÇAR
 - **Especial de Quarta:** Salada de Frutas por R$ 5,00.
 
 ## 6. CONTATO E AÇÕES
-- **WhatsApp Oficial:** (85) 9 9970-1822 (para dúvidas, matrículas e agendamento de visitas).
+- **WhatsApp Oficial:** <a href="https://wa.me/5585999701822" target="_blank">(85) 9 9970-1822</a> (para dúvidas, matrículas e agendamento de visitas).
 - **Redes Sociais:** @colegiobabyavancar_oficial`;
 
 async function generateAiResponse(message) {
   try {
     const completion = await openai.chat.completions.create({
-      model: 'gpt-4o', // MUDANÇA ESTRATÉGICA: Usando um modelo mais avançado para maior precisão.
+      model: 'gpt-4o',
       messages: [
         { role: 'system', content: identityContent },
         { role: 'user', content: `Use estritamente a "BASE DE CONHECIMENTO" a seguir para responder a pergunta do usuário.
@@ -86,7 +96,7 @@ ${responsesContent}
 
 **Pergunta do usuário:** "${message}"` },
       ],
-      temperature: 0.4, // Temperatura mais baixa para respostas mais consistentes e factuais.
+      temperature: 0.4,
       max_tokens: 500,
     });
     return completion.choices[0].message.content.trim();
@@ -102,7 +112,7 @@ ${responsesContent}
 async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-control-allow-headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Método não permitido' });
@@ -121,7 +131,7 @@ async function handler(req, res) {
 
   } catch (error) {
     console.error("❌ ERRO FATAL NO HANDLER:", error.message);
-    const fallbackResponse = `Ops! Um erro interno ocorreu. 😥 Nossa equipe técnica já foi notificada. Por favor, tente mais tarde ou contate-nos pelo WhatsApp: (85) 99970-1822.`;
+    const fallbackResponse = `Ops! Um erro interno ocorreu. 😥 Nossa equipe técnica já foi notificada. Por favor, tente mais tarde ou contate-nos pelo WhatsApp: <a href="https://wa.me/5585999701822" target="_blank">(85) 9 9970-1822</a>.`;
     return res.status(500).json({ response: fallbackResponse, fallback: true });
   }
 }

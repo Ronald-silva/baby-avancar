@@ -638,7 +638,7 @@
                     <h3>WhatsApp</h3>
                   </div>
                   <div class="contact-card-content">
-                    <p class="contact-number">(85) 9 9970-1822</p>
+                    <p class="contact-number"><a href="https://wa.me/5585999701822" target="_blank">(85) 9 9970-1822</a></p>
                     <p class="contact-description">
                       Atendimento rápido para dúvidas, matrículas e agendamento
                       de visitas
@@ -923,19 +923,19 @@
           <div class="quick-actions">
             <button
               class="quick-action-btn"
-              onclick="sendMessage('Quero saber sobre matrícula e valores')"
+              onclick="event.stopPropagation(); sendMessage('Quero saber sobre matrícula e valores')"
             >
               💰 Matrícula
             </button>
             <button
               class="quick-action-btn secondary"
-              onclick="sendMessage('Como funciona a metodologia de vocês?')"
+              onclick="event.stopPropagation(); sendMessage('Como funciona a metodologia de vocês?')"
             >
               📚 Metodologia
             </button>
             <button
               class="quick-action-btn secondary"
-              onclick="sendMessage('Quais eventos vocês têm?')"
+              onclick="event.stopPropagation(); sendMessage('Quais eventos vocês têm?')"
             >
               🎉 Eventos
             </button>

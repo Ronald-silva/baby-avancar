@@ -14,7 +14,7 @@ require('dotenv').config();
 // Importar a função da API (simulando Vercel)
 const chatHandler = require('./api/chat.js');
 
-const PORT = 3001;
+const PORT = 3002;
 
 // Tipos MIME para servir arquivos estáticos
 const mimeTypes = {
@@ -129,8 +129,6 @@ server.listen(PORT, () => {
   console.log(`📱 Teste o chatbot em: http://localhost:${PORT}`);
   console.log(`🔧 API endpoint: http://localhost:${PORT}/api/chat`);
   console.log(`\n🔑 Variáveis de ambiente:`);
-  console.log(`   CHAVE_API_DO_ROTEADOR_OPEN: ${process.env.CHAVE_API_DO_ROTEADOR_OPEN ? '✅ Configurada' : '❌ Não encontrada'}`);
-  console.log(`   OPENROUTER_API_KEY: ${process.env.OPENROUTER_API_KEY ? '✅ Configurada' : '❌ Não encontrada'}`);
   console.log(`   OPENAI_API_KEY: ${process.env.OPENAI_API_KEY ? '✅ Configurada' : '❌ Não encontrada'}`);
   console.log(`\n💡 Para parar o servidor: Ctrl+C`);
 });

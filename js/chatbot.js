@@ -6,9 +6,10 @@
 /**
  * Envia a mensagem do usuário para a API do chatbot e retorna a resposta.
  * @param {string} message A mensagem do usuário.
+ * @param {string} sessionId ID da sessão para manter contexto.
  * @returns {Promise<string>} A resposta do bot.
  */
-async function getBotResponse(message) {
+async function getBotResponse(message, sessionId = null) {
   try {
     console.log(`Enviando para API: "${message}"`);
 
@@ -17,7 +18,7 @@ async function getBotResponse(message) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ message }),
+      body: JSON.stringify({ message, sessionId }),
     });
 
     if (!response.ok) {

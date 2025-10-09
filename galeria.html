@@ -130,6 +130,12 @@
               </a>
             </li>
             <li class="nav-item" role="none">
+              <a href="servicos-assessoria.html" class="nav-link" role="menuitem">
+                <i class="fas fa-handshake" aria-hidden="true"></i>
+                <span>Assessoria</span>
+              </a>
+            </li>
+            <li class="nav-item" role="none">
               <a href="cursos-extras.html" class="nav-link" role="menuitem">
                 <i class="fas fa-star" aria-hidden="true"></i>
                 <span>Cursos Extras</span>
@@ -1267,44 +1273,9 @@
     <script src="js/performance-optimizer.js"></script>
 
     <!-- Service Worker Registration -->
-    <script>
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
-          navigator.serviceWorker
-            .register("/js/service-worker.js")
-            .then((registration) => {
-              console.log("SW registered: ", registration);
-            })
-            .catch((registrationError) => {
-              console.log("SW registration failed: ", registrationError);
-            });
-        });
-      }
-    </script>
-
-    <!-- Script específico para animações da galeria -->
-    <script>
-      // Garantir que as animações fade-in funcionem na galeria
-      document.addEventListener("DOMContentLoaded", function () {
-        // Observer para animações fade-in
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: "0px 0px -50px 0px",
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-            }
-          });
-        }, observerOptions);
-
-        // Aplicar observer a todos os elementos fade-in da galeria
-        document.querySelectorAll(".fade-in").forEach((el) => {
-          observer.observe(el);
-        });
-      });
-    </script>
+    <script src="js/service-worker-init.js"></script>
+    
+    <!-- Gallery Animations -->
+    <script src="js/gallery-animations.js"></script>
   </body>
 </html>

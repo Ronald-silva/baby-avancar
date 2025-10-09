@@ -114,51 +114,26 @@ header {
   box-shadow: 0 6px 20px rgba(74, 144, 226, 0.3);
   overflow: hidden;
   position: relative;
-  transition: var(--transition-normal);
   padding: 4px;
 }
 
-.logo-icon::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent,
-    rgba(255, 255, 255, 0.1),
-    transparent
-  );
-  transform: rotate(45deg);
-  transition: all 0.6s ease;
-}
-
-.logo-icon:hover::before {
-  animation: shine 0.6s ease-in-out;
-}
-
-@keyframes shine {
-  0% {
-    transform: translateX(-100%) translateY(-100%) rotate(45deg);
-  }
-  100% {
-    transform: translateX(100%) translateY(100%) rotate(45deg);
-  }
-}
+/* Removidos efeitos ::before e animação shine que podem causar sobreposição */
 
 .logo-icon img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   border-radius: calc(var(--border-radius-md) - 4px);
-  transition: transform var(--transition-normal);
   background: white;
+  image-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  z-index: 3;
 }
 
 .logo-icon:hover img {
-  transform: scale(1.05);
+  /* Removido hover effect que pode causar blur */
 }
 
 .logo-icon i.logo-fallback {
@@ -173,24 +148,10 @@ header {
 
 .logo-link:hover .logo-icon {
   box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);
-  transform: translateY(-2px) scale(1.05);
+  /* Removido transform que pode causar blur */
 }
 
-.logo-icon::after {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  right: 2px;
-  bottom: 2px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.2),
-    rgba(255, 255, 255, 0.05)
-  );
-  border-radius: 13px;
-  pointer-events: none;
-}
+/* Removido ::after que estava causando sobreposição na logo */
 
 .logo-text {
   display: flex;

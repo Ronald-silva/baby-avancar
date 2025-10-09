@@ -19,6 +19,7 @@ Site institucional moderno e responsivo para o Colégio Baby Avançar, uma escol
    - No arquivo `index.html`, no atributo `action` do formulário
 
 ### Configuração Atual
+
 - **Endpoint temporário**: `https://formspree.io/f/xdkogqpv`
 - **Email de destino**: `colegiobabyavancar@gmail.com`
 - **Método**: POST com JSON

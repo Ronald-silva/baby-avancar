@@ -3,7 +3,7 @@
 /* ===== HERO SECTION ===== */
 .hero {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #4a90e2 100%);
+  background: var(--gradient-primary);
   display: flex;
   align-items: center;
   justify-content: center;

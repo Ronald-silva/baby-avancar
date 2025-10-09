@@ -130,7 +130,12 @@
     <a href="#main-content" class="skip-nav">Pular para o conteúdo principal</a>
 
     <header role="banner">
-      <nav id="navigation" class="navbar" role="navigation" aria-label="Menu principal">
+      <nav
+        id="navigation"
+        class="navbar"
+        role="navigation"
+        aria-label="Menu principal"
+      >
         <div class="nav-container">
           <div class="nav-logo">
             <a href="index.html" class="logo-link">
@@ -140,9 +145,7 @@
                   alt="Colégio Baby Avançar"
                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
                 />
-                <i
-                  class="fas fa-graduation-cap logo-fallback"
-                ></i>
+                <i class="fas fa-graduation-cap logo-fallback"></i>
               </div>
               <div class="logo-text">
                 <span class="logo-main">Colégio</span>
@@ -153,11 +156,7 @@
 
           <ul class="nav-menu" role="menubar">
             <li class="nav-item" role="none">
-              <a
-                href="index.html#inicio"
-                class="nav-link"
-                role="menuitem"
-              >
+              <a href="index.html#inicio" class="nav-link" role="menuitem">
                 <i class="fas fa-home" aria-hidden="true"></i>
                 <span>Início</span>
               </a>
@@ -175,7 +174,22 @@
               </a>
             </li>
             <li class="nav-item" role="none">
-              <a href="cursos-extras.html" class="nav-link active" role="menuitem" aria-current="page">
+              <a
+                href="servicos-assessoria.html"
+                class="nav-link"
+                role="menuitem"
+              >
+                <i class="fas fa-handshake" aria-hidden="true"></i>
+                <span>Assessoria</span>
+              </a>
+            </li>
+            <li class="nav-item" role="none">
+              <a
+                href="cursos-extras.html"
+                class="nav-link active"
+                role="menuitem"
+                aria-current="page"
+              >
                 <i class="fas fa-star" aria-hidden="true"></i>
                 <span>Cursos Extras</span>
               </a>
@@ -676,20 +690,8 @@
     <script src="js/analytics.js"></script>
     <script src="js/accessibility.js"></script>
     <script src="js/performance-optimizer.js"></script>
-    
+
     <!-- Service Worker Registration -->
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/js/service-worker.js')
-            .then(registration => {
-              console.log('SW registered: ', registration);
-            })
-            .catch(registrationError => {
-              console.log('SW registration failed: ', registrationError);
-            });
-        });
-      }
-    </script>
+    <script src="js/service-worker-init.js"></script>
   </body>
 </html>

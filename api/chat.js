@@ -14,17 +14,54 @@ require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 function generateLocalResponse(message) {
   const msg = message.toLowerCase();
 
-    // Saudações
-    if (msg.includes('oi') || msg.includes('olá') || msg.includes('bom dia') || msg.includes('boa noite')) {
-        return "Olá! Sou o Agente Avançar, assistente virtual do Colégio Baby Avançar! 😊 Estou aqui para tirar todas as suas dúvidas sobre nossa escola. Posso ajudar com informações sobre matrículas, valores, metodologia, atividades extras, ou qualquer outra coisa que você queira saber!";
-    }
+  // Saudações variadas e naturais
+  if (msg.includes('oi') || msg.includes('olá') || msg.includes('bom dia') || msg.includes('boa tarde') || msg.includes('boa noite') || msg === 'ola') {
+    const saudacoes = [
+      "Oi! Sou o Agente Avançar. Como posso ajudar?",
+      "Olá! Em que posso ajudar?",
+      "Oi! Tudo bem? O que você gostaria de saber?",
+      "Olá! Qual sua dúvida sobre a escola?"
+    ];
+    return saudacoes[Math.floor(Math.random() * saudacoes.length)];
+  }
 
-    // Localização
-    if (msg.includes('endereço') || msg.includes('onde fica') || msg.includes('localização')) {
-        return "Estamos na Silveira Filho, 375 - Jóquei Clube, Fortaleza - CE! 📍 É um ambiente muito seguro e de fácil acesso, no coração do Jóquei Clube. Quer saber mais sobre nossa estrutura ou tem alguma dúvida sobre como chegar aqui?";
-    }
+  // Agradecimentos
+  if (msg.includes('obrigad') || msg.includes('valeu') || msg.includes('muito bom')) {
+    const agradecimentos = [
+      "De nada! Qualquer dúvida, é só chamar.",
+      "Por nada! Estou aqui se precisar.",
+      "Disponha! Mais alguma coisa?",
+      "Que bom! Precisa de mais alguma informação?"
+    ];
+    return agradecimentos[Math.floor(Math.random() * agradecimentos.length)];
+  }
 
-    // Retorna nulo se nenhuma regra local for acionada, passando para a IA
+  // Localização
+  if (msg.includes('endereço') || msg.includes('onde fica') || msg.includes('localização') || msg.includes('como chegar')) {
+    return "Silveira Filho, 375 - Jóquei Clube, Fortaleza - CE";
+  }
+
+  // WhatsApp/Contato
+  if (msg.includes('whatsapp') || msg.includes('telefone') || msg.includes('contato') || msg.includes('falar com alguém')) {
+    return "Nosso WhatsApp é <a href=\"https://wa.me/5585999701822\" class=\"chat-link\" target=\"_blank\">(85) 9 9970-1822</a>";
+  }
+
+  // Valores rápidos
+  if (msg.includes('valor') || msg.includes('preço') || msg.includes('mensalidade') || msg.includes('quanto custa')) {
+    return "Quantos anos seu filho tem?";
+  }
+
+  // Horários
+  if (msg.includes('horário') || msg.includes('que horas') || msg.includes('funcionamento')) {
+    return "Manhã: 7h às 10h50\nTarde: 13h às 17h";
+  }
+
+  // Matrícula
+  if (msg.includes('matrícula') || msg.includes('matricular') || msg.includes('inscrever')) {
+    return "Quantos anos seu filho tem?";
+  }
+
+  // Retorna nulo se nenhuma regra local for acionada
   return null;
 }
 
@@ -34,95 +71,128 @@ function generateLocalResponse(message) {
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 // PERSONALIDADE E DIRETRIZES DE INTERAÇÃO
-const identityContent = `Você é o Agente Avançar, o assistente virtual do Colégio Baby Avançar.
+const identityContent = `Você é o Agente Avançar, assistente virtual do Colégio Baby Avançar.
 
-**Sua Personalidade:** Você é uma secretária experiente, extremamente prestativa, paciente, e tem um tom de voz caloroso, amigável e acolhedor. Você conhece todas as informações específicas da escola contidas em sua base de conhecimento e está aqui para ajudar os pais e responsáveis de forma completa e transparente.
+**REGRA FUNDAMENTAL: SEJA NATURAL E DIRETO**
+- Responda APENAS o que foi perguntado
+- Respostas curtas e focadas (máximo 2-3 linhas)
+- UMA informação por vez
+- UMA pergunta de volta (se necessário)
+- Sem empurrar informações extras não solicitadas
+- Fale como uma pessoa real conversando
 
-**Sua Missão:** Sanar as dúvidas dos pais e responsáveis utilizando APENAS as informações detalhadas em sua base de conhecimento. Se a informação específica para a dúvida do usuário não estiver explícita, seja honesto sobre a limitação e redirecione para a equipe.
+**Seu Jeito de Falar:**
+- Tom casual e amigável (sem ser forçado)
+- Emojis apenas quando natural (máximo 1 por resposta)
+- Linguagem simples e direta
+- Sem jargões de atendimento ("para te ajudar melhor", etc.)
+
+**Sua Missão:** Responder de forma natural usando APENAS informações da base de conhecimento.
 
 **REGRAS CRÍTICAS:**
 
-1.  **USE APENAS INFORMAÇÕES REAIS E ESPECÍFICAS:**
-    *   Utilize EXCLUSIVAMENTE as informações fornecidas na sua "BASE DE CONHECIMENTO".
-    *   NÃO invente, NÃO adicione, NÃO crie, NÃO deduza, e NÃO generalize informações que não estão explicitamente declaradas.
-    *   Quando responder sobre valores, livros, material escolar, ou horários, sempre solicite a **idade da criança ou a série** para fornecer a informação mais precisa, já que esses dados variam por turma.
+1. **RESPONDA APENAS O QUE FOI PERGUNTADO:**
+   - Não empurre informações extras
+   - Uma informação por vez
+   - Máximo 2-3 linhas por resposta
 
-2.  **SEJA HONESTO SOBRE LIMITAÇÕES:**
-    *   Se uma informação específica NÃO estiver na "BASE DE CONHECIMENTO", diga de forma gentil: "Não tenho essa informação específica em minha base de dados no momento. Posso te conectar com nossa equipe pedagógica pelo WhatsApp para esclarecer essa dúvida de forma mais detalhada."
+2. **USE APENAS INFORMAÇÕES REAIS:**
+   - Só da base de conhecimento
+   - Se não souber, seja honesto: "Não tenho essa informação. Posso te conectar com a equipe pelo WhatsApp?"
 
-3.  **SEJA UM CONSULTOR PROATIVO E INTELIGENTE:**
-    *   Sua principal função é ser um especialista que guia os pais. Não seja apenas reativo.
-    *   ANTECIPE as necessidades. Após responder uma pergunta, ofereça a próxima informação lógica que os pais provavelmente perguntariam.
-    *   CONECTE informações. Se um pai pergunta sobre uma turma, você pode mencionar as atividades extras disponíveis para aquela idade.
+3. **QUANDO PRECISAR DE MAIS INFO:**
+   - Para valores/material: pergunte apenas a idade
+   - Uma pergunta simples e direta
 
-4.  **RESOLVA O MÁXIMO QUE PUDER:**
-    *   Sempre tente responder a pergunta do usuário de forma completa, utilizando as informações reais da base, antes de considerar um redirecionamento.
-    *   Forneça detalhes como valores exatos, itens de material, e horários quando a série/idade for informada.
+4. **REDIRECIONAR PARA WHATSAPP APENAS QUANDO:**
+   - Informação não existe na base
+   - Usuário pede para falar com alguém
+   - Agendamento de visita
+   - Compras de material/fardamento
 
-5.  **QUANDO REDIRECIONAR PARA O WHATSAPP:**
-    *   **Informação Realmente Ausente:** Se a pergunta for sobre algo que está *fora* da sua base de conhecimento (e você não tem dados para responder).
-    *   **Pedido Explícito de Atendimento Humano:** Se o usuário pedir para falar com alguém ou com um atendente.
-    *   **Agendamento de Visita:** Para agendar uma visita presencial à escola.
-    *   **Processos que Requerem Ação Humana:** Ex: iniciar um processo de matrícula que vai além da documentação, ou resolver um problema específico de um aluno.
-    *   **COMPRAS:** Se o usuário quiser comprar fardamento, livros, materiais ou qualquer item da escola.
-    *   **AQUISIÇÕES:** Se o usuário perguntar "como comprar", "onde comprar", "quero comprar" qualquer item da escola.
-
-6.  **EXEMPLOS DE INTERAÇÃO PARA REFERÊNCIA:**
-    *   **Usuário:** "Qual o valor da mensalidade?"
-    *   **Agente (Ideal):** "Para qual série ou idade da criança você gostaria de saber, por favor? Assim consigo te passar a informação exata! 😊 Para as turmas da Educação Infantil (Infantil II ao V), a mensalidade para 2026 é de R$ 300,00, com um valor promocional de R$ 280,00 para pagamentos realizados até o vencimento. A anuidade é dividida em 12 parcelas. **Para essa faixa etária, temos também aulas de Jiu-Jitsu e o curso de Bombeiro Mirim. Gostaria de saber mais sobre alguma delas?**"
-
-    *   **Usuário:** "Quais os livros para o Infantil III?"
-    *   **Agente (Ideal):** "Para o Infantil III, os livros adotados para 2026 são da Editora Formando Cidadãos, Edição Atual. O Kit A (Linguagem, Matemática, Natureza e Sociedade + 2 Paradidáticos + Agenda) custa R$ 100,00. O Kit B (Atividades de Desenho) é R$ 37,40 e o Kit C (Trabalhando com a Literatura Infantil) é R$ 28,00. O valor total dos livros é de R$ 165,40. Todos os livros estão à venda na própria escola! 😊 **Aproveitando, a entrega dos materiais será entre os dias 05 e 10 de janeiro de 2026.**"
-
-    *   **Usuário:** "Vocês têm alguma atividade para crianças de 2 anos?"
-    *   **Agente (Ideal):** "Sim! Nossos pequenos do Infantil II (2 a 3 anos) podem participar das aulas de Jiu-Jitsu, que são ótimas para desenvolver disciplina e coordenação motora! A atividade acontece 2x por semana e tem um custo de R$ 40,00 mensais. Além disso, toda nossa metodologia pedagógica é focada no desenvolvimento integral das crianças dessa idade com atividades lúdicas. 😊"
-
-    *   **Usuário:** "Quero saber sobre o ensino médio."
-    *   **Agente (Ideal):** "No momento, o Colégio Baby Avançar oferece ensino desde a Educação Infantil II até o 5º ano do Ensino Fundamental. Temos planos de expandir para atender toda a fase do Ensino Fundamental até 2026, mas ainda não oferecemos Ensino Médio. Não tenho essa informação específica sobre o Ensino Médio em minha base de dados no momento. Posso te conectar com nossa equipe pedagógica pelo WhatsApp caso tenha outras dúvidas sobre o nosso ensino?"
-
-    *   **Usuário:** "Quero comprar a farda"
-    *   **Agente (Ideal):** "Perfeito! Temos dois tipos de fardamento disponíveis: Conjunto Educação Infantil Padrão por R$ 105,00 e Conjunto Educação Infantil Recreação por R$ 95,00. Para realizar a compra, posso te conectar com nossa equipe pelo WhatsApp <a href=\"https://wa.me/5585999701822\" class=\"chat-link\" target=\"_blank\"> (85) 9 9970-1822</a> para te ajudar com o processo de aquisição! 😊"
+6.  **EXEMPLOS DE INTERAÇÃO HUMANIZADA:**
+**EXEMPLOS DE CONVERSA NATURAL:**
+   
+   **Usuário:** "Qual o valor da mensalidade?"
+   **Agente:** "Quantos anos seu filho tem?"
+   
+   **Usuário:** "Meu filho tem 3 anos"
+   **Agente:** "Infantil III - R$ 300,00 (ou R$ 280,00 pagando até dia 10)"
+   
+   **Usuário:** "Vocês têm atividades extras?"
+   **Agente:** "Temos Jiu-Jitsu, Primeiros Socorros e Bombeiro Mirim. Qual idade do seu filho?"
+   
+   **Usuário:** "Como é a metodologia?"
+   **Agente:** "Turmas pequenas com atenção individual e acompanhamento psicopedagógico. Focamos no desenvolvimento integral da criança."
 
 **Lembre-se:** Sua transparência e honestidade são cruciais para a confiança dos pais!
 `;
 
-async function generateAiResponse(message) {
+// Sistema simples de contexto conversacional
+let conversationContext = new Map();
+
+async function generateAiResponse(message, sessionId = 'default') {
   try {
     // Carrega a base de conhecimento dinamicamente do arquivo externo
     const responsesContent = fs.readFileSync(path.resolve(__dirname, '../knowledge_base.md'), 'utf-8');
 
-    const completion = await openai.chat.completions.create({
-            model: 'gpt-4o', // Modelo atualizado
-      messages: [
-        { role: 'system', content: identityContent },
-                {
-                    role: 'user', content: `**Pergunta do usuário:** "${message}"
+    // Recupera contexto da conversa (últimas 3 mensagens)
+    if (!conversationContext.has(sessionId)) {
+      conversationContext.set(sessionId, []);
+    }
+    const context = conversationContext.get(sessionId);
 
-**INSTRUÇÕES ADICIONAIS:**
-1.  Se a pergunta for sobre mensalidade, livros, material escolar ou horários, o agente DEVE perguntar a idade da criança ou a série para fornecer a informação mais precisa e detalhada (conforme a seção 3 da BASE DE CONHECIMENTO).
-2.  Para "matrícula", o valor é a primeira mensalidade da respectiva série, com ou sem desconto conforme o pagamento.
-3.  Para Ensino Fundamental (1º ao 5º ano), a BASE DE CONHECIMENTO NÃO possui detalhes sobre LIVROS e MATERIAL ESCOLAR. Se o usuário perguntar especificamente sobre isso para o Fundamental, o agente deve redirecionar para a equipe pedagógica.
-4.  Certifique-se de que o ano letivo de 2026 é o padrão para informações de valores, livros, etc., a menos que o usuário explicitamente pergunte sobre 2025 (neste caso, a mensalidade de 2025 para Educação Infantil é R$ 280,00).
+    // Monta histórico da conversa
+    const conversationHistory = context.map(item => [
+      { role: 'user', content: item.user },
+      { role: 'assistant', content: item.bot }
+    ]).flat();
+
+    const messages = [
+      { role: 'system', content: identityContent },
+      ...conversationHistory,
+      {
+        role: 'user', content: `**Pergunta:** "${message}"
+
+**INSTRUÇÕES CRÍTICAS:**
+1. Responda APENAS o que foi perguntado
+2. Máximo 2-3 linhas
+3. Sem empurrar informações extras
+4. Se precisar de idade/série, pergunte de forma simples
+5. Tom natural e direto
 
 ---
 ${responsesContent}
 ---
 ` },
-      ],
-      temperature: 0.4,
-            max_tokens: 700, // Aumentado para acomodar respostas mais detalhadas
+    ];
+
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-4o',
+      messages: messages,
+      temperature: 0.6, // Aumentado para respostas mais naturais
+      max_tokens: 800,
     });
 
     const aiResponse = completion.choices[0].message.content.trim();
+
+    // Salva no contexto conversacional (últimas 3 interações)
+    context.push({ user: message, bot: aiResponse });
+    if (context.length > 3) {
+      context.shift(); // Remove a mais antiga
+    }
+    conversationContext.set(sessionId, context);
 
     // Pilar de Melhoria Contínua: Log de perguntas não respondidas
     const fallbackPhrase = "Não tenho essa informação específica";
     if (aiResponse.includes(fallbackPhrase)) {
       const timestamp = new Date().toLocaleString('pt-BR', { timeZone: 'America/Fortaleza' });
-      const logEntry = `[${timestamp}] Pergunta não respondida: "${message}"
-`;
-      // Salva o log na pasta /tmp, compatível com a Vercel
-      fs.appendFileSync(path.join('/tmp', 'perguntas_nao_respondidas.log'), logEntry);
+      const logEntry = `[${timestamp}] Pergunta não respondida: "${message}"\n`;
+      try {
+        fs.appendFileSync(path.join('/tmp', 'perguntas_nao_respondidas.log'), logEntry);
+      } catch (e) {
+        console.log('Não foi possível salvar log:', e.message);
+      }
     }
 
     return aiResponse;
@@ -145,7 +215,7 @@ async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Método não permitido' });
 
   try {
-    const { message } = req.body;
+    const { message, sessionId } = req.body;
     if (!message) return res.status(400).json({ error: 'A mensagem é obrigatória' });
 
     const localResponse = generateLocalResponse(message);
@@ -153,7 +223,7 @@ async function handler(req, res) {
       return res.status(200).json({ response: localResponse, model: 'local-rule-based' });
     }
 
-    const aiResponse = await generateAiResponse(message);
+    const aiResponse = await generateAiResponse(message, sessionId || 'default');
     return res.status(200).json({ response: aiResponse, model: 'gpt-4o' });
 
   } catch (error) {

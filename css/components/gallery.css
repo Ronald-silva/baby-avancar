@@ -4,7 +4,7 @@
 
 /* HERO SECTION */
 .gallery-hero {
-  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  background: var(--gradient-primary);
   color: white;
   text-align: center;
   padding: 4rem 0;

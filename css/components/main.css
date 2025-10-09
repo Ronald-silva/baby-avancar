@@ -8,6 +8,7 @@
 @import 'reset.css';
 @import 'layout.css';
 @import 'utilities.css';
+@import 'global-standards.css';
 
 /* 2. Layout - Estrutura principal */
 @import 'header.css';
@@ -17,7 +18,10 @@
 @import 'hero.css';
 @import 'about.css';
 
-/* 4. TEMPORÁRIO - CSS restante (será organizado) */
+/* 4. Pages - Páginas específicas */
+@import 'assessoria.css';
+
+/* 5. TEMPORÁRIO - CSS restante (será organizado) */
 @import 'remaining-temp.css';
 
 /* 5. Components - Organizados */

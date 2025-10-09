@@ -6,6 +6,7 @@
 // Variáveis globais do chat
 let chatOpen = false;
 let messageCount = 0;
+let sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
 
 // Helper para simular atrasos
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -43,19 +44,26 @@ async function sendMessage(quickMsg) {
   showTypingIndicator();
   
   try {
-    // Chama a função que contata a API
-    const response = await getBotResponse(message);
+    // Chama a função que contata a API com contexto de sessão
+    const response = await getBotResponse(message, sessionId);
     
-    // Pilar de Humanização: Atraso de digitação dinâmico
-    const typingDelay = Math.min(Math.max(response.length * 15, 600), 3500);
-    await sleep(typingDelay);
+    // Pilar de Humanização: Atraso de digitação mais natural
+    const baseDelay = Math.min(Math.max(response.length * 12, 800), 3000);
+    const humanDelay = baseDelay + Math.random() * 500; // Adiciona variação humana
+    await sleep(humanDelay);
 
     hideTypingIndicator();
     addMessage(response, "bot");
 
   } catch (error) {
     hideTypingIndicator();
-    addMessage("Desculpe, um erro inesperado ocorreu. Por favor, tente mais tarde.", "bot");
+    const errorMessages = [
+      "Ops! Algo deu errado aqui... 😅 Pode tentar novamente?",
+      "Eita! Tive um probleminha técnico. Tenta de novo para mim?",
+      "Nossa, parece que tive uma falha. Pode repetir a pergunta? 🤔"
+    ];
+    const randomError = errorMessages[Math.floor(Math.random() * errorMessages.length)];
+    addMessage(randomError, "bot");
     console.error("Erro no fluxo de envio de mensagem:", error);
   }
 }
@@ -89,7 +97,18 @@ function showTypingIndicator() {
   const indicator = document.createElement("div");
   indicator.className = "message-bot typing-indicator";
   indicator.id = "typing-indicator";
-  indicator.innerHTML = "🤖 Agente Virtual Avançar está digitando...";
+  
+  // Mensagens de digitação mais humanizadas
+  const typingMessages = [
+    "💭 Pensando na melhor resposta para você...",
+    "✨ Organizando as informações...",
+    "📚 Consultando nossa base de dados...",
+    "💙 Preparando uma resposta completa...",
+    "🤔 Analisando sua pergunta..."
+  ];
+  
+  const randomMessage = typingMessages[Math.floor(Math.random() * typingMessages.length)];
+  indicator.innerHTML = randomMessage;
   
   container.appendChild(indicator);
   container.scrollTop = container.scrollHeight;
@@ -105,18 +124,18 @@ function hideTypingIndicator() {
 // Event listeners para funcionalidades da página
 document.addEventListener("DOMContentLoaded", function() {
 
-  // Pilar de Humanização: Saudações variadas
+  // Pilar de Humanização: Saudações variadas e naturais
   try {
     const greetings = [
-      "Olá! Sou o Agente Virtual Avançar! 🤖✨ Como posso ajudar sua família hoje?",
-      "Oi! Eu sou o Agente Avançar, especialista do Colégio Baby Avançar. Pronto para tirar suas dúvidas!",
-      "Bem-vindo(a) ao nosso canal de atendimento! Sou o Agente Avançar. O que você gostaria de saber?",
-      "Olá! Sou o assistente virtual do Colégio Baby Avançar. 😊 Estou aqui para te ajudar a encontrar todas as informações!"
+      "Oi! 😊 Sou o Agente Avançar! Que bom ter você aqui! Como posso ajudar sua família hoje?",
+      "Olá! 👋 Eu sou o Agente Avançar do Baby Avançar! Estou aqui para tirar todas as suas dúvidas!",
+      "Oi, tudo bem? 🌟 Sou o assistente virtual da escola! Vamos conversar sobre o futuro do seu pequeno?",
+      "Olá! 💙 Que alegria te receber aqui! Sou o Agente Avançar e adoro ajudar famílias como a sua!"
     ];
     const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
     const welcomeText = document.querySelector(".message-welcome p");
     if(welcomeText) {
-        welcomeText.innerHTML = `<strong>${randomGreeting}</strong><br />Estou aqui para ajudar sua família a descobrir o melhor caminho educacional!`;
+        welcomeText.innerHTML = `<strong>${randomGreeting}</strong><br />Pode me perguntar sobre matrículas, valores, atividades, metodologia... qualquer coisa! 😊`;
     }
   } catch (e) {
     console.error("Falha ao randomizar saudação:", e);

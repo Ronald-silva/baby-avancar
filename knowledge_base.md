@@ -98,10 +98,21 @@
 -   Declaração da série que cursou em 2025 (se aplicável)
 
 ## 5. DIFERENCIAIS
--   **Turmas Reduzidas:** Atendimento personalizado.
--   **Metodologia Inovadora:** Práticas pedagógicas modernas e eficazes.
--   **Localização Privilegiada:** No Jóquei Clube, ambiente seguro e acolhedor.
+
+### 5.1. EXCELÊNCIA EDUCACIONAL
+-   **Turmas Reduzidas:** Atendimento personalizado para cada aluno com acompanhamento individual.
+-   **Metodologia Inovadora:** Práticas pedagógicas modernas e eficazes baseadas no desenvolvimento integral.
+-   **Acompanhamento Psicopedagógico:** Suporte especializado para identificar e desenvolver o potencial de cada criança.
+
+### 5.2. INFRAESTRUTURA E LOCALIZAÇÃO
+-   **Localização Privilegiada:** Situada no Jóquei Clube, ambiente seguro, acolhedor e de fácil acesso.
+-   **Ambiente Seguro:** Instalações modernas com total segurança e conforto para as crianças.
 -   **Crescimento Planejado:** Expansão até 2026 para Ensino Fundamental completo.
+
+### 5.3. SERVIÇOS DE ASSESSORIA EDUCACIONAL
+-   **Assessoria Jurídica Educacional:** Suporte jurídico **exclusivamente para questões relacionadas ao ambiente escolar**: direitos educacionais, contratos de matrícula, legislação educacional e demais assuntos jurídicos ligados à vida escolar.
+-   **Assessoria Contábil Educacional:** Orientação contábil **específica para questões educacionais**: planejamento financeiro para educação, aproveitamento de benefícios fiscais educacionais, organização de orçamento escolar e investimentos em educação.
+-   **Foco Educacional:** Todos os serviços de assessoria são voltados exclusivamente para questões relacionadas à educação e vida escolar, não abrangendo outros assuntos pessoais ou comerciais.
 
 ## 6. ATIVIDADES EXTRACURRICULARES
 -   **Primeiros Socorros:**
@@ -131,7 +142,28 @@
 ## 8. DEPOIMENTOS (PARA HUMANIZAÇÃO)
 -   "A equipe pedagógica é excepcional! Eles realmente entendem cada criança individualmente e adaptam o ensino às necessidades específicas. A comunicação com os pais é constante e transparente. Recomendo muito!" - Fernanda Costa (Mãe da Sofia, 4 anos - Infantil IV).
 
-## 9. CONTATO E AÇÕES
--   **WhatsApp Oficial:** <a href="https://wa.me/5585999701822" class="chat-link" target="_blank">(85) 9 9970-1822</a> (principal canal para dúvidas, matrículas e agendamento de visitas).
+## 9. SERVIÇOS DE ASSESSORIA EDUCACIONAL
+
+### 9.1. ASSESSORIA JURÍDICA EDUCACIONAL
+-   **Especialidade:** Exclusivamente questões relacionadas ao ambiente escolar
+-   **Público:** Famílias da comunidade escolar
+-   **Áreas de Atuação:** Direitos educacionais, contratos de matrícula, legislação educacional, questões jurídicas escolares
+-   **Diferencial:** Expertise específica em direito educacional
+-   **Limitação:** Não atende questões jurídicas gerais, apenas relacionadas à educação
+-   **Contato:** Informações detalhadas via WhatsApp da escola
+
+### 9.2. ASSESSORIA CONTÁBIL EDUCACIONAL
+-   **Especialidade:** Orientação contábil específica para questões educacionais
+-   **Público:** Famílias da comunidade escolar
+-   **Áreas de Atuação:** Planejamento financeiro educacional, benefícios fiscais educacionais, orçamento escolar, investimentos em educação
+-   **Diferencial:** Foco exclusivo em finanças relacionadas à educação
+-   **Limitação:** Não atende questões contábeis gerais, apenas relacionadas à educação
+-   **Contato:** Informações detalhadas via WhatsApp da escola
+
+### 9.3. FILOSOFIA DOS SERVIÇOS
+O Colégio Baby Avançar oferece esses serviços especializados para apoiar as famílias especificamente em questões relacionadas à educação e vida escolar, garantindo que tenham o suporte necessário para navegar aspectos jurídicos e financeiros do ambiente educacional.
+
+## 10. CONTATO E AÇÕES
+-   **WhatsApp Oficial:** <a href="https://wa.me/5585999701822" class="chat-link" target="_blank">(85) 9 9970-1822</a> (principal canal para dúvidas, matrículas, agendamento de visitas e informações sobre assessorias).
 -   **Redes Sociais:** @colegiobabyavancar_oficial
--   **Visitas:** Agendamento para conhecer a estrutura e metodologia (preferencialmente via WhatsApp).
+-   **Visitas:** Agendamento para conhecer a estrutura, metodologia e serviços oferecidos (preferencialmente via WhatsApp).

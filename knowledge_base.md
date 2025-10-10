@@ -87,7 +87,16 @@
 -   **Observação:** Metodologia focada no aprendizado significativo e desenvolvimento de competências.
 -   **Livros e Material Escolar:** Não há listagem detalhada específica na base para o Ensino Fundamental. O Agente deve redirecionar.
 
-## 4. DOCUMENTAÇÃO PARA MATRÍCULA (PADRÃO PARA TODAS AS TURMAS)
+## 4. PROCESSO DE MATRÍCULA COMPLETO
+
+### 4.1. INFORMAÇÕES GERAIS SOBRE MATRÍCULA
+-   **Valor da Matrícula:** Igual ao valor da primeira mensalidade (varia por idade)
+-   **Vencimento:** Dia 10 de cada mês
+-   **Desconto:** Disponível para pagamento até o vencimento
+-   **Início das Aulas 2026:** 20 de janeiro de 2026
+-   **Entrega de Material:** 05/01/2026 a 10/01/2026
+
+### 4.2. DOCUMENTAÇÃO PARA MATRÍCULA (PADRÃO PARA TODAS AS TURMAS)
 -   01 Pasta escolar
 -   Cópia da certidão de nascimento da criança
 -   03 fotos 3 x 4
@@ -125,6 +134,9 @@
 -   **Reforço Escolar:**
     -   Público: Do Infantil IV ao 5º ano.
     -   Horários: 14h-16h e 16h-18h.
+    -   **Valores Mensais:**
+        -   Educação Infantil: R$ 170,00 (R$ 150,00 com desconto para pagamento até o vencimento).
+        -   Ensino Fundamental: R$ 200,00 (R$ 170,00 com desconto para pagamento até o vencimento).
     -   **Valores Mensais:**
         -   Educação Infantil: R$ 170,00 (R$ 150,00 com desconto para pagamento até o vencimento).
         -   Ensino Fundamental: R$ 200,00 (R$ 170,00 com desconto para pagamento até o vencimento).

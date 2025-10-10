@@ -14,7 +14,7 @@ require('dotenv').config();
 // Importar a função da API (simulando Vercel)
 const chatHandler = require('./api/chat.js');
 
-const PORT = 3002;
+const PORT = 3003;
 
 // Tipos MIME para servir arquivos estáticos
 const mimeTypes = {

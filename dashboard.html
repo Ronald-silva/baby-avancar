@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Agente Avançar</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+        
+        .metric-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid #4facfe;
+            transition: transform 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .metric-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .metric-label {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .status-good { color: #27ae60; }
+        .status-warning { color: #f39c12; }
+        .status-error { color: #e74c3c; }
+        
+        .chart-container {
+            padding: 30px;
+            background: #f8f9fa;
+        }
+        
+        .questions-list {
+            background: white;
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .question-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .question-text {
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .question-count {
+            background: #4facfe;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        .recommendations {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .recommendations h3 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+        
+        .recommendation-item {
+            background: white;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 3px solid #ffc107;
+        }
+        
+        .refresh-btn {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .refresh-btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <h1>🤖 Dashboard - Agente Avançar</h1>
+            <p>Monitoramento em tempo real da performance do chatbot</p>
+        </div>
+        
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value status-good" id="totalInteractions">0</div>
+                <div class="metric-label">Total de Interações</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-value status-good" id="cacheEfficiency">0%</div>
+                <div class="metric-label">Eficiência do Cache</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-value status-good" id="avgResponseTime">0ms</div>
+                <div class="metric-label">Tempo Médio de Resposta</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-value status-good" id="errorRate">0%</div>
+                <div class="metric-label">Taxa de Erro</div>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <h2>📊 Perguntas Mais Frequentes</h2>
+            <div class="questions-list" id="questionsList">
+                <!-- Preenchido dinamicamente -->
+            </div>
+            
+            <div class="recommendations" id="recommendations">
+                <h3>💡 Recomendações de Melhoria</h3>
+                <div id="recommendationsList">
+                    <!-- Preenchido dinamicamente -->
+                </div>
+            </div>
+            
+            <button class="refresh-btn" onclick="loadDashboardData()">
+                🔄 Atualizar Dados
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Simulação de dados - em produção, conectar com API real
+        function loadDashboardData() {
+            // Dados simulados baseados em métricas reais
+            const mockData = {
+                summary: {
+                    totalInteractions: Math.floor(Math.random() * 1000) + 500,
+                    cacheEfficiency: (Math.random() * 30 + 60).toFixed(1) + '%',
+                    averageResponseTime: Math.floor(Math.random() * 500 + 200) + 'ms',
+                    errorRate: (Math.random() * 2).toFixed(2) + '%'
+                },
+                topQuestions: [
+                    { question: "Qual o valor da mensalidade?", count: 45, percentage: "15.2%" },
+                    { question: "Onde vocês ficam?", count: 32, percentage: "10.8%" },
+                    { question: "Que atividades extras vocês têm?", count: 28, percentage: "9.4%" },
+                    { question: "A escola tem reforço?", count: 24, percentage: "8.1%" },
+                    { question: "Como faço matrícula?", count: 19, percentage: "6.4%" }
+                ],
+                recommendations: [
+                    "Cache está otimizado - performance excelente!",
+                    "Considere adicionar mais respostas rápidas para reforço escolar",
+                    "Tempo de resposta dentro do ideal (<500ms)"
+                ]
+            };
+            
+            updateDashboard(mockData);
+        }
+        
+        function updateDashboard(data) {
+            // Atualiza métricas
+            document.getElementById('totalInteractions').textContent = data.summary.totalInteractions;
+            document.getElementById('cacheEfficiency').textContent = data.summary.cacheEfficiency;
+            document.getElementById('avgResponseTime').textContent = data.summary.averageResponseTime;
+            document.getElementById('errorRate').textContent = data.summary.errorRate;
+            
+            // Atualiza status das métricas
+            updateMetricStatus('cacheEfficiency', parseFloat(data.summary.cacheEfficiency), 70, 50);
+            updateMetricStatus('avgResponseTime', parseFloat(data.summary.averageResponseTime), 300, 500);
+            updateMetricStatus('errorRate', parseFloat(data.summary.errorRate), 1, 3);
+            
+            // Atualiza lista de perguntas
+            const questionsList = document.getElementById('questionsList');
+            questionsList.innerHTML = '';
+            
+            data.topQuestions.forEach(q => {
+                const item = document.createElement('div');
+                item.className = 'question-item';
+                item.innerHTML = `
+                    <span class="question-text">${q.question}</span>
+                    <span class="question-count">${q.count} (${q.percentage})</span>
+                `;
+                questionsList.appendChild(item);
+            });
+            
+            // Atualiza recomendações
+            const recommendationsList = document.getElementById('recommendationsList');
+            recommendationsList.innerHTML = '';
+            
+            data.recommendations.forEach(rec => {
+                const item = document.createElement('div');
+                item.className = 'recommendation-item';
+                item.textContent = rec;
+                recommendationsList.appendChild(item);
+            });
+        }
+        
+        function updateMetricStatus(elementId, value, goodThreshold, warningThreshold) {
+            const element = document.getElementById(elementId);
+            element.className = element.className.replace(/status-\w+/, '');
+            
+            if (elementId === 'avgResponseTime' || elementId === 'errorRate') {
+                // Para estas métricas, menor é melhor
+                if (value <= goodThreshold) {
+                    element.classList.add('status-good');
+                } else if (value <= warningThreshold) {
+                    element.classList.add('status-warning');
+                } else {
+                    element.classList.add('status-error');
+                }
+            } else {
+                // Para estas métricas, maior é melhor
+                if (value >= goodThreshold) {
+                    element.classList.add('status-good');
+                } else if (value >= warningThreshold) {
+                    element.classList.add('status-warning');
+                } else {
+                    element.classList.add('status-error');
+                }
+            }
+        }
+        
+        // Carrega dados iniciais
+        loadDashboardData();
+        
+        // Atualização automática a cada 30 segundos
+        setInterval(loadDashboardData, 30000);
+    </script>
+</body>
+</html>

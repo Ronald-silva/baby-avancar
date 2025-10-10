@@ -33,7 +33,10 @@ class IntelligentCache {
       "Quantos anos seu filho tem?"
     );
 
-    // Removido - estava causando confusão de contexto
+    this.patterns.set(/^(\d+)( anos?)?$/i, (match) => {
+      const idade = parseInt(match[1]);
+      return this.getValueByAge(idade);
+    });
 
     this.patterns.set(/endereço|onde fica|localização/i, () => 
       "Silveira Filho, 375 - Jóquei Clube, Fortaleza - CE"
@@ -57,30 +60,6 @@ class IntelligentCache {
 
     this.patterns.set(/jiu.?jitsu|jiu.jitsu/i, () => 
       "Jiu-Jitsu: R$ 40/mês, terças e quintas das 17h às 18h, a partir de 2 anos. 🥋"
-    );
-
-    this.patterns.set(/valor.*bombeiro|bombeiro.*valor|quanto.*bombeiro/i, () => 
-      "Bombeiro Mirim: R$ 35/mês, quartas-feiras, apenas para alunos matriculados. 🚒"
-    );
-
-    this.patterns.set(/valor.*jiu|jiu.*valor|quanto.*jiu/i, () => 
-      "Jiu-Jitsu: R$ 40/mês, terças e quintas das 17h às 18h, a partir de 2 anos. 🥋"
-    );
-
-    this.patterns.set(/valor.*reforço|reforço.*valor|quanto.*reforço/i, () => 
-      "Reforço Escolar: Infantil (R$ 170/mês ou R$ 150 com desconto) | Fundamental (R$ 200/mês ou R$ 170 com desconto). Horários: 14h-16h e 16h-18h. 📚"
-    );
-
-    this.patterns.set(/matrícula|matricular|inscrever/i, () => 
-      "Para matrícula, você paga R$ 300,00 (valor fixo da primeira mensalidade). O desconto de R$ 280,00 é aplicado nas mensalidades seguintes quando pagas até o vencimento. Quantos anos seu filho tem para eu dar mais detalhes?"
-    );
-
-    this.patterns.set(/informação.*matrícula|informações.*matrícula|sobre.*matrícula/i, () => 
-      "Para matrícula, você paga R$ 300,00 (valor fixo da primeira mensalidade). O desconto de R$ 280,00 é aplicado nas mensalidades seguintes quando pagas até o vencimento. Quantos anos seu filho tem para eu dar mais detalhes?"
-    );
-
-    this.patterns.set(/menu|cardápio|lanche.*menu|merenda.*menu/i, () => 
-      `📋 MENU TIA THESCA:\n\n🥤 BEBIDAS:\n• Suco 200ml: R$ 1,30\n• Nescau: R$ 2,20\n• Suco caixinha: R$ 2,00\n• Capo: R$ 2,60\n\n🍰 DOCES:\n• Bolinhos Zoo: R$ 2,50\n• Wafer: R$ 1,30\n• Biscoito Amori: R$ 2,50\n• Bolo Bauducco: R$ 2,00\n\n🥨 SALGADOS:\n• Cheetos: R$ 1,50\n• Fandangos: R$ 1,50\n\n🍽️ COMBOS R$ 6,00:\n• 5 Bolinhas + Suco\n• 4 Pastelzinhos + Suco\n• 3 Pães de Queijo + Suco\n\n🍎 QUARTA ESPECIAL:\n• Salada de Frutas: R$ 5,00`
     );
   }
 
@@ -189,18 +168,10 @@ REGRAS DE OURO:
 4. Para valores: sempre pergunte a idade primeiro
 5. NUNCA invente informações
 
-VALORES ESPECÍFICOS - NUNCA CONFUNDA:
-- MENSALIDADE ESCOLAR: R$ 300 (R$ 280 com desconto)
-- REFORÇO ESCOLAR: Infantil R$ 170 (R$ 150 com desconto) | Fundamental R$ 200 (R$ 170 com desconto)
-- JIU-JITSU: R$ 40/mês
-- BOMBEIRO MIRIM: R$ 35/mês
-- PRIMEIROS SOCORROS: Consulte equipe
-
-REGRAS CRÍTICAS:
-1. Se perguntarem sobre VALOR de atividade específica, responda APENAS o valor DESSA atividade!
-2. MATRÍCULA: Valor FIXO R$ 300 (primeira mensalidade). Desconto R$ 280 é só para mensalidades seguintes!
-3. Para REFORÇO de criança de 5 anos: é INFANTIL V, valor R$ 170 (R$ 150 com desconto)
-4. MENU: Use o menu completo da Tia Thesca da base de conhecimento
+CONTEXTO ESPECIAL - REFORÇO ESCOLAR:
+- Infantil (4-5 anos): R$ 170,00 (R$ 150,00 com desconto)
+- Fundamental (6+ anos): R$ 200,00 (R$ 170,00 com desconto)
+- Horários: 14h-16h e 16h-18h
 
 SEJA NATURAL E EFICIENTE!`;
 

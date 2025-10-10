@@ -61,7 +61,12 @@ function generateLocalResponse(message) {
     return "Quantos anos seu filho tem?";
   }
 
-  // Retorna nulo se nenhuma regra local for acionada
+  // Bombeiro Mirim específico
+  if (msg.includes('bombeiro mirim') || msg.includes('bombeiro')) {
+    return "Bombeiro Mirim: R$ 35/mês, quartas, apenas para alunos matriculados.";
+  }
+
+    // Retorna nulo se nenhuma regra local for acionada
   return null;
 }
 
@@ -91,33 +96,41 @@ const identityContent = `Você é o Agente Avançar, assistente virtual do Colé
 
 **REGRAS CRÍTICAS:**
 
-1. **RESPONDA APENAS O QUE FOI PERGUNTADO:**
-   - Não empurre informações extras
-   - Uma informação por vez
-   - Máximo 2-3 linhas por resposta
+1.  **RESPONDA APENAS O QUE FOI PERGUNTADO:**
+    -   Não empurre informações extras
+    -   Uma informação por vez
+    -   Máximo 2-3 linhas por resposta
 
-2. **USE APENAS INFORMAÇÕES REAIS:**
-   - Só da base de conhecimento
-   - Se não souber, seja honesto: "Não tenho essa informação. Posso te conectar com a equipe pelo WhatsApp?"
+2.  **USE APENAS INFORMAÇÕES REAIS:**
+    -   Só da base de conhecimento
+    -   Se não souber, seja honesto: "Não tenho essa informação. Posso te conectar com a equipe pelo WhatsApp?"
 
-3. **QUANDO PRECISAR DE MAIS INFO:**
-   - Para valores/material: pergunte apenas a idade
-   - Uma pergunta simples e direta
+3.  **QUANDO PRECISAR DE MAIS INFO:**
+    -   Para valores/material: pergunte apenas a idade
+    -   Uma pergunta simples e direta
 
-4. **REDIRECIONAR PARA WHATSAPP APENAS QUANDO:**
-   - Informação não existe na base
-   - Usuário pede para falar com alguém
-   - Agendamento de visita
-   - Compras de material/fardamento
+4.  **REDIRECIONAR PARA WHATSAPP APENAS QUANDO:**
+    -   Informação não existe na base
+    -   Usuário pede para falar com alguém
+    -   Agendamento de visita
+    -   Compras de material/fardamento
 
-6.  **EXEMPLOS DE INTERAÇÃO HUMANIZADA:**
+5.  **ENTENDA O CONTEXTO DA CONVERSA:** Se a sua última pergunta foi sobre a idade e o usuário responder apenas com um número (ex: "5"), entenda que esse número é a idade da criança e continue a conversa.
+
+**EXEMPLOS DE INTERAÇÃO HUMANIZADA:**
 **EXEMPLOS DE CONVERSA NATURAL:**
-   
+
    **Usuário:** "Qual o valor da mensalidade?"
    **Agente:** "Quantos anos seu filho tem?"
    
    **Usuário:** "Meu filho tem 3 anos"
    **Agente:** "Infantil III - R$ 300,00 (ou R$ 280,00 pagando até dia 10)"
+
+   **Usuário:** "qual o valor"
+   **Agente:** "para qual idade?"
+   
+   **Usuário:** "5"
+   **Agente:** "Para 5 anos, temos o Infantil V. A mensalidade é R$ 300,00 (ou R$ 280,00 pagando até o vencimento)."
    
    **Usuário:** "Vocês têm atividades extras?"
    **Agente:** "Temos Jiu-Jitsu, Primeiros Socorros e Bombeiro Mirim. Qual idade do seu filho?"
@@ -136,7 +149,7 @@ async function generateAiResponse(message, sessionId = 'default') {
     // Carrega a base de conhecimento dinamicamente do arquivo externo
     const responsesContent = fs.readFileSync(path.resolve(__dirname, '../knowledge_base.md'), 'utf-8');
 
-    // Recupera contexto da conversa (últimas 3 mensagens)
+    // Recupera contexto da conversa (últimas 2 mensagens para maior precisão)
     if (!conversationContext.has(sessionId)) {
       conversationContext.set(sessionId, []);
     }
@@ -158,8 +171,13 @@ async function generateAiResponse(message, sessionId = 'default') {
 1. Responda APENAS o que foi perguntado
 2. Máximo 2-3 linhas
 3. Sem empurrar informações extras
-4. Se precisar de idade/série, pergunte de forma simples
-5. Tom natural e direto
+4. Use EXATAMENTE as informações da base de conhecimento
+5. Se não tiver a informação específica, diga: "Não tenho essa informação. Posso te conectar com a equipe pelo WhatsApp?"
+
+**ATENÇÃO ESPECIAL:**
+- Bombeiro Mirim: R$ 35/mês, quartas, só para alunos matriculados
+- Lanche: Não temos menu detalhado na base, apenas preços gerais
+- Sempre confirme a informação na base antes de responder
 
 ---
 ${responsesContent}
@@ -176,9 +194,9 @@ ${responsesContent}
 
     const aiResponse = completion.choices[0].message.content.trim();
 
-    // Salva no contexto conversacional (últimas 3 interações)
+    // Salva no contexto conversacional (últimas 2 interações para evitar confusão)
     context.push({ user: message, bot: aiResponse });
-    if (context.length > 3) {
+    if (context.length > 2) {
       context.shift(); // Remove a mais antiga
     }
     conversationContext.set(sessionId, context);

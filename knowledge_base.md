@@ -133,11 +133,35 @@
     -   Frequência: 1x por semana (quartas).
     -   Custo: R$ 35,00/mês.
 
-## 7. LANCHE DA TIA THESCA
--   **Disponível:** Bebidas, doces, snacks e salgadinhos
--   **Preços:** De R$ 1,30 a R$ 2,60
--   **Combos:** 4 opções por R$ 6,00 cada
--   **Especial de Quarta:** Salada de Frutas por R$ 5,00
+## 7. LANCHES TIA THESCA
+
+### Bebidas
+-   **Suco no copo 200ml (goiaba, acerola, manga):** R$ 1,30
+-   **Caixa Nescau:** R$ 2,20
+-   **Caixinha de suco (goiaba, maracujá, uva):** R$ 2,00
+-   **Capo (caju, morango, laranja):** R$ 2,60
+
+### Doces & Snacks
+-   **Bolinhos Animado Zoo:** R$ 2,50
+-   **Wafer:** R$ 1,30
+-   **Biscoito Amori Chocolate:** R$ 2,50
+-   **Bolo Bauducco Duo:** R$ 2,00
+-   **Bolo de chocolate (fatia):** R$ 4,00
+-   **Biscoito Amori Pequeno:** R$ 1,25
+-   **Marujinho:** R$ 2,00
+
+### Salgadinhos
+-   **Cheetos Assado (Onda):** R$ 1,50
+-   **Fandangos Feito de Milho:** R$ 1,50
+
+### Combos Especiais (R$ 6,00 cada)
+-   5 Bolinhas Mistas + Copo de Suco
+-   4 Pastelzinhos de Frango + Copo de Suco
+-   3 Pães de Queijo + Suco
+-   Suco + Pão Misto (queijo muçarela e peito de peru)
+
+### Especial de Quarta-feira
+-   **Salada de Frutas (Banana, maçã, goiaba e uva | Copo 200ml):** R$ 5,00
 
 ## 8. DEPOIMENTOS (PARA HUMANIZAÇÃO)
 -   "A equipe pedagógica é excepcional! Eles realmente entendem cada criança individualmente e adaptam o ensino às necessidades específicas. A comunicação com os pais é constante e transparente. Recomendo muito!" - Fernanda Costa (Mãe da Sofia, 4 anos - Infantil IV).

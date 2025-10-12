@@ -4,26 +4,7 @@
 
 Site institucional moderno e responsivo para o Colégio Baby Avançar, uma escola de educação infantil e fundamental localizada no Jóquei Clube, Fortaleza-CE.
 
-## 📧 Configuração do Formulário de Contato
 
-### Formspree Setup (Recomendado para Vercel)
-
-1. **Acesse [formspree.io](https://formspree.io)**
-2. **Crie uma conta gratuita**
-3. **Crie um novo formulário:**
-   - Email de destino: `colegiobabyavancar@gmail.com`
-   - Nome do formulário: "Contato Colégio Baby Avançar"
-4. **Copie o endpoint gerado** (formato: `https://formspree.io/f/xxxxxxxx`)
-5. **Substitua no código:**
-   - No arquivo `js/script.js`, linha ~45: substitua `xdkogqpv` pelo seu ID
-   - No arquivo `index.html`, no atributo `action` do formulário
-
-### Configuração Atual
-
-- **Endpoint temporário**: `https://formspree.io/f/xdkogqpv`
-- **Email de destino**: `colegiobabyavancar@gmail.com`
-- **Método**: POST com JSON
-- **Domínio canônico**: `https://baby-avancar.vercel.app`
 
 ## ✨ Funcionalidades Principais
 
@@ -34,7 +15,7 @@ Site institucional moderno e responsivo para o Colégio Baby Avançar, uma escol
 - **Proposta de Ensino** com cards informativos
 - **Diferenciais** da instituição
 - **Seção de Depoimentos** com carrossel interativo
-- **Formulário de Contato** completo com validação
+- **Contato Direto** via WhatsApp e redes sociais
 - **Cards de Contato** com WhatsApp, localização e redes sociais
 
 ### 🖼️ Galeria (galeria.html)

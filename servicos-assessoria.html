@@ -565,63 +565,7 @@
             </p>
           </div>
 
-          <div class="contact-content">
-            <div class="contact-info-section fade-in">
-              <div class="contact-cards">
-                <div class="contact-card whatsapp-card">
-                  <div class="contact-card-header">
-                    <i class="fab fa-whatsapp"></i>
-                    <h3>WhatsApp Assessoria</h3>
-                  </div>
-                  <div class="contact-card-content">
-                    <p class="contact-number">
-                      <a
-                        href="https://wa.me/5585999701822?text=Gostaria de saber mais sobre a assessoria educacional do Colégio Baby Avançar"
-                        target="_blank"
-                      >
-                        (85) 9 9970-1822
-                      </a>
-                    </p>
-                    <p class="contact-description">
-                      Atendimento especializado para questões jurídicas e contábeis educacionais
-                    </p>
-                    <a
-                      href="https://wa.me/5585999701822?text=Gostaria de saber mais sobre a assessoria educacional do Colégio Baby Avançar"
-                      class="contact-btn whatsapp-btn"
-                      target="_blank"
-                    >
-                      <i class="fab fa-whatsapp"></i>
-                      Conversar sobre Assessoria
-                    </a>
-                  </div>
-                </div>
-
-                <div class="contact-card location-card">
-                  <div class="contact-card-header">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Atendimento Presencial</h3>
-                  </div>
-                  <div class="contact-card-content">
-                    <p class="contact-address">
-                      Silveira Filho, 375 - Jóquei Clube<br />
-                      Fortaleza - CE
-                    </p>
-                    <p class="contact-description">
-                      Consultas presenciais integradas ao ambiente escolar
-                    </p>
-                    <a
-                      href="https://www.google.com/maps/place/Col%C3%A9gio+Baby+Avan%C3%A7ar/@-3.7698812,-38.5754389,17z/data=!3m1!4b1!4m6!3m5!1s0x7c74ddbb534b0c1:0x15ab56a870ab817d!8m2!3d-3.7698812!4d-38.5754389!16s%2Fg%2F11vc58ksfn?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D"
-                      class="contact-btn location-btn"
-                      target="_blank"
-                    >
-                      <i class="fas fa-map-marker-alt"></i>
-                      Ver Localização
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </section>
     </main>
@@ -633,105 +577,10 @@
       </div>
     </footer>
 
-    <!-- Chatbot Profissional -->
-    <div
-      id="chatbot-button"
-      onclick="toggleChat()"
-      aria-label="Abrir chat do atendente virtual"
-    >
-      💬
-      <div class="chatbot-status" aria-hidden="true"></div>
-    </div>
 
-    <div
-      id="chatbot-container"
-      role="dialog"
-      aria-labelledby="chatbot-title"
-      aria-hidden="true"
-    >
-      <div class="chatbot-header">
-        <div class="chatbot-header-info">
-          <div class="chatbot-avatar" aria-hidden="true">🌅</div>
-          <div>
-            <h3 id="chatbot-title" class="chatbot-title">
-              Agente Virtual Avançar
-            </h3>
-            <p class="chatbot-subtitle">Baby Avançar</p>
-          </div>
-        </div>
-        <button
-          class="chatbot-close"
-          onclick="toggleChat()"
-          aria-label="Minimizar chat"
-        >
-          <i class="fas fa-chevron-down" aria-hidden="true"></i>
-        </button>
-      </div>
-
-      <div
-        id="chat-messages"
-        role="log"
-        aria-live="polite"
-        aria-label="Mensagens do chat"
-      >
-        <div class="message-welcome">
-          <p>
-            <strong>Olá! Sou o Agente Virtual Avançar! 🤖✨</strong><br />
-            Posso ajudar com informações sobre nossa assessoria educacional
-            especializada!
-          </p>
-
-          <div class="quick-actions">
-            <button
-              class="quick-action-btn"
-              onclick="event.stopPropagation(); sendMessage('Quero saber sobre assessoria jurídica educacional')"
-            >
-              ⚖️ Assessoria Jurídica
-            </button>
-            <button
-              class="quick-action-btn secondary"
-              onclick="event.stopPropagation(); sendMessage('Como funciona a assessoria contábil educacional?')"
-            >
-              📊 Assessoria Contábil
-            </button>
-            <button
-              class="quick-action-btn secondary"
-              onclick="event.stopPropagation(); sendMessage('Quais questões vocês atendem?')"
-            >
-              ❓ Escopo de Atendimento
-            </button>
-            <button
-              class="quick-action-btn secondary"
-              onclick="sendMessage('Preciso do contato de vocês')"
-            >
-              📞 Contato
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="chatbot-input">
-        <input
-          type="text"
-          id="chat-input"
-          placeholder="Digite sua mensagem..."
-          onkeypress="if(event.key==='Enter') sendMessage()"
-          aria-label="Digite sua mensagem"
-          autocomplete="off"
-        />
-        <button
-          class="send-button"
-          onclick="sendMessage()"
-          aria-label="Enviar mensagem"
-        >
-          ➤
-        </button>
-      </div>
-    </div>
 
     <script src="js/script.js"></script>
-    <script src="js/chatbot.js"></script>
-    <script src="js/chatbot-widget.js"></script>
+
     <script src="js/analytics.js"></script>
     <script src="js/accessibility.js"></script>
     <script src="js/performance-optimizer.js"></script>

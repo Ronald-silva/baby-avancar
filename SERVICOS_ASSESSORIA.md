@@ -67,9 +67,9 @@ O Colégio Baby Avançar expandiu seus serviços para se tornar um **ecossistema
    - Structured data (JSON-LD) implementado
    - Open Graph atualizado
 
-4. **Formulário de Contato Expandido**
-   - Novas opções para assessoria jurídica
-   - Opções para assessoria contábil
+4. **Contato Direto Expandido**
+   - Links diretos para WhatsApp com mensagens pré-definidas
+   - Contato específico para cada tipo de assessoria
    - Categoria "Serviços para Famílias"
 
 ### Elementos Visuais

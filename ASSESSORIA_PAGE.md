@@ -122,7 +122,7 @@ Nova página dedicada exclusivamente aos serviços de assessoria jurídica e con
 - Structured data para serviços
 - URLs amigáveis e canônicas
 
-## 🤖 Integração com Chatbot
+## 📱 Integração com WhatsApp
 
 ### **Mensagens Pré-Configuradas**
 
@@ -162,7 +162,7 @@ Nova página dedicada exclusivamente aos serviços de assessoria jurídica e con
 
 ### **Melhorias Futuras**
 
-- Formulário de pré-agendamento
+- Sistema de agendamento via WhatsApp
 - Chat específico para assessoria
 - Calculadora de benefícios fiscais educacionais
 - Blog com artigos sobre direito educacional
@@ -194,7 +194,7 @@ Geral:
 - [x] CSS específico com identidade visual mantida
 - [x] Navegação atualizada em todas as páginas
 - [x] SEO otimizado com meta tags específicas
-- [x] Chatbot integrado com quick actions
+- [x] WhatsApp integrado com quick actions
 - [x] Links de WhatsApp com mensagens pré-definidas
 - [x] Responsividade testada
 - [x] Acessibilidade implementada

@@ -1,22 +1,16 @@
 {
-  "name": "baby-avancar-chatbot",
+  "name": "baby-avancar-website",
   "version": "1.0.0",
-  "description": "Colégio Baby Avançar - Chatbot Inteligente",
-  "main": "test-server.js",
+  "description": "Colégio Baby Avançar - Site Institucional",
+  "main": "index.html",
   "scripts": {
-    "test": "node test-server.js",
-    "dev": "node test-server.js",
-    "start": "node test-server.js"
-  },
-  "dependencies": {
-    "dotenv": "^16.0.0",
-    "openai": "^5.20.2"
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000"
   },
   "keywords": [
-    "chatbot",
     "education",
-    "vercel",
-    "openai"
+    "website",
+    "school"
   ],
   "author": "Colégio Baby Avançar",
   "license": "MIT"

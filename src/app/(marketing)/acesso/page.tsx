@@ -1,0 +1,54 @@
+import { BookOpenCheck, ChevronRight, Heart, School } from "lucide-react";
+import { Button } from "@/shared/ui/button";
+import { MarketingHeader } from "@/shared/ui/marketing-header";
+
+const commitments = [
+  "Observações contextualizadas, não rótulos sobre a criança.",
+  "Participação e consentimento claro de responsáveis.",
+  "Acesso protegido e adequado ao papel de cada pessoa.",
+];
+
+export default function AccessPage() {
+  return (
+    <>
+      <MarketingHeader />
+      <main className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-20">
+        <div className="max-w-3xl">
+          <p className="font-bold tracking-wide text-brand">ACESSO À PLATAFORMA</p>
+          <h1 className="mt-4 font-display text-fluid-title">Acompanhar o desenvolvimento também é escutar.</h1>
+          <p className="mt-6 text-lg leading-relaxed text-muted">Estamos preparando uma plataforma para organizar observações pedagógicas, diálogo entre família e escola e caminhos de desenvolvimento. Ela não classifica, ranqueia ou diagnostica crianças.</p>
+        </div>
+
+        <section aria-labelledby="entradas-title" className="mt-12">
+          <h2 id="entradas-title" className="font-display text-3xl">Escolha seu acesso</h2>
+          <div className="mt-6 grid gap-5 md:grid-cols-2">
+            <article className="glass-surface rounded-4xl p-7 sm:p-9">
+              <Heart aria-hidden="true" className="text-brand" size={30} />
+              <h3 className="mt-5 font-display text-2xl">Responsáveis</h3>
+              <p className="mt-3 leading-relaxed text-muted">Acompanhe devolutivas, responda questionários quando convidado e saiba como seus dados são usados.</p>
+              <Button className="mt-7 w-full sm:w-auto" href="/entrar?perfil=responsavel">Entrar como responsável <ChevronRight aria-hidden="true" size={18} /></Button>
+            </article>
+            <article className="glass-surface rounded-4xl p-7 sm:p-9">
+              <School aria-hidden="true" className="text-brand" size={30} />
+              <h3 className="mt-5 font-display text-2xl">Educadores e escolas</h3>
+              <p className="mt-3 leading-relaxed text-muted">Registre práticas pedagógicas e acesse apenas as informações autorizadas pela sua instituição.</p>
+              <Button className="mt-7 w-full sm:w-auto" href="/entrar?perfil=educador">Entrar como educador <ChevronRight aria-hidden="true" size={18} /></Button>
+            </article>
+          </div>
+        </section>
+
+        <section aria-labelledby="principios-title" className="mt-14 rounded-4xl bg-ink px-7 py-9 text-white sm:px-10">
+          <div className="flex items-start gap-4">
+            <BookOpenCheck aria-hidden="true" className="mt-1 shrink-0 text-amber-200" size={28} />
+            <div>
+              <h2 id="principios-title" className="font-display text-3xl">Compromissos desde o início</h2>
+              <ul className="mt-5 space-y-3 text-slate-200">
+                {commitments.map((commitment) => <li className="flex gap-3" key={commitment}><span aria-hidden="true" className="text-amber-200">•</span>{commitment}</li>)}
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
+  );
+}

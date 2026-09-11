@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Página Principal -->
+  <url>
+    <loc>https://baby-avancar.vercel.app/</loc>
+    <lastmod>2025-01-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://baby-avancar.vercel.app/img/logo.png</image:loc>
+      <image:title>Logo Colégio Baby Avançar</image:title>
+      <image:caption>Logotipo oficial do Colégio Baby Avançar</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Galeria -->
+  <url>
+    <loc>https://baby-avancar.vercel.app/galeria.html</loc>
+    <lastmod>2025-01-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://baby-avancar.vercel.app/img/galeria/atividades/atividade-1.jpg</image:loc>
+      <image:title>Atividades Artísticas</image:title>
+      <image:caption>Crianças desenvolvendo atividades artísticas no Colégio Baby Avançar</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://baby-avancar.vercel.app/img/galeria/educacao/educacao-1.jpg</image:loc>
+      <image:title>Educação</image:title>
+      <image:caption>Atividades educativas e desenvolvimento das crianças</image:caption>
+    </image:image>
+  </url>
+  
+</urlset>

@@ -1,0 +1,443 @@
+/* ========================================
+   GALERIA SIMPLIFICADA - COLÉGIO BABY AVANÇAR
+   ======================================== */
+
+/* HERO SECTION */
+.gallery-hero {
+  background: var(--gradient-primary);
+  color: white;
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.gallery-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* SECTION STYLES */
+.section {
+  padding: 3rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+  font-weight: 600;
+}
+
+/* CATEGORY FILTERS */
+.category-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.filter-btn {
+  background: white;
+  border: 2px solid #4a90e2;
+  color: #4a90e2;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: #4a90e2;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+}
+
+/* GALLERY GRID - OTIMIZADO PARA FORMATO SMARTPHONE VERTICAL */
+.gallery-section .container .gallery-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  gap: 2rem !important;
+  padding: 2rem 0 !important;
+  margin: 0 !important;
+  background: #f8f9fa !important;
+}
+
+/* GALLERY ITEMS - ESTRUTURA SIMPLES */
+.gallery-section .gallery-grid .gallery-item {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 15px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  background: white !important;
+}
+
+.gallery-section .gallery-grid .gallery-item:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* GALLERY IMAGES - FORMATO SMARTPHONE VERTICAL (9:16) */
+.gallery-section .gallery-grid .gallery-item img {
+  width: 100% !important;
+  height: 500px !important; /* Altura para proporção 9:16 de smartphone */
+  object-fit: cover !important;
+  object-position: center !important; /* Center para melhor enquadramento */
+  display: block !important;
+  transition: transform 0.3s ease !important;
+  opacity: 1 !important; /* Força visibilidade */
+}
+
+/* FORÇAR VISIBILIDADE DOS ITENS DA GALERIA */
+.gallery-section .gallery-grid .gallery-item {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.02);
+}
+
+/* MODAL SIMPLES */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(5px);
+}
+
+.modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  background: rgba(220, 53, 69, 0.9);
+  transform: scale(1.1);
+}
+
+/* BOTÃO CTA PERSONALIZADO PARA GALERIA */
+.cta-button-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #25d366;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-btn:hover {
+  background: #128c7e;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* RESPONSIVIDADE - MANTÉM PROPORÇÃO VERTICAL DE SMARTPHONE */
+@media (max-width: 1200px) {
+  .gallery-section .container .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 1.8rem !important;
+  }
+
+  .gallery-section .gallery-grid .gallery-item img {
+    height: 480px !important; /* Proporção vertical mantida */
+  }
+}
+
+@media (max-width: 1024px) {
+  .gallery-section .container .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+    gap: 1.5rem !important;
+  }
+
+  .gallery-section .gallery-grid .gallery-item img {
+    height: 450px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-section .container .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+    gap: 1.25rem !important;
+  }
+
+  .gallery-section .gallery-grid .gallery-item img {
+    height: 420px !important; /* Mantém proporção vertical no tablet */
+  }
+
+  .gallery-hero {
+    padding: 3rem 0;
+  }
+
+  .gallery-hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .category-filters {
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .modal-content {
+    max-width: 95%;
+    max-height: 85%;
+  }
+
+  .section {
+    padding: 2rem 0;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-section .container .gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .gallery-section .gallery-grid .gallery-item img {
+    height: 400px !important; /* Proporção vertical perfeita no mobile */
+  }
+
+  .category-filters {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter-btn {
+    width: 200px;
+    justify-content: center;
+  }
+
+  .gallery-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .cta-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta-item {
+    padding: 1.5rem 1rem;
+  }
+
+  .cta-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .cta-icon i {
+    font-size: 1.5rem;
+  }
+
+  .cta-item h3 {
+    font-size: 1.2rem;
+  }
+
+  .cta-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* LOADING E ANIMAÇÕES */
+.gallery-item img {
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* PLACEHOLDER PARA IMAGENS QUE NÃO CARREGAM */
+.gallery-item img[src=""],
+.gallery-item img:not([src]) {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  position: relative;
+}
+
+.gallery-item img[src=""]:before,
+.gallery-item img:not([src]):before {
+  content: "📷";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  opacity: 0.5;
+}
+/* ========================================
+   ANIMAÇÕES FADE-IN PARA GALERIA
+   ======================================== */
+
+/* Animação fade-in base - FORÇADA PARA GALERIA */
+.gallery-hero .fade-in,
+.gallery-categories .fade-in,
+.gallery-cta .fade-in {
+  opacity: 0 !important;
+  transform: translateY(30px) !important;
+  transition: all 0.8s ease !important;
+}
+
+.gallery-hero .fade-in.visible,
+.gallery-categories .fade-in.visible,
+.gallery-cta .fade-in.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Fallback - caso o observer não funcione */
+.gallery-hero .fade-in,
+.gallery-categories .fade-in,
+.gallery-cta .fade-in {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animações específicas para elementos da galeria */
+.gallery-hero .fade-in {
+  animation-delay: 0.2s;
+}
+
+.gallery-categories .fade-in:nth-child(1) {
+  animation-delay: 0.4s;
+}
+
+.gallery-categories .fade-in:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.gallery-cta .fade-in:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.gallery-cta .fade-in:nth-child(2) .cta-item:nth-child(1) {
+  animation-delay: 0.4s;
+}
+
+.gallery-cta .fade-in:nth-child(2) .cta-item:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.gallery-cta .fade-in:nth-child(2) .cta-item:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+.gallery-cta .fade-in:nth-child(3) {
+  animation-delay: 1s;
+}

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
+
+    <!-- SEO Meta Tags -->
+    <title>
+      Colégio Baby Avançar | Educação Infantil e Fundamental em Fortaleza
+    </title>
+    <meta
+      name="description"
+      content="Colégio Baby Avançar - Educação de qualidade do Infantil II ao 5º ano em Fortaleza. Metodologia inovadora, ambiente acolhedor no Jóquei Clube. Matrículas abertas!"
+    />
+    <meta
+      name="keywords"
+      content="escola infantil fortaleza, educação fundamental, colégio jóquei clube, matrícula escolar, ensino de qualidade, baby avançar"
+    />
+    <meta name="author" content="Colégio Baby Avançar" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://baby-avancar.vercel.app/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://baby-avancar.vercel.app/" />
+    <meta
+      property="og:title"
+      content="Colégio Baby Avançar | Educação Infantil e Fundamental"
+    />
+    <meta
+      property="og:description"
+      content="Educação de qualidade do Infantil II ao 5º ano em Fortaleza. Metodologia inovadora no Jóquei Clube."
+    />
+    <meta
+      property="og:image"
+      content="https://baby-avancar.vercel.app/img/logo.png"
+    />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://baby-avancar.vercel.app/" />
+    <meta
+      property="twitter:title"
+      content="Colégio Baby Avançar | Educação Infantil e Fundamental"
+    />
+    <meta
+      property="twitter:description"
+      content="Educação de qualidade do Infantil II ao 5º ano em Fortaleza."
+    />
+    <meta
+      property="twitter:image"
+      content="https://baby-avancar.vercel.app/img/logo.png"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/logo.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="img/logo.png" />
+    <link rel="apple-touch-icon" href="img/logo.png" />
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="css/components/main.css?v=2.0" as="style" />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      as="style"
+    />
+
+    <!-- Stylesheets - ESTRUTURA ORGANIZADA -->
+    <link rel="stylesheet" href="css/components/main.css?v=2.0" />
+    <link rel="stylesheet" href="css/components/contact-cards.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Colégio Baby Avançar",
+        "description": "Escola de educação infantil e fundamental em Fortaleza",
+        "url": "https://baby-avancar.vercel.app",
+        "logo": "https://baby-avancar.vercel.app/img/logo.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Fortaleza",
+          "addressRegion": "CE",
+          "addressCountry": "BR",
+          "streetAddress": "Jóquei Clube"
+        },
+        "telephone": "+55-85-99970-1822",
+        "sameAs": ["https://www.instagram.com/colegiobabyavancar_oficial/"],
+        "educationalCredentialAwarded": "Educação Infantil e Fundamental I",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Programas Educacionais",
+          "itemListElement": [
+            {
+              "@type": "Course",
+              "name": "Educação Infantil II ao V",
+              "description": "Programa educacional para crianças de 2 a 6 anos"
+            },
+            {
+              "@type": "Course",
+              "name": "Ensino Fundamental I",
+              "description": "1º ao 5º ano do Ensino Fundamental"
+            }
+          ]
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#main-content" class="skip-nav">Pular para o conteúdo principal</a>
+
+    <header role="banner">
+      <nav
+        id="navigation"
+        class="navbar"
+        role="navigation"
+        aria-label="Menu principal"
+      >
+        <div class="nav-container">
+          <div class="nav-logo">
+            <a href="#inicio" class="logo-link">
+              <div class="logo-icon">
+                <img
+                  src="./img/logo.png"
+                  alt="Colégio Baby Avançar"
+                  onerror="console.log('Erro ao carregar logo:', this.src); this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <i
+                  class="fas fa-graduation-cap logo-fallback"
+                  style="display: none"
+                ></i>
+              </div>
+              <div class="logo-text">
+                <span class="logo-main">Colégio</span>
+                <span class="logo-main">Baby Avançar</span>
+              </div>
+            </a>
+          </div>
+
+          <ul class="nav-menu" role="menubar">
+            <li class="nav-item" role="none">
+              <a
+                href="#inicio"
+                class="nav-link active"
+                role="menuitem"
+                aria-current="page"
+              >
+                <i class="fas fa-home" aria-hidden="true"></i>
+                <span>Início</span>
+              </a>
+            </li>
+            <li class="nav-item" role="none">
+              <a href="#sobre" class="nav-link" role="menuitem">
+                <i class="fas fa-users" aria-hidden="true"></i>
+                <span>Sobre</span>
+              </a>
+            </li>
+            <li class="nav-item" role="none">
+              <a href="#ensino" class="nav-link" role="menuitem">
+                <i class="fas fa-book-open" aria-hidden="true"></i>
+                <span>Ensino</span>
+              </a>
+            </li>
+            <li class="nav-item" role="none">
+              <a
+                href="servicos-assessoria.html"
+                class="nav-link"
+                role="menuitem"
+              >
+                <i class="fas fa-handshake" aria-hidden="true"></i>
+                <span>Assessoria</span>
+              </a>
+            </li>
+            <li class="nav-item" role="none">
+              <a href="cursos-extras.html" class="nav-link" role="menuitem">
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <span>Cursos Extras</span>
+              </a>
+            </li>
+            <li class="nav-item" role="none">
+              <a href="galeria.html" class="nav-link" role="menuitem">
+                <i class="fas fa-images" aria-hidden="true"></i>
+                <span>Galeria</span>
+              </a>
+            </li>
+            <li class="nav-item" role="none">
+              <a
+                href="https://wa.me/5585999701822"
+                class="nav-link cta-nav"
+                target="_blank"
+                role="menuitem"
+                aria-label="Contato via WhatsApp - abre em nova aba"
+              >
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                <span>WhatsApp</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="nav-toggle" id="navToggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" role="main">
+      <section id="inicio" class="hero" aria-labelledby="hero-title">
+        <div class="container">
+          <div class="hero-content">
+            <h1 id="hero-title">Colégio Baby Avançar</h1>
+            <p class="hero-subtitle">
+              "Avançando e transformando o Conhecimento"
+            </p>
+            <a href="#contato" class="cta-button" aria-describedby="hero-title"
+              >Conheça Nossa Escola</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section id="sobre" class="section about" aria-labelledby="sobre-title">
+        <div class="container">
+          <h2 id="sobre-title" class="section-title fade-in">Sobre Nós</h2>
+          <div class="about-grid">
+            <div class="about-text fade-in">
+              <div class="about-highlight">
+                <h3>Nossa Missão</h3>
+                <p>
+                  <strong>"Avançando e transformando o Conhecimento"</strong> -
+                  Proporcionamos educação de qualidade do Infantil II ao 5º ano,
+                  respeitando o ritmo de cada criança.
+                </p>
+              </div>
+
+              <div class="about-highlight">
+                <h3>Nossa Localização</h3>
+                <p>
+                  Localizados no <strong>Jóquei Clube</strong>, ambiente seguro
+                  e acolhedor. Expansão planejada até 2026 para todo o Ensino
+                  Fundamental.
+                </p>
+              </div>
+
+              <div class="about-highlight">
+                <h3>Nossos Diferenciais</h3>
+                <p>
+                  Turmas reduzidas, metodologia inovadora, acompanhamento
+                  psicopedagógico e assessoria educacional para questões
+                  escolares.
+                </p>
+              </div>
+            </div>
+            <div class="about-image fade-in">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="ensino" class="section" aria-labelledby="ensino-title">
+        <div class="container">
+          <h2 id="ensino-title" class="section-title fade-in">
+            Nossa Proposta de Ensino
+          </h2>
+          <div class="services-grid">
+            <div class="service-card fade-in">
+              <div class="service-icon">
+                <i class="fas fa-baby"></i>
+              </div>
+              <h3>Educação Infantil</h3>
+              <p>
+                Do Infantil II ao V, desenvolvimento integral através de
+                atividades lúdicas e pedagógicas planejadas.
+              </p>
+            </div>
+            <div class="service-card fade-in">
+              <div class="service-icon">
+                <i class="fas fa-book-open"></i>
+              </div>
+              <h3>Ensino Fundamental</h3>
+              <p>
+                Até o 5º ano (expansão 2026). Metodologia focada no aprendizado
+                significativo e desenvolvimento de competências.
+              </p>
+            </div>
+            <div class="service-card fade-in">
+              <div class="service-icon">
+                <i class="fas fa-heart"></i>
+              </div>
+              <h3>Educação com Valores</h3>
+              <p>
+                Formação integral que desenvolve cidadãos conscientes e
+                responsáveis, além do conhecimento acadêmico.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="cursos-extras"
+        class="section extras-section"
+        aria-labelledby="extras-title"
+      >
+        <div class="container">
+          <h2 id="extras-title" class="section-title fade-in">
+            Atividades Extracurriculares
+          </h2>
+          <p class="section-subtitle fade-in">
+            Complementamos a educação formal com atividades que desenvolvem
+            habilidades especiais e valores importantes para a vida
+          </p>
+
+          <div class="extras-grid">
+            <div class="extra-card fade-in">
+              <div class="extra-icon">
+                <i class="fas fa-heart-pulse"></i>
+              </div>
+              <h3>Primeiros Socorros</h3>
+              <p class="extra-description">
+                Curso educativo que ensina as crianças noções básicas de
+                primeiros socorros, desenvolvendo responsabilidade e cuidado com
+                o próximo.
+              </p>
+              <div class="extra-details">
+                <div class="extra-info">
+                  <i class="fas fa-users"></i>
+                  <span>A partir de 5 anos</span>
+                </div>
+                <div class="extra-info">
+                  <i class="fas fa-clock"></i>
+                  <span>1x por semana</span>
+                </div>
+              </div>
+              <a href="cursos-extras.html#primeiros-socorros" class="extra-btn">
+                <i class="fas fa-arrow-right"></i>
+                Saiba Mais
+              </a>
+            </div>
+
+            <div class="extra-card fade-in">
+              <div class="extra-icon">
+                <i class="fas fa-fist-raised"></i>
+              </div>
+              <h3>Jiu-Jitsu</h3>
+              <p class="extra-description">
+                Arte marcial que desenvolve disciplina, respeito, coordenação
+                motora e autoconfiança, além de ensinar defesa pessoal de forma
+                lúdica.
+              </p>
+              <div class="extra-details">
+                <div class="extra-info">
+                  <i class="fas fa-users"></i>
+                  <span>A partir de 2 anos</span>
+                </div>
+                <div class="extra-info">
+                  <i class="fas fa-clock"></i>
+                  <span>2x por semana</span>
+                </div>
+              </div>
+              <a href="cursos-extras.html#jiu-jitsu" class="extra-btn">
+                <i class="fas fa-arrow-right"></i>
+                Saiba Mais
+              </a>
+            </div>
+
+            <div class="extra-card fade-in">
+              <div class="extra-icon">
+                <i class="fas fa-book-reader"></i>
+              </div>
+              <h3>Reforço Escolar</h3>
+              <p class="extra-description">
+                Apoio pedagógico personalizado para fortalecer o aprendizado e
+                desenvolver o potencial máximo de cada aluno em suas
+                dificuldades.
+              </p>
+              <div class="extra-details">
+                <div class="extra-info">
+                  <i class="fas fa-users"></i>
+                  <span>Do infantil IV ao 5° ano</span>
+                </div>
+                <div class="extra-info">
+                  <i class="fas fa-clock"></i>
+                  <span>Horário flexível</span>
+                </div>
+              </div>
+              <a href="cursos-extras.html#reforco-escolar" class="extra-btn">
+                <i class="fas fa-arrow-right"></i>
+                Saiba Mais
+              </a>
+            </div>
+          </div>
+
+          <div class="extras-cta fade-in">
+            <h3>Interessado em nossos cursos extras?</h3>
+            <p>
+              Conheça todos os detalhes, horários e metodologias de cada
+              atividade
+            </p>
+            <a href="cursos-extras.html" class="cta-button-large">
+              <i class="fas fa-star"></i>
+              Ver Todos os Cursos
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section info" aria-labelledby="diferenciais-title">
+        <div class="container">
+          <h2 id="diferenciais-title" class="section-title fade-in">
+            Diferenciais
+          </h2>
+          <div class="info-grid">
+            <div class="info-item fade-in">
+              <div class="info-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <h3>Turmas Reduzidas</h3>
+              <p>Atendimento personalizado para cada aluno</p>
+            </div>
+            <div class="info-item fade-in">
+              <div class="info-icon">
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <h3>Metodologia Inovadora</h3>
+              <p>Práticas pedagógicas modernas e eficazes</p>
+            </div>
+            <div class="info-item fade-in">
+              <div class="info-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <h3>Localização Privilegiada</h3>
+              <p>Situada no Jóquei Clube, ambiente seguro e acolhedor</p>
+            </div>
+            <div class="info-item fade-in">
+              <div class="info-icon">
+                <i class="fas fa-calendar-alt"></i>
+              </div>
+              <h3>Crescimento Planejado</h3>
+              <p>Expansão até 2026 para Ensino Fundamental completo</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção de Depoimentos -->
+      <section
+        id="depoimentos"
+        class="section testimonials-section"
+        aria-labelledby="depoimentos-title"
+      >
+        <div class="container">
+          <div class="testimonials-header fade-in">
+            <h2 id="depoimentos-title" class="section-title">
+              O que dizem sobre nós
+            </h2>
+            <p class="section-subtitle">
+              Depoimentos de pais e responsáveis que confiam na educação de seus
+              filhos ao Colégio Baby Avançar
+            </p>
+          </div>
+
+          <div class="testimonials-container">
+            <!-- Depoimento 1 -->
+            <div class="testimonial-card fade-in" data-testimonial="1">
+              <div class="testimonial-content">
+                <div class="testimonial-quote">
+                  <i class="fas fa-quote-left quote-icon"></i>
+                  <p>
+                    "Tomar a decisão de tirar meu filho Arthur da escola
+                    municipal foi difícil, mas necessária. Ele estava estagnado,
+                    sem aprender nada. Desde que chegou ao Colégio Baby Avançar,
+                    a transformação foi impressionante! Hoje tenho a
+                    tranquilidade de saber que ele realmente está aprendendo e
+                    se desenvolvendo."
+                  </p>
+                  <i class="fas fa-quote-right quote-icon"></i>
+                </div>
+                <div class="testimonial-author">
+                  <div class="author-avatar">
+                    <img src="img/meu-perfil.jpg" alt="" />
+                  </div>
+                  <div class="author-info">
+                    <h4>Ronald</h4>
+                    <p>Pai do Arthur, 6 anos - Infantil V</p>
+                    <div class="rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Depoimento 2 -->
+            <div class="testimonial-card fade-in" data-testimonial="2">
+              <div class="testimonial-content">
+                <div class="testimonial-quote">
+                  <i class="fas fa-quote-left quote-icon"></i>
+                  <p>
+                    "Escolhemos o Baby Avançar pela localização e metodologia,
+                    mas o que mais nos impressionou foi o compromisso com a
+                    formação integral das crianças. Meu filho desenvolveu não só
+                    academicamente, mas também socialmente e emocionalmente."
+                  </p>
+                  <i class="fas fa-quote-right quote-icon"></i>
+                </div>
+                <div class="testimonial-author">
+                  <div class="author-avatar">
+                    <i class="fas fa-user-circle"></i>
+                  </div>
+                  <div class="author-info">
+                    <h4>Carlos Oliveira</h4>
+                    <p>Pai do Pedro, 7 anos - 2º Ano</p>
+                    <div class="rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Depoimento 3 -->
+            <div class="testimonial-card fade-in" data-testimonial="3">
+              <div class="testimonial-content">
+                <div class="testimonial-quote">
+                  <i class="fas fa-quote-left quote-icon"></i>
+                  <p>
+                    "A equipe pedagógica é excepcional! Eles realmente entendem
+                    cada criança individualmente e adaptam o ensino às
+                    necessidades específicas. A comunicação com os pais é
+                    constante e transparente. Recomendo muito!"
+                  </p>
+                  <i class="fas fa-quote-right quote-icon"></i>
+                </div>
+                <div class="testimonial-author">
+                  <div class="author-avatar">
+                    <i class="fas fa-user-circle"></i>
+                  </div>
+                  <div class="author-info">
+                    <h4>Fernanda Costa</h4>
+                    <p>Mãe da Sofia, 4 anos - Infantil IV</p>
+                    <div class="rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navegação dos depoimentos -->
+          <div class="testimonials-navigation fade-in">
+            <p class="navigation-hint">
+              Clique nos pontos para navegar ou use as setas do teclado
+            </p>
+            <div class="nav-dots">
+              <button
+                class="nav-dot active"
+                data-testimonial="1"
+                aria-label="Ver depoimento 1"
+              ></button>
+              <button
+                class="nav-dot"
+                data-testimonial="2"
+                aria-label="Ver depoimento 2"
+              ></button>
+              <button
+                class="nav-dot"
+                data-testimonial="3"
+                aria-label="Ver depoimento 3"
+              ></button>
+            </div>
+          </div>
+
+          <!-- Call to Action -->
+          <div class="testimonials-cta fade-in">
+            <h3>Faça parte da nossa família!</h3>
+            <p>Junte-se aos pais que já confiam no Colégio Baby Avançar</p>
+            <div class="cta-buttons">
+              <a
+                href="https://wa.me/5585999701822?text=Olá! Gostaria de conhecer mais sobre o Colégio Baby Avançar."
+                class="cta-button-large"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i>
+                Falar no WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="contato"
+        class="section contact-section"
+        aria-labelledby="contato-title"
+      >
+        <div class="container">
+          <div class="contact-header fade-in">
+            <h2 id="contato-title" class="section-title">Entre em Contato</h2>
+            <p class="contact-subtitle">
+              Estamos aqui para esclarecer suas dúvidas e ajudar no
+              desenvolvimento educacional do seu filho
+            </p>
+          </div>
+
+          
+
+          <!-- Call to Action -->
+          <div class="contact-cta fade-in">
+            <div class="cta-content">
+              <h3>Pronto para conhecer nossa escola?</h3>
+              <p>
+                Agende uma visita e veja de perto como trabalhamos o
+                desenvolvimento integral do seu filho
+              </p>
+              <a
+                href="https://wa.me/5585999701822?text=Olá! Gostaria de agendar uma visita ao Colégio Baby Avançar."
+                class="cta-button-large"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i>
+                Agendar Visita pelo WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer" role="contentinfo">
+      <div class="container">
+        <p>&copy; 2025 Colégio Baby Avançar. Todos os direitos reservados.</p>
+        <p><em>"Avançando e transformando o Conhecimento"</em></p>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+    <script src="js/analytics.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/performance-optimizer.js"></script>
+    <script src="js/testimonials.js"></script>
+
+    <!-- Service Worker Registration -->
+    <script src="js/service-worker-init.js"></script>
+  </body>
+</html>

@@ -1,0 +1,228 @@
+/* ===== CONTACT CARDS - VERSÃO PROFISSIONAL ===== */
+
+/* Container principal dos cards */
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Card individual */
+.contact-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  position: relative;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Header do card */
+.contact-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.contact-card-header i {
+  font-size: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.contact-card-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+  text-align: center;
+}
+
+/* Conteúdo do card */
+.contact-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+/* Estilos específicos por tipo de card */
+.whatsapp-card .contact-card-header i {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+}
+
+.location-card .contact-card-header i {
+  background: linear-gradient(135deg, #4a90e2, #667eea);
+}
+
+.schedule-card .contact-card-header i {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+}
+
+.social-card .contact-card-header i {
+  background: linear-gradient(135deg, #e4405f, #c13584);
+}
+
+/* Elementos de conteúdo */
+.contact-number {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #25d366;
+  margin-bottom: 1rem;
+  text-decoration: none;
+}
+
+.contact-address {
+  font-size: 1rem;
+  color: #2c3e50;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.contact-description {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+/* Schedule items */
+.schedule-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+.schedule-item:last-child {
+  border-bottom: none;
+}
+
+.schedule-day {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.schedule-time {
+  color: #4a90e2;
+  font-weight: 600;
+}
+
+/* Botões */
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+.whatsapp-btn {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: white;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.location-btn {
+  background: linear-gradient(135deg, #4a90e2, #667eea);
+  color: white;
+}
+
+.location-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+}
+
+.instagram-btn {
+  background: linear-gradient(135deg, #e4405f, #c13584);
+  color: white;
+}
+
+.instagram-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(228, 64, 95, 0.3);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .contact-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 500px;
+  }
+  
+  .contact-card {
+    min-height: 280px;
+    padding: 1.5rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .contact-cards {
+    padding: 0 0.5rem;
+    gap: 1rem;
+  }
+  
+  .contact-card {
+    min-height: 260px;
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+  
+  .contact-card-header i {
+    width: 50px;
+    height: 50px;
+    font-size: 1.6rem;
+  }
+  
+  .contact-card-header h3 {
+    font-size: 1.1rem;
+  }
+  
+  .contact-number {
+    font-size: 1.2rem;
+  }
+  
+  .contact-btn {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+}

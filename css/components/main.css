@@ -1,0 +1,44 @@
+/* ========================================
+   MAIN CSS - COLÉGIO BABY AVANÇAR
+   Arquivo principal que importa todos os componentes
+   ======================================== */
+
+/* 1. Base - Fundação do sistema */
+@import 'variables.css';
+@import 'reset.css';
+@import 'layout.css';
+@import 'utilities.css';
+@import 'global-standards.css';
+
+/* 2. Layout - Estrutura principal */
+@import 'header.css';
+@import 'mobile-menu.css';
+
+/* 3. Sections - Organizadas */
+@import 'hero.css';
+@import 'about.css';
+
+/* 4. Pages - Páginas específicas */
+@import 'assessoria.css';
+
+/* 5. TEMPORÁRIO - CSS restante (será organizado) */
+@import 'remaining-temp.css';
+
+/* 5. Components - Organizados */
+@import 'buttons.css';
+
+/* @import 'cards.css'; */
+/* @import 'forms.css'; */
+/* @import 'modals.css'; */
+/* @import 'animations.css'; */
+
+/* 6. Sections restantes - Organizados */
+/* @import 'services.css'; */
+@import 'gallery.css';
+@import 'testimonials.css';
+/* @import 'courses.css'; */
+/* @import 'contact.css'; */
+/* @import 'footer.css'; */
+
+/* 7. Responsive - Em desenvolvimento */
+/* @import 'responsive.css'; */

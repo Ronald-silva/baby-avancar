@@ -1,40 +1,44 @@
-import Image from "next/image";
 import Link from "next/link";
+import { BrandMark } from "@/shared/ui/brand-mark";
+import { Button } from "@/shared/ui/button";
 import { MobileMenu, type NavigationItem } from "@/shared/ui/mobile-menu";
+import { buildWhatsAppLink, WHATSAPP_MESSAGES } from "@/shared/config/site";
 
+// Âncoras (#proposta, #atividades) apontam para seções ainda não implementadas nesta
+// rodada (só Header + Hero) — a navegação já nasce com a arquitetura de informação
+// aprovada; passam a rolar de fato assim que as seções correspondentes forem construídas.
 const navigationItems: NavigationItem[] = [
   { href: "/", label: "Início" },
+  { href: "/#proposta", label: "Proposta pedagógica" },
+  { href: "/#atividades", label: "Atividades" },
   { href: "/acesso", label: "Acesso à plataforma" },
-  { href: "https://wa.me/5585999701822", label: "Falar com a escola", external: true },
 ];
+
+const scheduleVisitLink = buildWhatsAppLink(WHATSAPP_MESSAGES.scheduleVisit);
+
+function ScheduleVisitButton({ className }: { className?: string }) {
+  return (
+    <Button asChild className={className}>
+      <a href={scheduleVisitLink} rel="noopener noreferrer" target="_blank">
+        Agendar uma visita
+      </a>
+    </Button>
+  );
+}
 
 export function MarketingHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-brand/10 bg-canvas/85 backdrop-blur-glass">
-      <div className="mx-auto flex min-h-16 max-w-6xl items-center justify-between px-5 py-2 sm:px-8">
-        <Link aria-label="Colégio Baby Avançar — página inicial" className="tap-target inline-flex items-center gap-3 rounded-xl" href="/">
-          <Image
-            alt="Logotipo do Colégio Baby Avançar"
-            height={200}
-            priority
-            sizes="52px"
-            src="/media/baby-avancar-logo.png"
-            width={200}
-            className="h-11 w-11 rounded-xl object-contain sm:h-12 sm:w-12"
-          />
-          <span className="font-display text-xl font-bold tracking-tight text-ink">Baby Avançar</span>
+      <div className="mx-auto flex min-h-16 max-w-6xl items-center justify-between gap-4 px-5 py-2 sm:px-8">
+        <Link aria-label="Colégio Baby Avançar — página inicial" className="tap-target inline-flex items-center rounded-xl" href="/">
+          <BrandMark />
         </Link>
 
-        <nav aria-label="Navegação principal" className="hidden md:block">
+        <nav aria-label="Navegação principal" className="hidden xl:block">
           <ul className="flex items-center gap-1">
             {navigationItems.map((item) => (
               <li key={item.href}>
-                <Link
-                  className="tap-target inline-flex items-center rounded-full px-4 py-2 font-semibold text-ink transition-[background-color,color] hover:bg-brand hover:text-brand-foreground"
-                  href={item.href}
-                  rel={item.external ? "noopener noreferrer" : undefined}
-                  target={item.external ? "_blank" : undefined}
-                >
+                <Link className="tap-target inline-flex items-center whitespace-nowrap rounded-full px-4 py-2 font-semibold text-ink transition-[background-color,color] hover:bg-brand hover:text-brand-foreground" href={item.href}>
                   {item.label}
                 </Link>
               </li>
@@ -42,7 +46,11 @@ export function MarketingHeader() {
           </ul>
         </nav>
 
-        <MobileMenu items={navigationItems} />
+        <div className="hidden xl:block">
+          <ScheduleVisitButton />
+        </div>
+
+        <MobileMenu cta={<ScheduleVisitButton className="w-full justify-center" />} items={navigationItems} />
       </div>
     </header>
   );

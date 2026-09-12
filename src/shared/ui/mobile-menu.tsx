@@ -2,7 +2,7 @@
 
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { type ReactNode, useState } from "react";
 import { cn } from "@/shared/lib/cn";
 
 export type NavigationItem = {
@@ -13,14 +13,15 @@ export type NavigationItem = {
 
 type MobileMenuProps = {
   items: NavigationItem[];
+  cta?: ReactNode;
 };
 
-export function MobileMenu({ items }: MobileMenuProps) {
+export function MobileMenu({ items, cta }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const menuId = "mobile-navigation";
 
   return (
-    <div className="md:hidden">
+    <div className="xl:hidden">
       <button
         aria-controls={menuId}
         aria-expanded={isOpen}
@@ -40,6 +41,7 @@ export function MobileMenu({ items }: MobileMenuProps) {
         hidden={!isOpen}
         id={menuId}
       >
+        {cta ? <div className="p-1 pb-2">{cta}</div> : null}
         <nav aria-label="Navegação móvel">
           <ul className="space-y-1">
             {items.map((item) => (

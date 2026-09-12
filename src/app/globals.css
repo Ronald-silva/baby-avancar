@@ -10,8 +10,8 @@
     --muted: 207 13% 39%;
     --brand: 198 56% 35%;
     --brand-foreground: 0 0% 100%;
-    --font-display: "Fraunces", Georgia, serif;
-    --font-body: "Nunito Sans", "Segoe UI", sans-serif;
+    --font-display: var(--font-fraunces), Georgia, serif;
+    --font-body: var(--font-nunito-sans), "Segoe UI", sans-serif;
   }
 
   * { @apply border-slate-200; }

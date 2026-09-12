@@ -24,13 +24,12 @@ export function Hero() {
           >
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] md:aspect-square lg:aspect-[6/5] lg:rounded-[2.5rem]">
               <Image
-                alt="Criança sorrindo durante atividade na escola, sentada no chão junto de colegas de turma"
-                className="object-cover"
+                alt="Grupo de crianças sorrindo durante atividade na escola, sentadas no chão da varanda"
+                className="object-cover object-[50%_40%] md:object-[50%_27%] lg:object-[50%_24%]"
                 fill
                 priority
                 sizes="(min-width: 768px) 48vw, 100vw"
                 src="/media/hero/atividade-hero.png"
-                style={{ objectPosition: "50% 28%" }}
               />
             </div>
           </motion.div>
@@ -49,7 +48,7 @@ export function Hero() {
               <p className="text-sm font-bold uppercase tracking-wide text-brand">Colégio Baby Avançar</p>
               <h1 className="mt-4 font-display text-fluid-title text-ink">{"Cada descoberta é um avanço."}</h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
-                {"Educação Infantil e Fundamental I no Jóquei Clube, respeitando o ritmo de cada criança."}
+                {"Educação Infantil no Jóquei Clube e Fundamental I no João XXIII, respeitando o ritmo de cada criança."}
               </p>
             </motion.div>
 

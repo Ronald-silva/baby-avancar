@@ -34,17 +34,17 @@ export function GallerySection() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <MotionReveal className="max-w-xl">
           <p className="text-sm font-bold uppercase tracking-wide text-brand">Vida na Baby Avançar</p>
-          <h2 className="mt-4 font-display text-3xl leading-tight text-ink sm:text-4xl" id="galeria-title">
+          <h2 className="mt-4 text-balance font-display text-3xl leading-tight text-ink sm:text-4xl" id="galeria-title">
             {"Um dia a dia que também se aprende olhando."}
           </h2>
         </MotionReveal>
 
         <div className="mt-12 grid grid-cols-2 gap-3 sm:mt-14 sm:gap-4 lg:h-[34rem] lg:grid-cols-4 lg:grid-rows-2 lg:gap-5">
           <MotionReveal className="col-span-2 lg:col-span-2 lg:row-span-2">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.5rem] lg:h-full lg:rounded-[2rem]">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl lg:h-full lg:rounded-4xl">
               <Image
                 alt={dominantPhoto.alt}
-                className="object-cover"
+                className="object-cover transition-transform duration-300 ease-out hover:scale-105"
                 fill
                 sizes="(min-width: 1024px) 46vw, 92vw"
                 src={dominantPhoto.src}
@@ -54,10 +54,10 @@ export function GallerySection() {
 
           {secondaryPhotos.map((photo, index) => (
             <MotionReveal delay={0.06 * (index + 1)} key={photo.src}>
-              <div className="relative aspect-square w-full overflow-hidden rounded-2xl lg:h-full lg:rounded-[1.5rem]">
+              <div className="relative aspect-square w-full overflow-hidden rounded-2xl lg:h-full lg:rounded-3xl">
                 <Image
                   alt={photo.alt}
-                  className="object-cover"
+                  className="object-cover transition-transform duration-300 ease-out hover:scale-105"
                   fill
                   sizes="(min-width: 1024px) 22vw, 46vw"
                   src={photo.src}

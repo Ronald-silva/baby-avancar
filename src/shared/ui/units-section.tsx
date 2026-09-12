@@ -27,7 +27,7 @@ export function UnitsSection() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="max-w-xl">
           <p className="text-sm font-bold uppercase tracking-wide text-brand">Unidades</p>
-          <h2 className="mt-4 font-display text-3xl leading-tight text-ink sm:text-4xl" id="unidades-title">
+          <h2 className="mt-4 text-balance font-display text-3xl leading-tight text-ink sm:text-4xl" id="unidades-title">
             {"Duas unidades, cada uma com seu segmento."}
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-muted">
@@ -42,11 +42,14 @@ export function UnitsSection() {
           />
 
           {unitCards.map((unit) => (
-            <article className="relative rounded-[2rem] border border-border bg-surface p-6 shadow-soft sm:p-8 lg:p-10" key={unit.name}>
+            <article
+              className="relative rounded-4xl border border-border bg-surface p-6 shadow-soft transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-glass sm:p-8 lg:p-10"
+              key={unit.name}
+            >
               <span className={`inline-flex items-center rounded-full px-3 py-1 text-sm font-bold uppercase tracking-wide ${unit.accentLabelClassName}`}>
                 {unit.label}
               </span>
-              <h3 className="mt-5 font-display text-2xl text-ink sm:text-3xl">{unit.name}</h3>
+              <h3 className="mt-5 text-balance font-display text-2xl text-ink sm:text-3xl">{unit.name}</h3>
               <address className="mt-3 flex items-start gap-2 text-lg not-italic leading-relaxed text-muted">
                 <MapPin aria-hidden="true" className="mt-1 shrink-0 text-muted" size={20} />
                 <span>

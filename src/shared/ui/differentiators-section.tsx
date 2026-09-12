@@ -29,7 +29,7 @@ export function DifferentiatorsSection() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <MotionReveal className="max-w-xl">
           <p className="text-sm font-bold uppercase tracking-wide text-brand">Diferenciais</p>
-          <h2 className="mt-4 font-display text-3xl leading-tight text-ink sm:text-4xl" id="diferenciais-title">
+          <h2 className="mt-4 text-balance font-display text-3xl leading-tight text-ink sm:text-4xl" id="diferenciais-title">
             {"O que sustenta esse jeito de ensinar."}
           </h2>
         </MotionReveal>
@@ -47,7 +47,7 @@ export function DifferentiatorsSection() {
                   <span className="font-display text-3xl text-brand/30 sm:col-span-2 sm:text-4xl" aria-hidden="true">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="font-display text-xl text-ink sm:col-span-3 sm:text-2xl">{item.title}</h3>
+                  <h3 className="text-balance font-display text-xl text-ink sm:col-span-3 sm:text-2xl">{item.title}</h3>
                   <p className="text-lg leading-relaxed text-muted sm:col-span-7">{item.description}</p>
                 </MotionReveal>
               </li>

@@ -23,7 +23,7 @@ export function SiteFooter() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr]">
           <div>
             <BrandMark wordmarkClassName="text-inverse" />
-            <p className="mt-5 max-w-xs text-sm italic text-inverse/70">{`"${SITE.tagline}"`}</p>
+            <p className="mt-5 max-w-xs text-sm italic text-inverse/70">{`“${SITE.tagline}”`}</p>
             <div className="mt-6 flex items-center gap-4">
               <a
                 aria-label="WhatsApp do Colégio Baby Avançar"

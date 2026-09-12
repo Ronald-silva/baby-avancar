@@ -48,7 +48,7 @@ export function Hero() {
               transition={{ duration: 0.45, ease: "easeOut", delay: 0.15 }}
             >
               <p className="text-sm font-bold uppercase tracking-wide text-brand">Colégio Baby Avançar</p>
-              <h1 className="mt-4 font-display text-fluid-title text-ink">{"Cada descoberta é um avanço."}</h1>
+              <h1 className="mt-4 text-balance font-display text-fluid-title text-ink">{"Cada descoberta é um avanço."}</h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
                 {"Educação Infantil no Jóquei Clube e Fundamental I no João XXIII, respeitando o ritmo de cada criança."}
               </p>

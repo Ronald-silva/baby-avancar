@@ -37,13 +37,13 @@ export function TestimonialsSection() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <MotionReveal className="max-w-xl">
           <p className="text-sm font-bold uppercase tracking-wide text-brand">Depoimentos</p>
-          <h2 className="mt-4 font-display text-3xl leading-tight text-ink sm:text-4xl" id="depoimentos-title">
+          <h2 className="mt-4 text-balance font-display text-3xl leading-tight text-ink sm:text-4xl" id="depoimentos-title">
             {"O que as famílias dizem sobre o Baby Avançar."}
           </h2>
         </MotionReveal>
 
         <MotionReveal className="mt-14 sm:mt-16" delay={0.05}>
-          <figure className="grid gap-6 rounded-[2rem] bg-surface-muted p-8 sm:p-12 lg:grid-cols-12 lg:gap-x-12 lg:gap-y-4 lg:p-14">
+          <figure className="grid gap-6 rounded-4xl bg-surface-muted p-8 sm:p-12 lg:grid-cols-12 lg:gap-x-12 lg:gap-y-4 lg:p-14">
             <div className="lg:col-span-4 lg:row-span-2">
               <div className="relative aspect-square w-24 overflow-hidden rounded-full shadow-soft sm:w-28 lg:w-full lg:max-w-[9rem]">
                 <Image

@@ -15,7 +15,7 @@ export function EarlyChildhoodSection() {
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-8">
           <MotionReveal className="lg:col-span-6 lg:order-2">
             <div className="relative mx-auto aspect-[5/4] w-full max-w-lg lg:max-w-none">
-              <div className="absolute inset-0 right-[16%] top-0 overflow-hidden rounded-[2rem] shadow-soft">
+              <div className="absolute inset-0 right-[16%] top-0 overflow-hidden rounded-4xl shadow-soft">
                 <Image
                   alt="Criança pequena concentrada encaixando peças de madeira coloridas em brinquedo pedagógico na Educação Infantil"
                   className="object-cover"
@@ -40,7 +40,7 @@ export function EarlyChildhoodSection() {
             <p className="text-sm font-bold uppercase tracking-wide text-brand">
               {unit.label} · {unit.name}
             </p>
-            <h2 className="mt-4 max-w-md font-display text-3xl leading-tight text-ink sm:text-4xl" id="infantil-title">
+            <h2 className="mt-4 max-w-md text-balance font-display text-3xl leading-tight text-ink sm:text-4xl" id="infantil-title">
               {"Onde a curiosidade dá os primeiros passos."}
             </h2>
             <div className="mt-6 max-w-md space-y-5 text-lg leading-relaxed text-muted">

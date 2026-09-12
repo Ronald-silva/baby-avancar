@@ -14,7 +14,7 @@ export default function PlataformaPage() {
         <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full bg-brand/10 px-4 py-2 text-sm font-bold text-brand">
           <Sparkles aria-hidden="true" size={17} /> Em preparação
         </div>
-        <h1 className="font-display text-3xl sm:text-4xl">Plataforma Baby Avançar</h1>
+        <h1 className="text-balance font-display text-3xl sm:text-4xl">Plataforma Baby Avançar</h1>
         <p className="mt-5 text-lg leading-relaxed text-muted">
           Um novo espaço digital está sendo preparado para apoiar o acompanhamento e o desenvolvimento dos alunos.
         </p>

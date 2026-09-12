@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: "Como agendar uma visita à escola?",
-    answer: "Pelo WhatsApp do colégio — o botão \"Agendar uma visita\" em qualquer parte do site leva direto à conversa.",
+    answer: "Pelo WhatsApp do colégio — o botão “Agendar uma visita” em qualquer parte do site leva direto à conversa.",
   },
 ] as const;
 
@@ -50,7 +50,7 @@ export function FaqSection() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <MotionReveal className="max-w-xl">
           <p className="text-sm font-bold uppercase tracking-wide text-brand">Perguntas frequentes</p>
-          <h2 className="mt-4 font-display text-3xl leading-tight text-ink sm:text-4xl" id="faq-title">
+          <h2 className="mt-4 text-balance font-display text-3xl leading-tight text-ink sm:text-4xl" id="faq-title">
             {"Antes de agendar sua visita."}
           </h2>
         </MotionReveal>
@@ -59,7 +59,7 @@ export function FaqSection() {
           {faqs.map((faq, index) => (
             <MotionReveal delay={0.05 * index} key={faq.question}>
               <article className="border-t border-border pt-6">
-                <h3 className="font-display text-xl text-ink sm:text-2xl">{faq.question}</h3>
+                <h3 className="text-balance font-display text-xl text-ink sm:text-2xl">{faq.question}</h3>
                 <p className="mt-3 text-lg leading-relaxed text-muted">{faq.answer}</p>
               </article>
             </MotionReveal>

@@ -14,7 +14,7 @@ export function ElementarySection() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
           <MotionReveal className="lg:col-span-5">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] lg:aspect-[3/4]">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-4xl lg:aspect-[3/4]">
               <Image
                 alt="Criança do Fundamental I registrando atividade escrita em caderno do Colégio Baby Avançar"
                 className="object-cover"
@@ -29,7 +29,7 @@ export function ElementarySection() {
             <p className="text-sm font-bold uppercase tracking-wide text-accent">
               {unit.label} · {unit.name}
             </p>
-            <h2 className="mt-4 max-w-lg font-display text-3xl leading-tight text-inverse sm:text-4xl" id="fundamental-title">
+            <h2 className="mt-4 max-w-lg text-balance font-display text-3xl leading-tight text-inverse sm:text-4xl" id="fundamental-title">
               {"Da descoberta para a autonomia."}
             </h2>
             <div className="mt-6 max-w-lg space-y-5 text-lg leading-relaxed text-inverse/85">

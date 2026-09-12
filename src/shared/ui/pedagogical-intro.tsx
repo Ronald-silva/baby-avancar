@@ -11,7 +11,7 @@ export function PedagogicalIntro() {
         <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
           <MotionReveal className="lg:col-span-7">
             <p className="text-sm font-bold uppercase tracking-wide text-brand">Proposta pedagógica</p>
-            <h2 className="mt-4 max-w-xl font-display text-3xl leading-tight text-ink sm:text-4xl" id="proposta-title">
+            <h2 className="mt-4 max-w-xl text-balance font-display text-3xl leading-tight text-ink sm:text-4xl" id="proposta-title">
               {"Cada criança chega até aqui do seu próprio jeito."}
             </h2>
             <div className="mt-6 max-w-xl space-y-5 text-lg leading-relaxed text-muted">
@@ -29,7 +29,7 @@ export function PedagogicalIntro() {
           </MotionReveal>
 
           <MotionReveal className="lg:col-span-5" delay={0.1}>
-            <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[2rem] lg:max-w-none">
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-4xl lg:max-w-none">
               <Image
                 alt="Criança em turma reduzida do Colégio Baby Avançar comemorando com os braços erguidos durante atividade de coordenação motora"
                 className="object-cover"

@@ -10,7 +10,7 @@ export function FinalCtaSection() {
     <section aria-labelledby="cta-final-title" className="bg-secondary py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
         <MotionReveal>
-          <h2 className="font-display text-3xl leading-tight text-inverse sm:text-4xl" id="cta-final-title">
+          <h2 className="text-balance font-display text-3xl leading-tight text-inverse sm:text-4xl" id="cta-final-title">
             {"Venha conhecer de perto o dia a dia da escola."}
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-inverse/85">

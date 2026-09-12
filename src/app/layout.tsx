@@ -39,6 +39,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     siteName: "Colégio Baby Avançar",
+    url: "/",
     title: "Colégio Baby Avançar — Educação Infantil e Fundamental I em Fortaleza",
     description:
       "Educação Infantil na unidade Jóquei Clube e Ensino Fundamental I na unidade João XXIII, em Fortaleza (CE).",

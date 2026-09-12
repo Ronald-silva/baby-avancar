@@ -8,11 +8,26 @@ const commitments = [
   "Acesso protegido e adequado ao papel de cada pessoa.",
 ];
 
+const title = "Acesso à Plataforma";
+const description =
+  "A plataforma do Colégio Baby Avançar para observações pedagógicas e acompanhamento entre família e escola está em preparação.";
+
+// `openGraph` de layout.tsx não é mesclado campo a campo com o de uma página
+// filha — é substituído por inteiro quando a página declara o próprio. Por
+// isso title/description/type/locale/siteName são repetidos aqui, não só a
+// `url` (que precisa ser "/acesso", não a da Home herdada por padrão).
 export const metadata: Metadata = {
-  title: "Acesso à Plataforma",
-  description:
-    "A plataforma do Colégio Baby Avançar para observações pedagógicas e acompanhamento entre família e escola está em preparação.",
+  title,
+  description,
   alternates: { canonical: "/acesso" },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    siteName: "Colégio Baby Avançar",
+    url: "/acesso",
+    title,
+    description,
+  },
 };
 
 export default function AccessPage() {

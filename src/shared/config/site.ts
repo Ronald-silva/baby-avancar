@@ -3,12 +3,16 @@
 // sem mudar quem consome (ver ROADMAP.md, "Fonte única de dados institucionais").
 
 /**
- * URL pública desta aplicação Next.js (para metadata, canonical, sitemap e OG).
- * Nenhum domínio próprio foi definido ainda (ROADMAP.md, ADR-004) — o fallback é a
- * URL do Railway já validada em produção (ADR-012). Defina `NEXT_PUBLIC_SITE_URL`
- * assim que houver domínio próprio; nenhum outro arquivo deve precisar mudar.
+ * URL pública e CANÔNICA desta aplicação (para metadata, canonical, sitemap,
+ * robots e JSON-LD). Domínio oficial adquirido — ver ROADMAP.md, ADR-004/015.
+ *
+ * O domínio do Railway (`baby-avancar-production.up.railway.app`) é só
+ * ambiente técnico de validação: é aceitável acessá-lo para QA depois do
+ * deploy, mas o HTML servido por ele deve continuar anunciando este domínio
+ * como canonical — nunca o contrário. Não usar `NEXT_PUBLIC_SITE_URL` para
+ * apontar de volta para o Railway ou para o domínio antigo da Vercel.
  */
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://baby-avancar-production.up.railway.app";
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://babyavancar.com.br";
 
 export const SITE = {
   name: "Baby Avançar",

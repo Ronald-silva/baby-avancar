@@ -4,17 +4,40 @@
 
 @layer base {
   :root {
-    --canvas: 39 49% 97%;
+    /* Design system cromático oficial — ver docs/DESIGN_SYSTEM.md.
+       Valores em HSL (H S% L%) para compor com `hsl(var(--x))` no Tailwind. */
+    --canvas: 200 27% 98%;
     --surface: 0 0% 100%;
-    --ink: 209 36% 18%;
-    --muted: 207 13% 39%;
-    --brand: 198 56% 35%;
+    --surface-muted: 210 40% 96%;
+    --ink: 217 31% 13%;
+    --muted: 212 14% 42%;
+    --inverse: 0 0% 100%;
+    --border: 210 22% 91%;
+    --border-strong: 214 16% 83%;
+
+    --brand: 216 100% 43%;
+    --brand-hover: 216 100% 35%;
+    --brand-active: 215 100% 27%;
     --brand-foreground: 0 0% 100%;
+
+    --secondary: 215 100% 27%;
+    --secondary-hover: 214 96% 18%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 45 100% 51%;
+    --accent-hover: 41 100% 45%;
+    --accent-foreground: 217 31% 13%;
+
+    --success: 142 72% 29%;
+    --warning: 17 88% 40%;
+    --error: 0 72% 51%;
+    --info: 201 90% 27%;
+
     --font-display: var(--font-fraunces), Georgia, serif;
     --font-body: var(--font-nunito-sans), "Segoe UI", sans-serif;
   }
 
-  * { @apply border-slate-200; }
+  * { @apply border-border; }
 
   html { scroll-behavior: smooth; }
 

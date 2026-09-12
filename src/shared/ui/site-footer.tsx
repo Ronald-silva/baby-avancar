@@ -72,7 +72,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-inverse/10 pt-6 text-sm text-inverse/50">
+        <div className="mt-12 border-t border-inverse/10 pt-6 text-center text-sm text-inverse/50">
           <p>{`© ${year} ${SITE.legalName}. Todos os direitos reservados.`}</p>
         </div>
       </div>

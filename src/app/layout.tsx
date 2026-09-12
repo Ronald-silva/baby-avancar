@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Nunito_Sans } from "next/font/google";
 import { cn } from "@/shared/lib/cn";
 import { SITE_URL } from "@/shared/config/site";
-import { LOGO_SRC } from "@/shared/ui/brand-mark";
+import { FAVICON_SRC } from "@/shared/ui/brand-mark";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -31,9 +31,13 @@ export const metadata: Metadata = {
   },
   description:
     "Colégio Baby Avançar: Educação Infantil na unidade Jóquei Clube e Ensino Fundamental I na unidade João XXIII, em Fortaleza (CE). Turmas reduzidas e acompanhamento próximo de cada aluno.",
+  // Favicon continua no selo circular antigo (fundo opaco, contido no
+  // círculo) de propósito — a nova arte transparente do BrandMark preenche
+  // quase todo o canvas 1254x1254 sem margem e fica ilegível/sem contorno
+  // em 16-32px (ver brand-mark.tsx e relatório do ajuste de identidade visual).
   icons: {
-    icon: LOGO_SRC,
-    apple: LOGO_SRC,
+    icon: FAVICON_SRC,
+    apple: FAVICON_SRC,
   },
   openGraph: {
     type: "website",

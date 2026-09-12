@@ -6,6 +6,9 @@ export const SITE = {
   name: "Baby Avançar",
   legalName: "Colégio Baby Avançar",
   whatsappNumber: "5585999701822",
+  /** Confirmado no JSON-LD do site legado (index.html, `sameAs`). */
+  instagramUrl: "https://www.instagram.com/colegiobabyavancar_oficial/",
+  tagline: "Avançando e transformando o Conhecimento",
 } as const;
 
 /**
@@ -28,6 +31,9 @@ export const UNITS = {
   },
 } as const;
 
+/** Confirmado no JSON-LD do site legado (index.html, `address`). */
+export const CITY_LOCATION = "Fortaleza, CE";
+
 /** Mensagens reais já usadas no site legado (index.html) — nenhuma foi inventada. */
 export const WHATSAPP_MESSAGES = {
   scheduleVisit: "Olá! Gostaria de agendar uma visita ao Colégio Baby Avançar.",
@@ -36,4 +42,9 @@ export const WHATSAPP_MESSAGES = {
 
 export function buildWhatsAppLink(message: string): string {
   return `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+
+/** Link de busca do Google Maps a partir de um endereço real — nunca coordenadas inventadas. */
+export function buildMapsLink(query: string): string {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }

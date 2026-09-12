@@ -5,13 +5,11 @@ import { DesktopNav } from "@/shared/ui/desktop-nav";
 import { MobileMenu, type NavigationItem } from "@/shared/ui/mobile-menu";
 import { buildWhatsAppLink, WHATSAPP_MESSAGES } from "@/shared/config/site";
 
-// Âncoras (#proposta, #atividades) apontam para seções ainda não implementadas nesta
-// rodada (só Header + Hero) — a navegação já nasce com a arquitetura de informação
-// aprovada; passam a rolar de fato assim que as seções correspondentes forem construídas.
 const navigationItems: NavigationItem[] = [
   { href: "/", label: "Início" },
   { href: "/#proposta", label: "Proposta" },
   { href: "/#atividades", label: "Atividades" },
+  { href: "/#unidades", label: "Unidades" },
   { href: "/acesso", label: "Plataforma" },
 ];
 

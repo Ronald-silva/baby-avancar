@@ -21,7 +21,7 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
   const menuId = "mobile-navigation";
 
   return (
-    <div className="xl:hidden">
+    <div className="lg:hidden">
       <button
         aria-controls={menuId}
         aria-expanded={isOpen}

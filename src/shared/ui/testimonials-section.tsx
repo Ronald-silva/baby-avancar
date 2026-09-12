@@ -11,7 +11,7 @@ const featuredTestimonial = {
     "Tomar a decisão de tirar meu filho Arthur da escola municipal foi difícil, mas necessária. Ele estava estagnado, sem aprender nada. Desde que chegou ao Colégio Baby Avançar, a transformação foi impressionante! Hoje tenho a tranquilidade de saber que ele realmente está aprendendo e se desenvolvendo.",
   name: "Ronald",
   role: "Pai do Arthur, 6 anos · Infantil V",
-  photo: { src: "/media/ronald.jpg", alt: "Ronald, pai do Arthur, aluno do Colégio Baby Avançar" },
+  photo: { src: "/media/perfil.jpeg", alt: "Ronald, pai do Arthur, aluno do Colégio Baby Avançar" },
 };
 
 const supportingTestimonials = [

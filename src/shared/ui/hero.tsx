@@ -29,7 +29,7 @@ export function Hero() {
                 fill
                 priority
                 sizes="(min-width: 768px) 48vw, 100vw"
-                src="/media/hero/atividade-25.jpg"
+                src="/media/hero/atividade-hero.png"
                 style={{ objectPosition: "50% 28%" }}
               />
             </div>

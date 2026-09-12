@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { MotionReveal } from "@/shared/ui/motion-reveal";
-import { UNITS } from "@/shared/config/site";
+import { formatUnitAddress, UNITS } from "@/shared/config/site";
 
 const unit = UNITS.infantil;
 
@@ -51,9 +51,7 @@ export function EarlyChildhoodSection() {
               </p>
               <p>{"É brincando, com cuidado e atenção próxima, que a aprendizagem realmente acontece."}</p>
             </div>
-            <p className="mt-6 text-sm text-muted">
-              {unit.street} – {unit.neighborhood}
-            </p>
+            <address className="mt-6 text-sm not-italic text-muted">{formatUnitAddress(unit)}</address>
           </MotionReveal>
         </div>
       </div>

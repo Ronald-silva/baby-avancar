@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BrandMark } from "@/shared/ui/brand-mark";
-import { buildWhatsAppLink, SITE, UNITS, WHATSAPP_MESSAGES } from "@/shared/config/site";
+import { buildWhatsAppLink, formatUnitAddress, SITE, UNITS, WHATSAPP_MESSAGES } from "@/shared/config/site";
 
 const talkOnWhatsAppLink = buildWhatsAppLink(WHATSAPP_MESSAGES.generalContact);
 
@@ -18,7 +18,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-ink py-14 text-inverse sm:py-16" role="contentinfo">
+    <footer className="bg-ink py-14 text-inverse sm:py-16">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr]">
           <div>
@@ -65,9 +65,7 @@ export function SiteFooter() {
               {units.map((unit) => (
                 <li key={unit.name}>
                   <p className="text-sm font-semibold text-inverse/85">{unit.label}</p>
-                  <p className="text-sm text-inverse/60">
-                    {unit.street} – {unit.neighborhood}
-                  </p>
+                  <address className="text-sm not-italic text-inverse/60">{formatUnitAddress(unit)}</address>
                 </li>
               ))}
             </ul>

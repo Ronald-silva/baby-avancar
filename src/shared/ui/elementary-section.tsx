@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { MotionReveal } from "@/shared/ui/motion-reveal";
-import { UNITS } from "@/shared/config/site";
+import { formatUnitAddress, UNITS } from "@/shared/config/site";
 
 const unit = UNITS.fundamental;
 
@@ -40,9 +40,9 @@ export function ElementarySection() {
               </p>
               <p>{"O objetivo não muda: cada aluno avançando no seu tempo, com quem conhece o seu jeito de aprender."}</p>
             </div>
-            <p className="mt-6 text-sm text-inverse/70">
-              {unit.street} – {unit.neighborhood}, {unit.landmark}
-            </p>
+            <address className="mt-6 text-sm not-italic text-inverse/70">
+              {formatUnitAddress(unit)} — {unit.landmark}
+            </address>
           </MotionReveal>
         </div>
       </div>

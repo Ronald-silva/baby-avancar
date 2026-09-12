@@ -1,7 +1,7 @@
 import { MapPin } from "lucide-react";
 import { AdvancementPath } from "@/shared/ui/advancement-path";
 import { Button } from "@/shared/ui/button";
-import { buildMapsLink, buildWhatsAppLink, CITY_LOCATION, UNITS, WHATSAPP_MESSAGES } from "@/shared/config/site";
+import { buildMapsLink, buildWhatsAppLink, formatUnitAddress, UNITS, WHATSAPP_MESSAGES } from "@/shared/config/site";
 
 const scheduleVisitLink = buildWhatsAppLink(WHATSAPP_MESSAGES.scheduleVisit);
 
@@ -12,12 +12,12 @@ const unitCards = [
   {
     ...UNITS.infantil,
     accentLabelClassName: "bg-brand/10 text-brand",
-    mapsQuery: `${UNITS.infantil.street} - ${UNITS.infantil.neighborhood}, ${CITY_LOCATION}`,
+    mapsQuery: `${UNITS.infantil.street} - ${UNITS.infantil.neighborhood}, ${UNITS.infantil.addressLocality} - ${UNITS.infantil.addressRegion}`,
   },
   {
     ...UNITS.fundamental,
     accentLabelClassName: "bg-accent/15 text-ink",
-    mapsQuery: `${UNITS.fundamental.street} - ${UNITS.fundamental.neighborhood}, ${CITY_LOCATION}`,
+    mapsQuery: `${UNITS.fundamental.street} - ${UNITS.fundamental.neighborhood}, ${UNITS.fundamental.addressLocality} - ${UNITS.fundamental.addressRegion}`,
   },
 ] as const;
 
@@ -47,13 +47,13 @@ export function UnitsSection() {
                 {unit.label}
               </span>
               <h3 className="mt-5 font-display text-2xl text-ink sm:text-3xl">{unit.name}</h3>
-              <p className="mt-3 flex items-start gap-2 text-lg leading-relaxed text-muted">
+              <address className="mt-3 flex items-start gap-2 text-lg not-italic leading-relaxed text-muted">
                 <MapPin aria-hidden="true" className="mt-1 shrink-0 text-muted" size={20} />
                 <span>
-                  {unit.street} – {unit.neighborhood}
-                  {"landmark" in unit ? `, ${unit.landmark}` : ""}
+                  {formatUnitAddress(unit)}
+                  {"landmark" in unit ? ` — ${unit.landmark}` : ""}
                 </span>
-              </p>
+              </address>
 
               <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
                 <Button asChild className="rounded-xl px-5 text-sm">

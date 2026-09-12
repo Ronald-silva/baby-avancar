@@ -19,7 +19,7 @@ type BrandMarkProps = {
   showWordmark?: boolean;
 };
 
-export function BrandMark({ className, imageClassName, size = 44, showWordmark = true }: BrandMarkProps) {
+export function BrandMark({ className, imageClassName, size = 52, showWordmark = true }: BrandMarkProps) {
   return (
     <span className={cn("inline-flex items-center gap-3", className)}>
       <Image
@@ -32,7 +32,7 @@ export function BrandMark({ className, imageClassName, size = 44, showWordmark =
         width={size}
       />
       {showWordmark ? (
-        <span className="font-display text-xl font-semibold tracking-tight text-ink">{"Baby Avançar"}</span>
+        <span className="font-display text-2xl font-semibold tracking-tight text-ink">{"Baby Avançar"}</span>
       ) : null}
     </span>
   );

@@ -26,19 +26,24 @@ function ScheduleVisitButton({ className }: { className?: string }) {
   );
 }
 
+// Nav completa e CTA aparecem a partir de `xl` (1280px); abaixo disso, o
+// hambúrguer do MobileMenu assume (classe `xl:hidden` em mobile-menu.tsx).
+// As duas classes precisam usar sempre o MESMO breakpoint — senão nav
+// completa e hambúrguer aparecem juntos (ou nenhum dos dois) numa faixa
+// de largura intermediária.
 export function MarketingHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-brand/10 bg-canvas/85 backdrop-blur-glass">
-      <div className="mx-auto flex min-h-16 max-w-6xl items-center justify-between gap-3 px-5 py-2 sm:px-8">
+    <header className="sticky top-0 z-40 border-b border-border/70 bg-canvas/90 backdrop-blur-glass">
+      <div className="mx-auto flex min-h-20 max-w-6xl items-center justify-between gap-4 px-5 sm:px-8">
         <Link aria-label="Colégio Baby Avançar — página inicial" className="tap-target inline-flex shrink-0 items-center rounded-xl" href="/">
           <BrandMark />
         </Link>
 
-        <nav aria-label="Navegação principal" className="hidden lg:block">
-          <ul className="flex items-center gap-1">
+        <nav aria-label="Navegação principal" className="hidden xl:block">
+          <ul className="flex items-center gap-2">
             {navigationItems.map((item) => (
               <li key={item.href}>
-                <Link className="tap-target inline-flex items-center whitespace-nowrap rounded-full px-3 py-2 text-sm font-semibold text-ink transition-[background-color,color] hover:bg-brand hover:text-brand-foreground xl:px-4 xl:text-base" href={item.href}>
+                <Link className="tap-target inline-flex items-center whitespace-nowrap rounded-full px-4 py-2 font-semibold text-ink transition-[background-color,color] hover:bg-brand hover:text-brand-foreground" href={item.href}>
                   {item.label}
                 </Link>
               </li>
@@ -46,7 +51,7 @@ export function MarketingHeader() {
           </ul>
         </nav>
 
-        <div className="hidden shrink-0 lg:block">
+        <div className="hidden shrink-0 xl:block">
           <ScheduleVisitButton />
         </div>
 

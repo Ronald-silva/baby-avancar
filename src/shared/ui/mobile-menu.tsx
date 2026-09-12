@@ -21,7 +21,9 @@ export function MobileMenu({ items, cta }: MobileMenuProps) {
   const menuId = "mobile-navigation";
 
   return (
-    <div className="lg:hidden">
+    // `xl:hidden` precisa casar com o breakpoint de exibição da nav desktop
+    // em marketing-header.tsx (`xl:block`) — ver comentário lá.
+    <div className="xl:hidden">
       <button
         aria-controls={menuId}
         aria-expanded={isOpen}

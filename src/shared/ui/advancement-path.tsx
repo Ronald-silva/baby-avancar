@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/shared/lib/cn";
+import { useHasMounted } from "@/shared/lib/use-has-mounted";
 
 /**
  * Trajetória dourada — elemento gráfico proprietário da Direção D ("Infância em Movimento").
@@ -39,7 +40,8 @@ function starPoints(x: number, y: number, size: number) {
 }
 
 export function AdvancementPath({ className, variant }: AdvancementPathProps) {
-  const reduceMotion = useReducedMotion();
+  const shouldReduceMotion = useReducedMotion();
+  const reduceMotion = useHasMounted() && shouldReduceMotion;
   const { viewBox, path, star, starSize } = VARIANTS[variant];
 
   return (

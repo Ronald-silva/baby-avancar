@@ -5,12 +5,14 @@ import Image from "next/image";
 import { AdvancementPath } from "@/shared/ui/advancement-path";
 import { Button } from "@/shared/ui/button";
 import { buildWhatsAppLink, WHATSAPP_MESSAGES } from "@/shared/config/site";
+import { useHasMounted } from "@/shared/lib/use-has-mounted";
 
 const scheduleVisitLink = buildWhatsAppLink(WHATSAPP_MESSAGES.scheduleVisit);
 const talkOnWhatsAppLink = buildWhatsAppLink(WHATSAPP_MESSAGES.generalContact);
 
 export function Hero() {
-  const reduceMotion = useReducedMotion();
+  const shouldReduceMotion = useReducedMotion();
+  const reduceMotion = useHasMounted() && shouldReduceMotion;
 
   return (
     <section aria-label="Apresentação do Colégio Baby Avançar" className="relative overflow-hidden bg-canvas">

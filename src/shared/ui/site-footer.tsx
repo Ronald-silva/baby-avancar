@@ -73,6 +73,19 @@ export function SiteFooter() {
 
         <div className="mt-10 border-t border-inverse/10 pt-6 text-center text-sm text-inverse/50 sm:mt-12">
           <p>{`© ${year} ${SITE.legalName}. Todos os direitos reservados.`}</p>
+          {/* Crédito do desenvolvedor: deliberadamente menor e mais apagado que o
+              copyright acima — é uma assinatura, não deve competir por atenção. */}
+          <p className="mt-2 text-xs text-inverse/35">
+            {"Desenvolvido por "}
+            <a
+              className="text-inverse/50 underline-offset-4 hover:text-inverse/80 hover:underline"
+              href="https://www.ronaldigital.tech/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              RonalDigital
+            </a>
+          </p>
         </div>
       </div>
     </footer>

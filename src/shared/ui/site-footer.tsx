@@ -1,7 +1,8 @@
-import { Camera, MessageCircle } from "lucide-react";
+import { Camera } from "lucide-react";
 import Link from "next/link";
 import { BrandMark } from "@/shared/ui/brand-mark";
 import { buildWhatsAppLink, formatUnitAddress, SITE, UNITS, WHATSAPP_MESSAGES } from "@/shared/config/site";
+import { WhatsAppIcon } from "@/shared/ui/whatsapp-icon";
 
 const talkOnWhatsAppLink = buildWhatsAppLink(WHATSAPP_MESSAGES.generalContact);
 
@@ -35,7 +36,7 @@ export function SiteFooter() {
                 não texto solto — precisam ficar evidentemente clicáveis. */}
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <a aria-label="Falar no WhatsApp com o Colégio Baby Avançar" className={socialLinkClassName} href={talkOnWhatsAppLink} rel="noopener noreferrer" target="_blank">
-                <MessageCircle aria-hidden="true" size={17} />
+                <WhatsAppIcon size={17} />
                 WhatsApp
               </a>
               <a aria-label="Instagram do Colégio Baby Avançar" className={socialLinkClassName} href={SITE.instagramUrl} rel="noopener noreferrer" target="_blank">

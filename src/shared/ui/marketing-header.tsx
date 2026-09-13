@@ -7,9 +7,9 @@ import { buildWhatsAppLink, WHATSAPP_MESSAGES } from "@/shared/config/site";
 
 const navigationItems: NavigationItem[] = [
   { href: "/", label: "Início" },
-  { href: "/#proposta", label: "Proposta" },
+  { href: "/#segmentos", label: "Segmentos" },
   { href: "/#atividades", label: "Atividades" },
-  { href: "/#unidades", label: "Unidades" },
+  { href: "/#prova-social", label: "Depoimentos" },
   { href: "/acesso", label: "Plataforma" },
 ];
 

@@ -4,11 +4,14 @@ import { buildWhatsAppLink, formatUnitAddress, SITE, UNITS, WHATSAPP_MESSAGES } 
 
 const talkOnWhatsAppLink = buildWhatsAppLink(WHATSAPP_MESSAGES.generalContact);
 
+// Redesign da Home: footer enxugado, principalmente no mobile — Navegação e
+// Unidades agora dividem uma mesma linha em vez de empilhar 2 blocos cheios
+// (menos rolagem), e a navegação só lista o que ainda existe como seção
+// própria (Segmentos absorveu Proposta/Infantil/Fundamental/Unidades — ver
+// segments-section.tsx).
 const footerNavigation = [
   { href: "/", label: "Início" },
-  { href: "/#proposta", label: "Proposta" },
-  { href: "/#galeria", label: "Vida na Baby Avançar" },
-  { href: "/#unidades", label: "Unidades" },
+  { href: "/#segmentos", label: "Segmentos" },
   { href: "/acesso", label: "Plataforma" },
 ] as const;
 
@@ -18,10 +21,10 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-ink py-14 text-inverse sm:py-16">
+    <footer className="bg-ink py-12 text-inverse sm:py-16">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr]">
-          <div>
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-[1.3fr_1fr_1fr] lg:gap-10">
+          <div className="col-span-2 lg:col-span-1">
             <BrandMark wordmarkClassName="text-inverse" />
             <p className="mt-5 max-w-xs text-sm italic text-inverse/70">{`“${SITE.tagline}”`}</p>
             <div className="mt-6 flex items-center gap-4">
@@ -72,7 +75,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-inverse/10 pt-6 text-center text-sm text-inverse/50">
+        <div className="mt-10 border-t border-inverse/10 pt-6 text-center text-sm text-inverse/50 sm:mt-12">
           <p>{`© ${year} ${SITE.legalName}. Todos os direitos reservados.`}</p>
         </div>
       </div>

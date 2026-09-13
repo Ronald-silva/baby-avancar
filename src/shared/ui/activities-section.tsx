@@ -34,9 +34,15 @@ const activities = [
     description: "Apoio pedagógico personalizado para as dificuldades de cada aluno.",
     details: "Infantil IV ao 5º ano · horário flexível",
     image: {
-      src: "/media/home/atividade-bombeiro-detalhe.jpg",
-      alt: "Criança praticando manobra de primeiros socorros em manequim de treino, orientada por instrutor",
-      objectPosition: "50% 35%",
+      // Antes usava atividade-bombeiro-detalhe.jpg (treino de primeiros
+      // socorros em manequim) — foto de Bombeiro Mirim, não de reforço
+      // escolar (ver auditoria corretiva #1). Substituída por uma foto real
+      // de sala/estudo. Rosto no terço superior do arquivo-fonte (retrato
+      // 900x1600); ancorado perto do topo para manter o rosto inteiro e o
+      // mural de alfabetização ao fundo (contexto de leitura/estudo).
+      src: "/media/home/infantil-leitura.jpg",
+      alt: "Criança sorrindo durante atividade de leitura e alfabetização em sala do Colégio Baby Avançar",
+      objectPosition: "50% 10%",
     },
   },
 ] as const;

@@ -2,7 +2,7 @@
 
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import { type ReactNode, useState } from "react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import { cn } from "@/shared/lib/cn";
 
 export type NavigationItem = {
@@ -19,17 +19,57 @@ type MobileMenuProps = {
 export function MobileMenu({ items, cta }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const menuId = "mobile-navigation";
+  const containerRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
+  // Fechar ao clicar fora e ao pressionar Escape — nenhum dos dois existia
+  // (só fechava clicando num link ou no próprio trigger de novo). Sem isso,
+  // o menu ficava aberto indefinidamente nesses dois casos, o que parecia
+  // "estilo preso" no QA manual mas era o menu genuinamente ainda aberto.
+  useEffect(() => {
+    if (!isOpen) return;
+
+    function handlePointerDown(event: PointerEvent) {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+        triggerRef.current?.focus();
+      }
+    }
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
 
   return (
     // `lg:hidden` precisa casar com o breakpoint de exibição da nav desktop
     // em marketing-header.tsx (`lg:block`) — ver comentário lá.
-    <div className="lg:hidden">
+    <div className="lg:hidden" ref={containerRef}>
       <button
         aria-controls={menuId}
         aria-expanded={isOpen}
         aria-label={isOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
-        className="tap-target inline-flex items-center justify-center rounded-full border border-brand/15 bg-surface text-brand shadow-soft transition-[background-color,color,transform] hover:-translate-y-0.5 hover:bg-brand hover:text-brand-foreground"
+        className={cn(
+          "tap-target inline-flex items-center justify-center rounded-full border shadow-soft transition-[background-color,color,border-color,transform] duration-150 active:scale-95",
+          // `hover:` puro gruda em touch (sem mouse não existe "sair do hover" —
+          // o navegador aplica no toque e só limpa num toque seguinte em outro
+          // lugar, deixando o botão "azul preso"). `[@media(hover:hover)]:`
+          // restringe o hover a ponteiros que realmente suportam hover (mouse/
+          // trackpad) — comportamento desktop preservado, touch nunca gruda.
+          "[@media(hover:hover)]:hover:-translate-y-0.5 [@media(hover:hover)]:hover:bg-brand [@media(hover:hover)]:hover:text-brand-foreground",
+          isOpen ? "border-brand/30 bg-brand/10 text-brand" : "border-brand/15 bg-surface text-brand",
+        )}
         onClick={() => setIsOpen((open) => !open)}
+        ref={triggerRef}
         type="button"
       >
         {isOpen ? <X aria-hidden="true" size={22} /> : <Menu aria-hidden="true" size={22} />}

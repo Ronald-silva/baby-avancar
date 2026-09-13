@@ -55,8 +55,12 @@ export const metadata: Metadata = {
     siteName: "Colégio Baby Avançar",
     url: "/",
     title: "Colégio Baby Avançar | Infantil e Fundamental I em Fortaleza",
+    // Correção de fato institucional: a versão anterior dizia "Infantil na
+    // unidade Jóquei Clube e Fundamental na unidade João XXIII" como se
+    // fossem exclusivos — João XXIII atende os dois segmentos, não só
+    // Fundamental (ver UNITS em shared/config/site.ts).
     description:
-      "Educação Infantil na unidade Jóquei Clube e Ensino Fundamental I na unidade João XXIII, em Fortaleza (CE).",
+      "Educação Infantil nas unidades Jóquei Clube e João XXIII, com Fundamental I também no João XXIII.",
   },
   robots: {
     index: true,

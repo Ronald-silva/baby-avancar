@@ -15,7 +15,7 @@ const scheduleVisitLink = buildWhatsAppLink(WHATSAPP_MESSAGES.scheduleVisit);
 // precisa mais de uma seção própria.
 const segments = [
   {
-    ...UNITS.infantil,
+    ...UNITS.joqueiClube,
     pitch: "Acolher vem antes de ensinar: cada criança segura para explorar, brincar e descobrir no seu próprio ritmo.",
     image: {
       src: "/media/home/infantil-descoberta.jpg",
@@ -25,18 +25,20 @@ const segments = [
       objectPosition: "50% 10%",
     },
     tone: "light",
-    mapsQuery: `${UNITS.infantil.street} - ${UNITS.infantil.neighborhood}, ${UNITS.infantil.addressLocality} - ${UNITS.infantil.addressRegion}`,
+    mapsQuery: `${UNITS.joqueiClube.street} - ${UNITS.joqueiClube.neighborhood}, ${UNITS.joqueiClube.addressLocality} - ${UNITS.joqueiClube.addressRegion}`,
   },
   {
-    ...UNITS.fundamental,
-    pitch: "Mais registro e mais autonomia, com o mesmo acompanhamento próximo que marca a escola desde a Infantil.",
+    ...UNITS.joaoXXIII,
+    // João XXIII atende os dois segmentos (correção de fato institucional —
+    // não é uma unidade só de Fundamental, a Infantil também continua lá).
+    pitch: "Acolhe desde a Infantil e segue para o Fundamental I sem trocar de unidade, com o mesmo acompanhamento próximo em cada fase.",
     image: {
       src: "/media/home/fundamental-registro.jpg",
       alt: "Criança do Fundamental I registrando atividade escrita em caderno do Colégio Baby Avançar",
       objectPosition: "50% 50%",
     },
     tone: "dark",
-    mapsQuery: `${UNITS.fundamental.street} - ${UNITS.fundamental.neighborhood}, ${UNITS.fundamental.addressLocality} - ${UNITS.fundamental.addressRegion}`,
+    mapsQuery: `${UNITS.joaoXXIII.street} - ${UNITS.joaoXXIII.neighborhood}, ${UNITS.joaoXXIII.addressLocality} - ${UNITS.joaoXXIII.addressRegion}`,
   },
 ] as const;
 

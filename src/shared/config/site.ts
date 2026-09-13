@@ -27,9 +27,16 @@ export const SITE = {
  * As duas unidades do Colégio Baby Avançar — nenhuma é "sede" da identidade,
  * a marca é única e global (ver ROADMAP.md, Fase 1 / Bloco 2).
  * `addressLocality`/`addressRegion` confirmados no JSON-LD do site legado (index.html, `address`).
+ *
+ * Chaveado por UNIDADE, não por segmento (correção de fato institucional):
+ * a estrutura anterior (`infantil`/`fundamental` como chaves) embutia a
+ * suposição errada de que cada unidade atende exatamente um segmento. Real:
+ * João XXIII atende os DOIS segmentos (Infantil e Fundamental I); só Jóquei
+ * Clube atende exclusivamente Infantil. `label` descreve os segmentos reais
+ * de cada unidade, não é mais um segmento com uma unidade anexada.
  */
 export const UNITS = {
-  infantil: {
+  joqueiClube: {
     label: "Educação Infantil",
     name: "Unidade Jóquei Clube",
     street: "Rua Silveira Filho, 375",
@@ -37,8 +44,8 @@ export const UNITS = {
     addressLocality: "Fortaleza",
     addressRegion: "CE",
   },
-  fundamental: {
-    label: "Fundamental I",
+  joaoXXIII: {
+    label: "Educação Infantil e Fundamental I",
     name: "Unidade João XXIII",
     street: "Rua Perdigão de Oliveira, 1241",
     neighborhood: "João XXIII",

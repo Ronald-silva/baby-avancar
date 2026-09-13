@@ -20,7 +20,7 @@ const footerNavigation = [
 const socialLinkClassName =
   "tap-target inline-flex items-center gap-2 rounded-full border border-inverse/15 bg-inverse/5 px-4 py-2 text-sm font-semibold text-inverse/90 transition-colors hover:border-inverse/30 hover:bg-inverse/10 hover:text-inverse";
 
-const units = [UNITS.infantil, UNITS.fundamental];
+const units = [UNITS.joqueiClube, UNITS.joaoXXIII];
 
 export function SiteFooter() {
   const year = new Date().getFullYear();

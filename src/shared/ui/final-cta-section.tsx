@@ -15,7 +15,7 @@ const talkOnWhatsAppLink = buildWhatsAppLink(WHATSAPP_MESSAGES.generalContact);
 const faqs = [
   {
     question: "A escola oferece atividades extras?",
-    answer: "Sim: Jiu-Jitsu, Bombeiro Mirim e Reforço Escolar, além das atividades regulares de cada segmento.",
+    answer: "Sim: Jiu-Jitsu, Bombeiro Mirim, Reforço Escolar e Ballet, além das atividades regulares de cada segmento.",
   },
   {
     question: "Como agendar uma visita à escola?",

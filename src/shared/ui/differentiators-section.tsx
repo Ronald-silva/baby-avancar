@@ -19,7 +19,7 @@ const differentiators = [
   },
   {
     title: "Atividades para além da sala",
-    description: "Jiu-Jitsu, Bombeiro Mirim e Reforço Escolar ampliando o que a criança vive na escola.",
+    description: "Jiu-Jitsu, Bombeiro Mirim, Reforço Escolar e Ballet ampliando o que a criança vive na escola.",
   },
 ] as const;
 

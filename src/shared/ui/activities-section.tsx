@@ -50,15 +50,17 @@ const activities = [
     description: "Expressão corporal, postura e musicalidade em cada movimento.",
     details: "A partir de 4 anos · 1x/semana",
     image: {
-      // Arquivo enviado (gallery/ballet.png) era uma peça promocional
-      // (texto "Aulas de Ballet no CBA" + fundo decorativo + silhueta
-      // fantasma) e não uma foto candid como as demais — recortada para
-      // isolar só a criança, sem o texto embutido nem a silhueta, gerando
-      // este arquivo dedicado. Rosto centralizado no recorte 210x280;
-      // 50%/55% mantém rosto e os dois braços do gesto inteiros.
-      src: "/media/home/atividade-ballet.jpg",
-      alt: "Criança sorrindo com os braços erguidos em posição de ballet",
-      objectPosition: "50% 55%",
+      // Arquivo substituído pelo usuário (gallery/ballet.png, 1024x1600) —
+      // sem o texto embutido da versão anterior. Ainda parece foto de banco
+      // de imagens/composição (silhueta de bailarina pintada na parede,
+      // corações e laço decorativos) em vez de foto candid de aluna real
+      // como as outras 3 atividades — por isso o alt não afirma que é no
+      // Colégio Baby Avançar, diferente dos demais. object-position 50%/30%
+      // escolhido comparando âncoras: mantém rosto e os dois braços do gesto
+      // inteiros e evita que a silhueta decorativa domine o card.
+      src: "/media/gallery/ballet.png",
+      alt: "Criança em trajes de ballet, com os braços erguidos em posição de dança",
+      objectPosition: "50% 30%",
     },
   },
 ] as const;

@@ -18,11 +18,11 @@ const segments = [
     ...UNITS.joqueiClube,
     pitch: "Acolher vem antes de ensinar: cada criança segura para explorar, brincar e descobrir no seu próprio ritmo.",
     image: {
-      src: "/media/home/infantil-descoberta.jpg",
-      alt: "Criança pequena concentrada encaixando peças de madeira coloridas em brinquedo pedagógico na Educação Infantil",
-      // O rosto está no terço superior do arquivo-fonte (retrato 720x1280);
-      // crop central corta testa/olhos. Ancorado perto do topo de propósito.
-      objectPosition: "50% 10%",
+      src: "/media/aluna4.png",
+      alt: "Aluna sorridente da Educação Infantil brincando no escorregador do parquinho",
+      // Retrato 1024x1536; rosto no quarto superior do arquivo. Ancorado
+      // perto do topo para não cortar a cabeça no crop 4:3 do card.
+      objectPosition: "50% 12%",
     },
     tone: "light",
     mapsQuery: `${UNITS.joqueiClube.street} - ${UNITS.joqueiClube.neighborhood}, ${UNITS.joqueiClube.addressLocality} - ${UNITS.joqueiClube.addressRegion}`,
@@ -33,9 +33,11 @@ const segments = [
     // não é uma unidade só de Fundamental, a Infantil também continua lá).
     pitch: "Acolhe desde a Infantil e segue para o Fundamental I sem trocar de unidade, com o mesmo acompanhamento próximo em cada fase.",
     image: {
-      src: "/media/home/fundamental-registro.jpg",
-      alt: "Criança do Fundamental I registrando atividade escrita em caderno do Colégio Baby Avançar",
-      objectPosition: "50% 50%",
+      src: "/media/aluna5.png",
+      alt: "Aluna do Fundamental I concentrada pintando um desenho em sala de aula",
+      // Retrato 1024x1536; rosto no quarto superior do arquivo, mesmo
+      // ajuste de ancoragem do card ao lado.
+      objectPosition: "50% 12%",
     },
     tone: "dark",
     mapsQuery: `${UNITS.joaoXXIII.street} - ${UNITS.joaoXXIII.neighborhood}, ${UNITS.joaoXXIII.addressLocality} - ${UNITS.joaoXXIII.addressRegion}`,

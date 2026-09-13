@@ -20,9 +20,8 @@ const nunitoSans = Nunito_Sans({
   weight: ["400", "600", "700", "800"],
 });
 
-// Sem imagem própria de Open Graph (1200x630) ainda — nenhum asset atual tem
-// a proporção adequada (ver relatório do Bloco 4). Pendência documentada, não
-// geramos uma imagem improvisada só para preencher o checklist.
+// Imagem de Open Graph vem do file convention em opengraph-image.tsx
+// (banner oficial em public/media/og.webp), não precisa ser listada aqui.
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {

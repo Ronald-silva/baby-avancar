@@ -45,6 +45,22 @@ const activities = [
       objectPosition: "50% 10%",
     },
   },
+  {
+    name: "Ballet",
+    description: "Expressão corporal, postura e musicalidade em cada movimento.",
+    details: "A partir de 4 anos · 1x/semana",
+    image: {
+      // Arquivo enviado (gallery/ballet.png) era uma peça promocional
+      // (texto "Aulas de Ballet no CBA" + fundo decorativo + silhueta
+      // fantasma) e não uma foto candid como as demais — recortada para
+      // isolar só a criança, sem o texto embutido nem a silhueta, gerando
+      // este arquivo dedicado. Rosto centralizado no recorte 210x280;
+      // 50%/55% mantém rosto e os dois braços do gesto inteiros.
+      src: "/media/home/atividade-ballet.jpg",
+      alt: "Criança sorrindo com os braços erguidos em posição de ballet",
+      objectPosition: "50% 55%",
+    },
+  },
 ] as const;
 
 export function ActivitiesSection() {
@@ -58,7 +74,7 @@ export function ActivitiesSection() {
           </h2>
         </MotionReveal>
 
-        <div className="mt-12 grid gap-6 sm:mt-14 md:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4">
           {activities.map((activity, index) => (
             <MotionReveal delay={index * 0.08} key={activity.name}>
               <article className="h-full overflow-hidden rounded-4xl bg-surface shadow-soft transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-glass">
@@ -67,7 +83,7 @@ export function ActivitiesSection() {
                     alt={activity.image.alt}
                     className="object-cover"
                     fill
-                    sizes="(min-width: 768px) 30vw, 90vw"
+                    sizes="(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 90vw"
                     src={activity.image.src}
                     style={{ objectPosition: activity.image.objectPosition }}
                   />

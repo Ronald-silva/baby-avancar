@@ -2,6 +2,13 @@
 // quando uma URL pública indexável é criada ou alterada de forma relevante.
 // NÃO substitui sitemap.xml/robots.ts nem GSC/Bing Webmaster — só acelera o aviso.
 //
+// Esta função não é chamada automaticamente por nenhuma rota/página (nunca
+// deve disparar a cada request/build/render — ver `submitIndexNow` abaixo).
+// O gatilho manual e documentado é `npm run indexnow` (scripts/submit-
+// indexnow.mjs), rodado depois de publicar conteúdo novo/alterado. Esta
+// função continua existindo para uso programático futuro (ex.: uma ação
+// interna disparada por uma pessoa autorizada), não é código morto.
+//
 // A chave abaixo TEM que ser pública por exigência do protocolo (fica exposta
 // em texto puro em `${SITE_URL}/${INDEXNOW_KEY}.txt`) — não é segredo.
 // Se a chave mudar, o arquivo `public/<chave>.txt` precisa ser renomeado junto.

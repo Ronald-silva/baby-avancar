@@ -10,20 +10,23 @@ import { cn } from "@/shared/lib/cn";
  * `LOGO_SRC` (`public/media/babyavancar.png`) é a arte com fundo
  * transparente usada no BrandMark visual (Header/Footer/Hero).
  *
- * Favicon NÃO reusa nem o selo circular completo nem a arte transparente —
- * as duas têm detalhe/texto demais e ficam ilegíveis em 16-32px. É um
- * monograma dedicado ("BA" dourado sobre círculo azul da marca, as duas
- * cores reais do token system — nenhuma identidade nova), gerado nos
- * tamanhos que cada consumidor real precisa (ver ROADMAP.md/relatório do
- * ajuste de identidade visual para o motivo de cada tamanho existir).
+ * Favicon usa o selo oficial (mesmo símbolo do `LOGO_SRC`/selo circular),
+ * exportado em `public/media/favicons/` nos tamanhos reais que cada
+ * consumidor precisa (16/32/48 navegador, 180 Apple touch, 192/512
+ * manifest/PWA) — substituiu o monograma "BA" provisório usado antes do
+ * selo oficial chegar (auditoria de correções, item 4). `apple-touch-
+ * icon.png` foi achatado sobre fundo branco opaco nessa mesma pasta (fundo
+ * transparente original virava quadrado preto no iOS, que não respeita
+ * alpha em ícone de tela de início) — mesmo símbolo, nenhum pixel do selo
+ * alterado, só o canal alpha removido.
  */
 export const LOGO_SRC = "/media/babyavancar.png";
-export const FAVICON_ICON_16 = "/media/favicon-16.png";
-export const FAVICON_ICON_32 = "/media/favicon-32.png";
-export const FAVICON_ICON_48 = "/media/favicon-48.png";
-export const FAVICON_APPLE_TOUCH = "/media/apple-touch-icon.png";
-export const FAVICON_ICON_192 = "/media/icon-192.png";
-export const FAVICON_ICON_512 = "/media/icon-512.png";
+export const FAVICON_ICON_16 = "/media/favicons/favicon-16x16.png";
+export const FAVICON_ICON_32 = "/media/favicons/favicon-32x32.png";
+export const FAVICON_ICON_48 = "/media/favicons/favicon-48x48.png";
+export const FAVICON_APPLE_TOUCH = "/media/favicons/apple-touch-icon.png";
+export const FAVICON_ICON_192 = "/media/favicons/icon-192x192.png";
+export const FAVICON_ICON_512 = "/media/favicons/icon-512x512.png";
 
 type BrandMarkProps = {
   className?: string;

@@ -16,11 +16,6 @@ type HeroContentProps = {
   className?: string;
 };
 
-// Conteúdo textual do Hero isolado num componente próprio porque agora existem
-// duas instâncias no DOM (mobile empilhado vs. desktop lado a lado, cada uma
-// oculta via classe responsiva — mesmo padrão já usado no Header entre
-// DesktopNav/MobileMenu). Mantém kicker → H1 → subtítulo → CTAs idênticos nos
-// dois casos em vez de duplicar o JSX inteiro.
 function HeroContent({ reduceMotion, className }: HeroContentProps) {
   return (
     <motion.div
@@ -59,78 +54,66 @@ function HeroContent({ reduceMotion, className }: HeroContentProps) {
 // só para dar legibilidade). A foto não tem uma área de negative space real
 // no terço inferior — o degradê escurecia crianças e uniformes só para caber
 // o texto, e ainda repetia a marca (selo sobre a foto + wordmark do Header).
-// Estrutura nova: foto e texto em blocos próprios, sem sobreposição —
-// banner editorial (aspect-ratio fixo, sem vh) seguido do bloco de texto em
-// fundo sólido. Nenhuma marca extra sobre a foto: Header já carrega a marca.
-// `fetchPriority="high"` em vez de `priority`/`preload` nas duas imagens
-// abaixo: Next 16 deprecou `priority` e a doc do componente Image pede
-// explicitamente para NÃO usar `preload` quando há mais de uma imagem que
-// pode ser o LCP dependendo do viewport (exatamente este caso — a mesma
-// foto em dois <Image>, um por breakpoint via classe `lg:hidden`/`hidden
-// lg:block`). `preload` forçaria o carregamento das duas variantes de uma
-// vez; `fetchPriority` combinado com o `loading="lazy"` padrão garante que
-// só a instância realmente visível carrega (ver next/image, seção "Art
-// direction"/"Theme switching").
+// Estrutura: foto e texto em blocos próprios, sem sobreposição — banner
+// editorial (aspect-ratio fixo, sem vh) seguido do bloco de texto em fundo
+// sólido. Nenhuma marca extra sobre a foto: Header já carrega a marca.
+//
+// Correção da auditoria de performance: a versão anterior tinha DUAS
+// instâncias de <Image> (mobile/desktop, cada uma escondida via `lg:hidden`/
+// `hidden lg:block`) e DUAS instâncias de <HeroContent> (logo, dois <h1>
+// idênticos no DOM). Medido ao vivo via Network: em viewport >=1024px o
+// navegador baixava as DUAS variantes da mesma foto (a escondida via
+// `display:none` incluída) — `display:none` não impede o fetch do `src`,
+// só a pintura. Como as duas instâncias sempre usam o MESMO arquivo-fonte
+// (não é troca de foto por breakpoint, é só recorte/posição diferentes),
+// a correção não precisa de `<picture>`/`getImageProps` (isso é para
+// arquivos DIFERENTES por breakpoint) — basta UMA única <Image> cujo
+// contêiner muda de "bloco normal com aspect-ratio" (mobile/tablet) para
+// "painel absoluto de 58% de largura" (desktop) via classes responsivas do
+// Tailwind no mesmo elemento, e um único <HeroContent> cujo contêiner muda
+// de "abaixo da foto, fundo sólido" para "coluna esquerda de um flex ao
+// lado do painel" do mesmo jeito. Existindo só uma <Image>, `preload`
+// (substituto de `priority`, depreciada no Next 16) volta a ser seguro: já
+// não há "mais de uma imagem que pode ser o LCP dependendo do viewport" —
+// só existe uma, sempre. `fetchPriority="high"` junto do `preload` porque o
+// `preload` sozinho só injeta o `<link rel="preload">`; sem `fetchPriority`
+// explícito esse link nasce sem `fetchpriority`, e o Lighthouse aponta isso
+// (`priorityHinted`) mesmo com o request já saindo eager.
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
   const reduceMotion = useHasMounted() && shouldReduceMotion;
 
   return (
-    <section aria-label="Apresentação do Colégio Baby Avançar" className="relative overflow-hidden bg-ink">
-      {/* Mobile/tablet: banner de foto com área própria, texto abaixo em fundo sólido. */}
-      <div className="lg:hidden">
-        <motion.div
-          animate={{ opacity: 1, scale: 1 }}
-          className="relative aspect-[4/3] w-full overflow-hidden sm:aspect-[16/10]"
-          initial={reduceMotion ? false : { opacity: 0, scale: 1.06 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-        >
-          {/*
-            Todos os 4 rostos do grupo (incluindo o menino ao fundo que, num
-            crop mais baixo, perde a cabeça pela borda superior do arquivo)
-            só cabem inteiros com a janela de corte perto do topo do arquivo:
-            50%/30% no mobile (4:3, janela mais alta) e 50%/20% no tablet
-            (16:10, janela mais baixa e larga) — validado visualmente antes de
-            aplicar, não é um valor genérico.
-          */}
-          <Image
-            alt={heroImageAlt}
-            className="object-cover object-[50%_30%] sm:object-[50%_20%]"
-            fetchPriority="high"
-            fill
-            sizes="100vw"
-            src="/media/hero/atividade-hero.png"
-          />
-        </motion.div>
+    <section aria-label="Apresentação do Colégio Baby Avançar" className="relative overflow-hidden bg-ink lg:min-h-[44rem]">
+      <motion.div
+        animate={{ opacity: 1, scale: 1 }}
+        className="relative aspect-[4/3] w-full overflow-hidden sm:aspect-[16/10] lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:h-full lg:w-[58%]"
+        initial={reduceMotion ? false : { opacity: 0, scale: 1.06 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
+        {/*
+          Todos os 4 rostos do grupo (incluindo o menino ao fundo que, num
+          crop mais baixo, perde a cabeça pela borda superior do arquivo) só
+          cabem inteiros com a janela de corte perto do topo do arquivo:
+          50%/30% no mobile e desktop (janela mais alta), 50%/20% só no
+          tablet (16:10, janela mais baixa e larga) — validado visualmente
+          antes de aplicar, não é um valor genérico.
+        */}
+        <Image
+          alt={heroImageAlt}
+          className="object-cover object-[50%_30%] sm:object-[50%_20%] lg:object-[50%_30%]"
+          fetchPriority="high"
+          fill
+          preload
+          sizes="(min-width: 1024px) 58vw, 100vw"
+          src="/media/hero/atividade-hero.png"
+        />
+        {/* Fusão só no limite entre foto e painel de texto, só existe em desktop (só lá a foto fica ao lado do texto). */}
+        <div className="absolute inset-y-0 left-0 hidden w-1/3 bg-gradient-to-r from-ink to-transparent lg:block" />
+      </motion.div>
 
-        <div className="px-5 py-10 sm:px-8 sm:py-12">
-          <HeroContent reduceMotion={!!reduceMotion} />
-        </div>
-      </div>
-
-      {/* Desktop: composição em split-screen — foto na metade direita, texto na esquerda, nunca sobrepostos. */}
-      <div className="relative hidden lg:block lg:min-h-[44rem]">
-        <motion.div
-          animate={{ opacity: 1, scale: 1 }}
-          className="absolute inset-y-0 right-0 h-full w-[58%] overflow-hidden"
-          initial={reduceMotion ? false : { opacity: 0, scale: 1.06 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-        >
-          <Image
-            alt={heroImageAlt}
-            className="object-cover object-[50%_30%]"
-            fetchPriority="high"
-            fill
-            sizes="58vw"
-            src="/media/hero/atividade-hero.png"
-          />
-          {/* Fusão só no limite entre foto e painel de texto — não passa por cima de nenhum rosto. */}
-          <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-ink to-transparent" />
-        </motion.div>
-
-        <div className="relative mx-auto flex min-h-[44rem] max-w-6xl items-center px-5 py-16 sm:px-8">
-          <HeroContent className="max-w-[46%]" reduceMotion={!!reduceMotion} />
-        </div>
+      <div className="px-5 py-10 sm:px-8 sm:py-12 lg:relative lg:mx-auto lg:flex lg:min-h-[44rem] lg:max-w-6xl lg:items-center lg:py-16">
+        <HeroContent className="lg:max-w-[46%]" reduceMotion={!!reduceMotion} />
       </div>
     </section>
   );

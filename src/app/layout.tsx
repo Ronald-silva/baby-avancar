@@ -22,18 +22,25 @@ const nunitoSans = Nunito_Sans({
 
 // Imagem de Open Graph vem do file convention em opengraph-image.tsx
 // (banner oficial em public/media/og.webp), não precisa ser listada aqui.
+// Title/description da Home encurtados (auditoria de correções, item 21):
+// versão anterior tinha 69/185 caracteres, acima do que o Google costuma
+// exibir sem truncar (~60/~155-160). Mesma informação central (Colégio Baby
+// Avançar, Infantil, Fundamental I, Fortaleza, turmas reduzidas) — só sem os
+// nomes das duas unidades na description (continuam em Segmentos/Footer/
+// JSON-LD, não é informação perdida, só não cabia no orçamento de caracteres
+// do snippet de busca).
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Colégio Baby Avançar — Educação Infantil e Fundamental I em Fortaleza",
+    default: "Colégio Baby Avançar | Infantil e Fundamental I em Fortaleza",
     template: "%s | Colégio Baby Avançar",
   },
   description:
-    "Colégio Baby Avançar: Educação Infantil na unidade Jóquei Clube e Ensino Fundamental I na unidade João XXIII, em Fortaleza (CE). Turmas reduzidas e acompanhamento próximo de cada aluno.",
-  // Favicon é um monograma dedicado ("BA" sobre círculo azul da marca),
-  // não o selo completo nem o BrandMark transparente — ver brand-mark.tsx.
-  // Tamanhos reais por consumidor: 16/32 (aba do navegador), 48 (atalho/
-  // Windows), 180 (apple-touch-icon), 192/512 (manifest.ts, PWA/Android).
+    "Colégio Baby Avançar: Educação Infantil e Fundamental I em Fortaleza, com turmas reduzidas e acompanhamento próximo de cada aluno.",
+  // Favicon é o selo oficial do colégio (ver brand-mark.tsx), exportado em
+  // public/media/favicons/ nos tamanhos reais por consumidor: 16/32 (aba do
+  // navegador), 48 (atalho/Windows), 180 (apple-touch-icon), 192/512
+  // (manifest.ts, PWA/Android).
   icons: {
     icon: [
       { url: FAVICON_ICON_16, sizes: "16x16", type: "image/png" },
@@ -47,7 +54,7 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     siteName: "Colégio Baby Avançar",
     url: "/",
-    title: "Colégio Baby Avançar — Educação Infantil e Fundamental I em Fortaleza",
+    title: "Colégio Baby Avançar | Infantil e Fundamental I em Fortaleza",
     description:
       "Educação Infantil na unidade Jóquei Clube e Ensino Fundamental I na unidade João XXIII, em Fortaleza (CE).",
   },

@@ -74,12 +74,18 @@ export function SiteFooter() {
 
         <div className="mt-10 border-t border-inverse/10 pt-6 text-center text-sm text-inverse/50 sm:mt-12">
           <p>{`© ${year} ${SITE.legalName}. Todos os direitos reservados.`}</p>
-          {/* Crédito do desenvolvedor: deliberadamente menor e mais apagado que o
-              copyright acima — é uma assinatura, não deve competir por atenção. */}
-          <p className="mt-2 text-xs text-inverse/35">
+          {/* Crédito do desenvolvedor: continua discreto por ser `text-xs` (menor
+              que o copyright acima), mas herda o mesmo `text-inverse/50` do
+              container em vez do `/35` que tinha antes — `/35` media 3.18:1 de
+              contraste contra o fundo `bg-ink` (abaixo do mínimo 4.5:1 da WCAG
+              AA para texto normal); `/50` mede ~5.1:1. O link usa sublinhado
+              permanente (não só cor) para não depender de diferença de cor com
+              o texto ao redor — mesma falha de contraste que a auditoria
+              apontou entre link e texto. */}
+          <p className="mt-2 text-xs">
             {"Desenvolvido por "}
             <a
-              className="text-inverse/50 underline-offset-4 hover:text-inverse/80 hover:underline"
+              className="underline underline-offset-4 hover:text-inverse/80"
               href="https://www.ronaldigital.tech/"
               rel="noopener noreferrer"
               target="_blank"

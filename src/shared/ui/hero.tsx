@@ -23,16 +23,25 @@ export function Hero() {
 
   return (
     <section aria-label="Apresentação do Colégio Baby Avançar" className="relative overflow-hidden bg-ink lg:min-h-[44rem]">
-      <div className="relative h-[78vh] min-h-[26rem] w-full sm:h-[85vh] sm:min-h-[32rem] lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-[58%]">
+      <div className="relative h-[66vh] min-h-[24rem] w-full sm:h-[70vh] sm:min-h-[28rem] lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-[58%]">
         <motion.div
           animate={{ opacity: 1, scale: 1 }}
           className="absolute inset-0"
           initial={reduceMotion ? false : { opacity: 0, scale: 1.06 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
+          {/*
+            A foto-fonte já tem, no seu próprio topo, um menino ao fundo com a
+            cabeça fora do quadro original (não é corte nosso). O container foi
+            encurtado (66-70vh, não 78-85vh) especificamente para abrir folga
+            suficiente e permitir empurrar object-position bem para baixo
+            (85-90%), excluindo esse menino do recorte visível em vez de
+            cortar a cabeça dele mais uma vez. Grupo principal (menina
+            sorrindo + 3 crianças) continua inteiro no quadro.
+          */}
           <Image
             alt="Grupo de crianças sorrindo durante atividade na escola, sentadas no chão da varanda"
-            className="object-cover object-[50%_30%] lg:object-[50%_22%]"
+            className="object-cover object-[50%_88%] lg:object-[50%_30%]"
             fill
             priority
             sizes="(min-width: 1024px) 58vw, 100vw"
@@ -43,7 +52,7 @@ export function Hero() {
         {/* Selo da marca sobre a foto — reforça presença sem repetir o
             wordmark do Header (já visível, sticky, uma tela acima). */}
         <div className="absolute right-5 top-5 sm:right-8 sm:top-8 lg:hidden">
-          <BrandMark imageClassName="drop-shadow-[0_2px_10px_rgb(0_0_0_/_0.35)]" showWordmark={false} size={40} />
+          <BrandMark imageClassName="drop-shadow-[0_2px_10px_rgb(0_0_0_/_0.35)]" showWordmark={false} size={48} />
         </div>
 
         {/* Degradê inferior (mobile/tablet): funde a foto no fundo onde o texto começa. */}
@@ -60,7 +69,7 @@ export function Hero() {
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
           >
             <div className="hidden items-center gap-3 lg:mb-8 lg:flex">
-              <BrandMark imageClassName="drop-shadow-[0_2px_10px_rgb(0_0_0_/_0.35)]" showWordmark={false} size={48} />
+              <BrandMark imageClassName="drop-shadow-[0_2px_10px_rgb(0_0_0_/_0.35)]" showWordmark={false} size={56} />
             </div>
             <p className="text-sm font-bold uppercase tracking-wide text-accent">Colégio Baby Avançar</p>
             <h1 className="mt-3 text-balance font-display text-fluid-title text-inverse">{"Cada descoberta é um avanço."}</h1>

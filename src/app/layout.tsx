@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Nunito_Sans } from "next/font/google";
 import { cn } from "@/shared/lib/cn";
 import { SITE_URL } from "@/shared/config/site";
-import { FAVICON_SRC } from "@/shared/ui/brand-mark";
+import { FAVICON_APPLE_TOUCH, FAVICON_ICON_16, FAVICON_ICON_32, FAVICON_ICON_48 } from "@/shared/ui/brand-mark";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -31,13 +31,17 @@ export const metadata: Metadata = {
   },
   description:
     "Colégio Baby Avançar: Educação Infantil na unidade Jóquei Clube e Ensino Fundamental I na unidade João XXIII, em Fortaleza (CE). Turmas reduzidas e acompanhamento próximo de cada aluno.",
-  // Favicon continua no selo circular antigo (fundo opaco, contido no
-  // círculo) de propósito — a nova arte transparente do BrandMark preenche
-  // quase todo o canvas 1254x1254 sem margem e fica ilegível/sem contorno
-  // em 16-32px (ver brand-mark.tsx e relatório do ajuste de identidade visual).
+  // Favicon é um monograma dedicado ("BA" sobre círculo azul da marca),
+  // não o selo completo nem o BrandMark transparente — ver brand-mark.tsx.
+  // Tamanhos reais por consumidor: 16/32 (aba do navegador), 48 (atalho/
+  // Windows), 180 (apple-touch-icon), 192/512 (manifest.ts, PWA/Android).
   icons: {
-    icon: FAVICON_SRC,
-    apple: FAVICON_SRC,
+    icon: [
+      { url: FAVICON_ICON_16, sizes: "16x16", type: "image/png" },
+      { url: FAVICON_ICON_32, sizes: "32x32", type: "image/png" },
+      { url: FAVICON_ICON_48, sizes: "48x48", type: "image/png" },
+    ],
+    apple: [{ url: FAVICON_APPLE_TOUCH, sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
     type: "website",

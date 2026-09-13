@@ -14,6 +14,9 @@ const activities = [
     image: {
       src: "/media/home/atividade-jiujitsu.jpg",
       alt: "Duas crianças sorrindo durante aula de Jiu-Jitsu, vestindo kimono, em treino no Colégio Baby Avançar",
+      // Os dois rostos ficam no terço superior do arquivo-fonte; crop
+      // central cortava a testa do menino ao fundo.
+      objectPosition: "50% 12%",
     },
   },
   {
@@ -23,6 +26,7 @@ const activities = [
     image: {
       src: "/media/home/atividade-bombeiro.jpg",
       alt: "Crianças fantasiadas de bombeiro mirim, com capacete vermelho, em desfile do Colégio Baby Avançar",
+      objectPosition: "50% 50%",
     },
   },
   {
@@ -32,6 +36,7 @@ const activities = [
     image: {
       src: "/media/home/atividade-bombeiro-detalhe.jpg",
       alt: "Criança praticando manobra de primeiros socorros em manequim de treino, orientada por instrutor",
+      objectPosition: "50% 35%",
     },
   },
 ] as const;
@@ -52,7 +57,14 @@ export function ActivitiesSection() {
             <MotionReveal delay={index * 0.08} key={activity.name}>
               <article className="h-full overflow-hidden rounded-4xl bg-surface shadow-soft transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-glass">
                 <div className="relative aspect-[4/3] w-full">
-                  <Image alt={activity.image.alt} className="object-cover" fill sizes="(min-width: 768px) 30vw, 90vw" src={activity.image.src} />
+                  <Image
+                    alt={activity.image.alt}
+                    className="object-cover"
+                    fill
+                    sizes="(min-width: 768px) 30vw, 90vw"
+                    src={activity.image.src}
+                    style={{ objectPosition: activity.image.objectPosition }}
+                  />
                 </div>
                 <div className="p-6">
                   <h3 className="text-balance font-display text-xl text-ink">{activity.name}</h3>

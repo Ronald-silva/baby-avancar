@@ -1,19 +1,23 @@
+import { Camera, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { BrandMark } from "@/shared/ui/brand-mark";
 import { buildWhatsAppLink, formatUnitAddress, SITE, UNITS, WHATSAPP_MESSAGES } from "@/shared/config/site";
 
 const talkOnWhatsAppLink = buildWhatsAppLink(WHATSAPP_MESSAGES.generalContact);
 
-// Redesign da Home: footer enxugado, principalmente no mobile — Navegação e
-// Unidades agora dividem uma mesma linha em vez de empilhar 2 blocos cheios
-// (menos rolagem), e a navegação só lista o que ainda existe como seção
-// própria (Segmentos absorveu Proposta/Infantil/Fundamental/Unidades — ver
-// segments-section.tsx).
+// Navegação só aparece a partir de `sm`: no mobile ela é pura repetição do
+// menu hambúrguer do Header (as mesmas 3 âncoras a 1 tap de distância) —
+// "não colocar navegação extensa só para preencher espaço" (ver auditoria
+// corretiva). Segmentos já cobre o que antes era Proposta/Infantil/
+// Fundamental/Unidades como seção própria.
 const footerNavigation = [
   { href: "/", label: "Início" },
   { href: "/#segmentos", label: "Segmentos" },
   { href: "/acesso", label: "Plataforma" },
 ] as const;
+
+const socialLinkClassName =
+  "tap-target inline-flex items-center gap-2 rounded-full border border-inverse/15 bg-inverse/5 px-4 py-2 text-sm font-semibold text-inverse/90 transition-colors hover:border-inverse/30 hover:bg-inverse/10 hover:text-inverse";
 
 const units = [UNITS.infantil, UNITS.fundamental];
 
@@ -23,33 +27,25 @@ export function SiteFooter() {
   return (
     <footer className="bg-ink py-12 text-inverse sm:py-16">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-[1.3fr_1fr_1fr] lg:gap-10">
-          <div className="col-span-2 lg:col-span-1">
+        <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr] lg:gap-10">
+          <div className="sm:col-span-2 lg:col-span-1">
             <BrandMark wordmarkClassName="text-inverse" />
             <p className="mt-5 max-w-xs text-sm italic text-inverse/70">{`“${SITE.tagline}”`}</p>
-            <div className="mt-6 flex items-center gap-4">
-              <a
-                aria-label="WhatsApp do Colégio Baby Avançar"
-                className="tap-target inline-flex items-center gap-2 text-sm font-semibold text-inverse/85 hover:text-inverse"
-                href={talkOnWhatsAppLink}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
+            {/* WhatsApp/Instagram como ações reais (ícone + label + pill),
+                não texto solto — precisam ficar evidentemente clicáveis. */}
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <a aria-label="Falar no WhatsApp com o Colégio Baby Avançar" className={socialLinkClassName} href={talkOnWhatsAppLink} rel="noopener noreferrer" target="_blank">
+                <MessageCircle aria-hidden="true" size={17} />
                 WhatsApp
               </a>
-              <a
-                aria-label="Instagram do Colégio Baby Avançar"
-                className="tap-target inline-flex items-center gap-2 text-sm font-semibold text-inverse/85 hover:text-inverse"
-                href={SITE.instagramUrl}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
+              <a aria-label="Instagram do Colégio Baby Avançar" className={socialLinkClassName} href={SITE.instagramUrl} rel="noopener noreferrer" target="_blank">
+                <Camera aria-hidden="true" size={17} />
                 Instagram
               </a>
             </div>
           </div>
 
-          <nav aria-label="Navegação do rodapé">
+          <nav aria-label="Navegação do rodapé" className="hidden sm:block">
             <p className="text-sm font-bold uppercase tracking-wide text-inverse/50">Navegação</p>
             <ul className="mt-4 space-y-2.5">
               {footerNavigation.map((item) => (

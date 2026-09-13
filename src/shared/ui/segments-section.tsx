@@ -20,6 +20,9 @@ const segments = [
     image: {
       src: "/media/home/infantil-descoberta.jpg",
       alt: "Criança pequena concentrada encaixando peças de madeira coloridas em brinquedo pedagógico na Educação Infantil",
+      // O rosto está no terço superior do arquivo-fonte (retrato 720x1280);
+      // crop central corta testa/olhos. Ancorado perto do topo de propósito.
+      objectPosition: "50% 10%",
     },
     tone: "light",
     mapsQuery: `${UNITS.infantil.street} - ${UNITS.infantil.neighborhood}, ${UNITS.infantil.addressLocality} - ${UNITS.infantil.addressRegion}`,
@@ -30,6 +33,7 @@ const segments = [
     image: {
       src: "/media/home/fundamental-registro.jpg",
       alt: "Criança do Fundamental I registrando atividade escrita em caderno do Colégio Baby Avançar",
+      objectPosition: "50% 50%",
     },
     tone: "dark",
     mapsQuery: `${UNITS.fundamental.street} - ${UNITS.fundamental.neighborhood}, ${UNITS.fundamental.addressLocality} - ${UNITS.fundamental.addressRegion}`,
@@ -64,7 +68,14 @@ export function SegmentsSection() {
                   className={`flex h-full flex-col overflow-hidden rounded-4xl transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-glass ${isDark ? "bg-secondary text-inverse" : "bg-surface-muted text-ink"}`}
                 >
                   <div className="relative aspect-[4/3] w-full">
-                    <Image alt={segment.image.alt} className="object-cover" fill sizes="(min-width: 768px) 46vw, 92vw" src={segment.image.src} />
+                    <Image
+                      alt={segment.image.alt}
+                      className="object-cover"
+                      fill
+                      sizes="(min-width: 768px) 46vw, 92vw"
+                      src={segment.image.src}
+                      style={{ objectPosition: segment.image.objectPosition }}
+                    />
                   </div>
                   <div className="flex flex-1 flex-col p-7 sm:p-8">
                     <p className={`text-sm font-bold uppercase tracking-wide ${isDark ? "text-accent" : "text-brand"}`}>{segment.label}</p>

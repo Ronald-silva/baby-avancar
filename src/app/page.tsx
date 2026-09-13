@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ActivitiesSection } from "@/shared/ui/activities-section";
 import { DifferentiatorsSection } from "@/shared/ui/differentiators-section";
+import { Enrollment2027Section } from "@/shared/ui/enrollment-2027-section";
 import { FinalCtaSection } from "@/shared/ui/final-cta-section";
 import { Hero } from "@/shared/ui/hero";
 import { MarketingHeader } from "@/shared/ui/marketing-header";
@@ -24,6 +25,7 @@ export default function HomePage() {
       <MarketingHeader />
       <main id="conteudo-principal" tabIndex={-1}>
         <Hero />
+        <Enrollment2027Section />
         <DifferentiatorsSection />
         <SegmentsSection />
         <ActivitiesSection />

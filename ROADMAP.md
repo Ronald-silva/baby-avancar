@@ -224,6 +224,17 @@ O PostgreSQL **não deve armazenar arquivos binários** (fotos da galeria hoje, 
 - Confirmação da direção da escola de que o arquivo atual de logo é a identidade final (ver `docs/DESIGN_SYSTEM.md`) e, a partir disso, re-extração cromática da paleta provisória.
 - Analytics/conversões (GA4, Plausible ou equivalente): fora de escopo desta rodada por decisão explícita — os pontos de conversão (Agendar visita, WhatsApp, Ver no mapa, Acesso à plataforma) já existem como links reais e rastreáveis; instrumentá-los é etapa operacional da Fase 2 (§ Fase 2, "Rastreamento de origem do CTA"), não deste bloco.
 
+### 5.2 IndexNow
+
+**IMPLEMENTADO**: notificação rápida a mecanismos de busca compatíveis com o protocolo [IndexNow](https://www.indexnow.org/) quando uma URL pública indexável é criada ou muda de forma relevante.
+
+- Chave: `e787e88c6ca1a6f0d5a532496d7ebf81` — pública por exigência do próprio protocolo (não é segredo).
+- Arquivo público exigido pelo protocolo: `public/e787e88c6ca1a6f0d5a532496d7ebf81.txt`, respondendo em `https://babyavancar.com.br/e787e88c6ca1a6f0d5a532496d7ebf81.txt`.
+- Utilitário server-side: `src/shared/lib/indexnow.ts` — `submitIndexNow(urlList: string[])` envia via `fetch` nativo (sem dependência nova) para `https://api.indexnow.org/indexnow`. Não existe endpoint administrativo nem rota de submissão aberta — a função só é chamada a partir de código server-side confiável.
+- Quando usar: ao publicar uma nova página institucional pública ou alterar conteúdo indexável de forma relevante. Nunca a cada visita/request, e sem cron — chamada pontual quando o evento acontece.
+- URLs que **não** devem ser enviadas: `/plataforma` (noindex), `/api/*` (não é conteúdo de página), assets estáticos, `robots.txt`, `sitemap.xml`.
+- IndexNow é só notificação de mudança — `sitemap.xml`, `robots.ts`, Google Search Console e Bing Webmaster Tools continuam sendo a fonte principal de descoberta/indexação.
+
 ---
 
 ## 6. Fase 2 — Captação & Matrícula

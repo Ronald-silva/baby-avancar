@@ -31,8 +31,6 @@ type BrandMarkProps = {
   size?: number;
   showWordmark?: boolean;
   wordmarkClassName?: string;
-  /** Só `true` para a instância acima da dobra (Header) — evita competir pelo LCP em usos abaixo da dobra (ex.: Footer). */
-  priority?: boolean;
 };
 
 // Tamanho padrão subiu de 44→56px: a marca estava com pouca presença no
@@ -40,7 +38,12 @@ type BrandMarkProps = {
 // muito espaço negativo ao redor, "sumindo" ao lado do wordmark). 56px dá
 // presença real sem exagerar; Header (80px de altura útil) e Footer (sem
 // restrição de altura) comportam isso com folga.
-export function BrandMark({ className, imageClassName, size = 56, showWordmark = true, wordmarkClassName, priority = false }: BrandMarkProps) {
+//
+// Sem preload/fetchPriority mesmo no Header (acima da dobra): a foto do
+// Hero (941×1672, ocupando a maior parte da viewport) é sempre o real
+// candidato a LCP da Home — um selo de 56px preloadado só rouba banda da
+// imagem que de fato precisa chegar primeiro (auditoria SEO, item 31).
+export function BrandMark({ className, imageClassName, size = 56, showWordmark = true, wordmarkClassName }: BrandMarkProps) {
   return (
     <span className={cn("inline-flex items-center gap-3", className)}>
       <Image
@@ -48,7 +51,6 @@ export function BrandMark({ className, imageClassName, size = 56, showWordmark =
         aria-hidden="true"
         className={cn("object-contain", imageClassName)}
         height={size}
-        priority={priority}
         src={LOGO_SRC}
         width={size}
       />

@@ -42,7 +42,7 @@ export function MarketingHeader() {
       </a>
       <div className="mx-auto flex min-h-20 max-w-6xl items-center justify-between gap-3 px-5 sm:px-8">
         <Link aria-label="Colégio Baby Avançar — página inicial" className="tap-target inline-flex shrink-0 items-center rounded-xl" href="/">
-          <BrandMark priority />
+          <BrandMark />
         </Link>
 
         <DesktopNav items={navigationItems} />

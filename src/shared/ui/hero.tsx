@@ -62,6 +62,15 @@ function HeroContent({ reduceMotion, className }: HeroContentProps) {
 // Estrutura nova: foto e texto em blocos próprios, sem sobreposição —
 // banner editorial (aspect-ratio fixo, sem vh) seguido do bloco de texto em
 // fundo sólido. Nenhuma marca extra sobre a foto: Header já carrega a marca.
+// `fetchPriority="high"` em vez de `priority`/`preload` nas duas imagens
+// abaixo: Next 16 deprecou `priority` e a doc do componente Image pede
+// explicitamente para NÃO usar `preload` quando há mais de uma imagem que
+// pode ser o LCP dependendo do viewport (exatamente este caso — a mesma
+// foto em dois <Image>, um por breakpoint via classe `lg:hidden`/`hidden
+// lg:block`). `preload` forçaria o carregamento das duas variantes de uma
+// vez; `fetchPriority` combinado com o `loading="lazy"` padrão garante que
+// só a instância realmente visível carrega (ver next/image, seção "Art
+// direction"/"Theme switching").
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
   const reduceMotion = useHasMounted() && shouldReduceMotion;
@@ -87,8 +96,8 @@ export function Hero() {
           <Image
             alt={heroImageAlt}
             className="object-cover object-[50%_30%] sm:object-[50%_20%]"
+            fetchPriority="high"
             fill
-            priority
             sizes="100vw"
             src="/media/hero/atividade-hero.png"
           />
@@ -110,8 +119,8 @@ export function Hero() {
           <Image
             alt={heroImageAlt}
             className="object-cover object-[50%_30%]"
+            fetchPriority="high"
             fill
-            priority
             sizes="58vw"
             src="/media/hero/atividade-hero.png"
           />

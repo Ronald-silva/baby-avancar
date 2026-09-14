@@ -54,7 +54,7 @@ export function SegmentsSection() {
             {"Duas etapas, um só jeito de acompanhar."}
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-muted">
-            {"Turmas reduzidas e acompanhamento psicopedagógico em cada fase, para que cada criança aprenda no seu próprio ritmo."}
+            {"Turmas reduzidas e acompanhamento pedagógico em cada fase, para que cada criança aprenda no seu próprio ritmo."}
           </p>
         </MotionReveal>
 

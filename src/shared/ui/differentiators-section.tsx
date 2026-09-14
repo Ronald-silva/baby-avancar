@@ -10,7 +10,7 @@ const differentiators = [
     description: "Atendimento que conhece cada aluno de verdade — não uma sala cheia de rostos.",
   },
   {
-    title: "Acompanhamento psicopedagógico",
+    title: "Acompanhamento pedagógico",
     description: "Apoio disponível quando a criança ou a família precisar, parte do dia a dia, não um serviço à parte.",
   },
   {

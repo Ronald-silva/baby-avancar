@@ -31,20 +31,26 @@ const shortTestimonials = [
 
 const photos = [
   {
-    src: "/media/gallery/aprendizagem-volta-as-aulas.jpg",
-    alt: "Menino sorridente segurando cartão de boas-vindas de volta às aulas, ao lado de blocos educativos com as letras A, B e C, no Colégio Baby Avançar",
+    src: "/media/gallery/acolhimento-familia.jpg",
+    alt: "Mãe sorridente abraçando as duas filhas gêmeas em evento de boas-vindas do Colégio Baby Avançar",
+    // Retrato 720x1280; rostos no terço superior. Sem ancorar no topo, o
+    // crop quadrado (56% da altura original visível) corta a testa da mãe.
+    objectPosition: "50% 20%",
   },
   {
-    src: "/media/gallery/atividade-folclore.jpg",
-    alt: "Educadora fantasiada de Curupira ao lado de aluno sorridente durante atividade do Dia do Folclore",
+    src: "/media/home/proposta-pedagogica.jpg",
+    alt: "Aluna comemorando com os braços erguidos durante brincadeira com bambolê e bolinhas coloridas no Colégio Baby Avançar",
+    objectPosition: "50% 15%",
   },
   {
     src: "/media/gallery/jiu-jitsu-interacao.jpg",
     alt: "Aluna orientando um colega mais novo durante treino de Jiu-Jitsu no tatame do Colégio Baby Avançar",
+    objectPosition: "50% 50%",
   },
   {
     src: "/media/gallery/evento-parquinho.jpg",
     alt: "Educadora e aluna sorrindo abraçadas em frente ao painel do evento “É hora do parquinho”",
+    objectPosition: "50% 50%",
   },
 ] as const;
 
@@ -93,6 +99,7 @@ export function SocialProofSection() {
                   fill
                   sizes="(min-width: 1024px) 22vw, 46vw"
                   src={photo.src}
+                  style={{ objectPosition: photo.objectPosition }}
                 />
               </div>
             ))}

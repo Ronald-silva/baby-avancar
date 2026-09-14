@@ -11,7 +11,7 @@ const differentiators = [
   },
   {
     title: "Acompanhamento pedagógico",
-    description: "Apoio disponível quando a criança ou a família precisar, parte do dia a dia, não um serviço à parte.",
+    description: "Professores acompanham de perto o progresso de cada criança, ajustando o ensino ao que cada uma precisa no dia a dia.",
   },
   {
     title: "Metodologia própria",

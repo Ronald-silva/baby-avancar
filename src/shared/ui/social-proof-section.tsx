@@ -31,13 +31,11 @@ const shortTestimonials = [
 
 const photos = [
   {
-    src: "/media/gallery/aluno6.png",
-    alt: "Aluno sorridente mostrando a mão pintada com um coração vermelho, vestindo o uniforme do Colégio Baby Avançar",
-    // Arquivo original foi perdido e recuperado só em baixa resolução
-    // (144x256, via cache de miniaturas do sistema) — visivelmente borrado
-    // no tamanho real do card. Trocar por uma versão em qualidade completa
-    // assim que houver o arquivo original disponível de novo.
-    objectPosition: "50% 15%",
+    src: "/media/gallery/acolhimento-familia.jpg",
+    alt: "Mãe sorridente abraçando as duas filhas gêmeas em evento de boas-vindas do Colégio Baby Avançar",
+    // Retrato 720x1280; rostos no terço superior. Sem ancorar no topo, o
+    // crop quadrado (56% da altura original visível) corta a testa da mãe.
+    objectPosition: "50% 20%",
   },
   {
     src: "/media/home/proposta-pedagogica.jpg",
